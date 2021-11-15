@@ -1,0 +1,16 @@
+{
+  "name": "aframe-petri-net-sim",
+  "version": "1.0.0",
+  "description": "Base for creating virtual reality experiences on the Web using A-Frame. Using CPN tools file to simulate scene logic with Petri nets",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Adam Kašela",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
