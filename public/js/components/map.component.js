@@ -4,7 +4,6 @@ AFRAME.registerComponent("load-map", {
     init: function() {
         // Do something when component first attached.
         generateMap();
-        console.log("test github action 23222223");
     },
 
     update: function() {
@@ -15,6 +14,7 @@ AFRAME.registerComponent("load-map", {
         // Do something the component or its entity is detached.
     },
 
+    // eslint-disable-next-line no-unused-vars
     tick: function(time, timeDelta) {
         // Do something on every scene tick or frame.
     },
@@ -76,7 +76,7 @@ function generateMap() {
                 map.data[i] === 3 ||
                 map.data[i] === 4
             ) {
-                wall = document.createElement("a-box");
+                let wall = document.createElement("a-box");
                 el.appendChild(wall);
 
                 wall.setAttribute("width", WALL_SIZE);

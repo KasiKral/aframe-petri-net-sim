@@ -2,7 +2,6 @@
 
 Base for creating virtual reality experiences on the Web using A-Frame. #aframevr #webvr. Simulating scene login with generated CPN tools diagram based on Petri Nets.
 
-
 ## Prerequisites
 
 This project requires NodeJS (version 8 or later) and NPM.
@@ -15,12 +14,12 @@ $ npm -v && node -v
 6.4.1
 v8.16.0
 ```
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ## Installation
-
 
 Start with cloning this repo on your local machine:
 

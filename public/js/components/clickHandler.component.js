@@ -24,6 +24,7 @@ AFRAME.registerComponent("clickhandler", {
         // Do something the component or its entity is detached.
     },
 
+    // eslint-disable-next-line no-unused-vars
     tick: function(time, timeDelta) {
         // Do something on every scene tick or frame.
     },
