@@ -5,7 +5,13 @@
     "main": "server.js",
     "scripts": {
         "start": "node server.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "npm run development && node server.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "production": "mix --production"
     },
     "keywords": [
         "node",
