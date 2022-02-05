@@ -12,6 +12,7 @@ export function loadXMLDoc(data) {
                 data.places.push({
                     id: element["@attributes"].id,
                     name: element["pnml:name"]["pnml:text"]["#text"],
+                    marking: 0,
                 });
             });
             transitions.forEach((element) => {
@@ -21,11 +22,18 @@ export function loadXMLDoc(data) {
                 });
             });
             arcs.forEach((element) => {
-                data.arcs.push(element["@attributes"]);
+                data.arcs.push({
+                    id: element["@attributes"].id,
+                    source: element["@attributes"].source,
+                    target: element["@attributes"].target,
+                    markingWeight: parseInt(
+                        element["pnml:inscription"]["pnml:text"]["#text"]
+                    ),
+                });
             });
         }
     };
-    xmlhttp.open("GET", "./petriNetFile/211021_cpn.pnml", true);
+    xmlhttp.open("GET", "./petriNetFile/050222_cpn.pnml", true);
     xmlhttp.send();
     console.log(data);
 }
