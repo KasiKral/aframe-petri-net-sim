@@ -1,5 +1,7 @@
 let mix = require("laravel-mix");
 
+mix.disableNotifications();
+
 mix.copyDirectory("src/css/", "dist/css");
 mix.copyDirectory("src/img/", "dist/img");
 mix.copyDirectory("src/petriNetFile/", "dist/petriNetFile");
@@ -13,6 +15,7 @@ mix.js(
         "src/js/components/clickHandler.component.js",
         "src/js/components/collisionDetector.component.js",
         "src/js/modules/petriNetLoader.mjs",
+        "src/js/models/sceneEvent.enum.js",
     ],
     "dist/js/bundle.js"
 );

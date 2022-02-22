@@ -1,3 +1,5 @@
+import { SceneEvent } from "../models/sceneEvent.enum";
+
 AFRAME.registerComponent("clickhandler", {
     schema: {
         name: { type: "string", default: "" },
@@ -5,14 +7,15 @@ AFRAME.registerComponent("clickhandler", {
 
     // Do something when component first attached.
     init: function() {
+        var data = this.data;
         var el = this.el;
         var scene = document.querySelector("a-scene");
         el.addEventListener("click", function() {
             scene.setAttribute("petri-net-sim", {
-                event: "anotherEvent",
-                message: el.id,
+                event: SceneEvent.firedTransition,
+                message: data.name,
             });
-            scene.emit("anotherEvent");
+            scene.emit(data.name);
         });
     },
 

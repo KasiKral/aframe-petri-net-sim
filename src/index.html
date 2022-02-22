@@ -25,7 +25,7 @@
 <body>
     <!-- To add fog to map  -->
     <!-- fog="type: linear; color: #000; far: 16; near: 7" -->
-    <a-scene shadow="type: pcfsoft" petri-net-sim="event: anEvent; message: Intit State">
+    <a-scene shadow="type: pcfsoft" petri-net-sim="event: Scene Loaded; message: PetriNet loaded">
 
         <!-- Splash Screen -->
         <div class="splash">
@@ -72,10 +72,10 @@
         <!-- Exampe Room 1 (Immediate left) -->
         <!-- Lights LEFT 1 -->
         <a-sphere id="st1_m1" clickhandler="name: st1_m1" color="red" radius=".2" position="-10 2 7.5"></a-sphere>
-        <a-sphere id="st1_m2" clickhandler="name: st2_m2" color="green" radius=".2" position="-10 2 8.5"></a-sphere>
-        <a-sphere id="st1_m3" clickhandler="name: st3_m3" color="yellow" radius=".2" position="-10 2 6.5"></a-sphere>
+        <a-sphere id="st1_m2" clickhandler="name: st1_m2" color="green" radius=".2" position="-10 2 8.5"></a-sphere>
+        <a-sphere id="st1_m3" clickhandler="name: st1_m3" color="yellow" radius=".2" position="-10 2 6.5"></a-sphere>
         <a-entity id="ST1" geometry="primitive: sphere; radius: 0.2" light="type: point; color: green; intensity: 0.1" material="color: green; shader: flat;" position="-4 5 7.5"></a-entity>
-        <a-box id="placeST1" physics-collider collision-detector="element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="-10.45785 0.5 7.58878" material="color: red; wireframe: true">
+        <a-box id="placeST1" physics-collider collision-detector="name: ST1; element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="-10.45785 0.5 7.58878" material="color: red; wireframe: true">
         </a-box>
         <!-- Exampe Room 2 (Immediate right) -->
         <!-- Lights RIGHT 2 -->
@@ -83,17 +83,17 @@
         <a-sphere id="ST3_ano" clickhandler="name: ST3_ano" color="green" radius=".2" position="7.35862 2 8.5">
         </a-sphere>
         <a-sphere id="ST3_nie" clickhandler="name: ST3_nie" color="red" radius=".2" position="7.35565 2 7.5"></a-sphere>
-        <a-box id="placeST3" physics-collider collision-detector="element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="7.5 0.5 7.58878" material="color: red; wireframe: true">
+        <a-box id="placeST3" physics-collider collision-detector="name: ST3; element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="7.5 0.5 7.58878" material="color: red; wireframe: true">
         </a-box>
         <!-- Exampe Room 3 (Second right) -->
         <!-- Lights RIGHT 3 -->
         <a-entity id="ST2" geometry="primitive: sphere; radius: 0.2" light="type: point; color: red; intensity: 0.1" material="color: red; shader: flat;" position="2 5 -4"></a-entity>
-        <a-box id="placeST2" physics-collider collision-detector="element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="7.5 0.5 -4.53167" material="color: red; wireframe: true">
+        <a-box id="placeST2" physics-collider collision-detector="name: ST2; element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="7.5 0.5 -4.53167" material="color: red; wireframe: true">
         </a-box>
         <!-- Exampe Room 4 (BIG room) -->
         <!-- Lights BIG ROOM 4 -->
         <a-entity id="ST4" geometry="primitive: sphere; radius: 0.2" light="type: point; color: red; intensity: 0.1" material="color: red; shader: flat;" position="-1.2 5 -20.5"></a-entity>
-        <a-box physics-collider collision-detector="element: player" collision-filter="collisionForces: false" static-body id="placeST4" scale="8.5 0.5 8.5" position="-1.43907 0.5 -22.57711" material="color: red; wireframe: true">
+        <a-box id="placeST4" physics-collider collision-detector="name: ST4; element: player" collision-filter="collisionForces: false" static-body id="placeST4" scale="8.5 0.5 8.5" position="-1.43907 0.5 -22.57711" material="color: red; wireframe: true">
         </a-box>
 
         <!-- Sky -->

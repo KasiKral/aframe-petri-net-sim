@@ -8,11 +8,16 @@ export function loadXMLDoc(data) {
             var places = obj["pnml:place"];
             var transitions = obj["pnml:transition"];
             var arcs = obj["pnml:arc"];
+            // console.log(places);
+            // console.log(transitions);
+            // console.log(arcs);
             places.forEach((element) => {
                 data.places.push({
                     id: element["@attributes"].id,
                     name: element["pnml:name"]["pnml:text"]["#text"],
-                    marking: 0,
+                    initialMarking: parseInt(
+                        element["pnml:initialMarking"]["pnml:text"]["#text"]
+                    ),
                 });
             });
             transitions.forEach((element) => {

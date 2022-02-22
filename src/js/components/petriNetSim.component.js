@@ -1,8 +1,9 @@
 import * as petriNetLoader from "../modules/petriNetLoader.mjs";
+import { SceneEvent } from "../models/sceneEvent.enum";
 
 AFRAME.registerComponent("petri-net-sim", {
     schema: {
-        currentState: { type: "string", default: "ST1" },
+        currentPlace: { type: "string", default: "Roaming" },
         places: { type: "array", default: [] },
         transitions: { type: "array", default: [] },
         arcs: { type: "array", default: [] },
@@ -12,10 +13,11 @@ AFRAME.registerComponent("petri-net-sim", {
     // Do something when component first attached.
     init: function() {
         var data = this.data;
+        petriNetLoader.loadXMLDoc(data);
+
         this.eventHandlerFn = function() {
             findNextState(data);
         };
-        petriNetLoader.loadXMLDoc(data);
     },
 
     update: function(oldData) {
@@ -25,11 +27,12 @@ AFRAME.registerComponent("petri-net-sim", {
 
         // `event` updated. Remove the previous event listener if it exists.
         if (oldData.event && data.event !== oldData.event) {
+            console.log("evenet removed");
             el.removeEventListener(oldData.event, this.eventHandlerFn);
         }
 
-        if (data.event) {
-            el.addEventListener(data.event, this.eventHandlerFn);
+        if (data.event && data.event === SceneEvent.firedTransition) {
+            el.addEventListener(data.message, this.eventHandlerFn);
         } else {
             console.log(data.message);
         }
@@ -58,10 +61,10 @@ function findNextState(data) {
     console.log(sourceTargetObj);
     var nextState = data.places.find((el) => el.id === sourceTargetObj.target);
     console.log(nextState);
-    if (data.currentState !== nextState.name) {
-        data.currentState = nextState.name;
+    if (data.currentPlace !== nextState.name) {
+        data.currentPlace = nextState.name;
         console.log(data);
-        openNextDoor(data.currentState);
+        openNextDoor(data.currentPlace);
     }
 }
 
@@ -69,4 +72,40 @@ function openNextDoor(nextState) {
     var nextDoorEl = document.getElementById(nextState);
     nextDoorEl.setAttribute("material", "color: green; shader: flat");
     nextDoorEl.setAttribute("light", "type: point; color: green; intensity: 0.1");
+}
+
+function addListener(event, element, data, handler) {
+    switch (event) {
+        case SceneEvent.enteredPlace:
+            // code block
+            data = "prd1";
+            break;
+        case SceneEvent.leftPlace:
+            // code block
+            data = "prd";
+            break;
+        case SceneEvent.firedTransition:
+            element.addEventListener(data.message, handler);
+            break;
+        default:
+            console.log("...");
+    }
+}
+
+function removeListener(event, element, handler) {
+    switch (event) {
+        case SceneEvent.enteredPlace:
+            // code block
+            console.log("??");
+            break;
+        case SceneEvent.leftPlace:
+            // code block
+            console.log("??");
+            break;
+        case SceneEvent.firedTransition:
+            element.removeEventListener(event, handler);
+            break;
+        default:
+            console.log("Non specified listener");
+    }
 }

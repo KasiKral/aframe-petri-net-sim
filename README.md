@@ -1,6 +1,6 @@
 # aframe-petri-net-sim
 
-Base for creating virtual reality experiences on the Web using A-Frame. #aframevr #webvr. Simulating scene login with generated CPN tools diagram based on Petri Nets.
+Base for creating virtual reality experiences on the Web using A-Frame. #aframevr #webvr. Simulating scene logic with generated CPN tools diagram based on Petri Nets.
 
 ## Prerequisites
 
