@@ -1,4 +1,5 @@
 import * as petriNetLoader from "../modules/petriNetLoader.mjs";
+import { petriNetController } from "../modules/petriNetSimController.mjs";
 import { SceneEvent } from "../models/sceneEvent.enum";
 
 AFRAME.registerComponent("petri-net-sim", {
@@ -7,17 +8,28 @@ AFRAME.registerComponent("petri-net-sim", {
         places: { type: "array", default: [] },
         transitions: { type: "array", default: [] },
         arcs: { type: "array", default: [] },
-        event: { type: "string", default: "" },
-        message: { type: "string", default: "" },
+        event: { type: "string", default: "Scene Loaded" },
+        message: { type: "string", default: SceneEvent.petriNetLoaded },
     },
     // Do something when component first attached.
     init: function() {
         var data = this.data;
         petriNetLoader.loadXMLDoc(data);
 
-        this.eventHandlerFn = function() {
+        this.transitionEventHandler = function() {
+            var netController = new petriNetController(
+                data.currentPlace,
+                data.message
+            );
+            console.log(netController._activePlace);
+            console.log(netController._firedTransition);
+            findNextPlace(data);
             console.log(data);
-            // findNextState(data);
+        };
+
+        this.changePlaceHandler = function() {
+            data.currentPlace = data.message;
+            console.log(data);
         };
     },
 
@@ -27,20 +39,32 @@ AFRAME.registerComponent("petri-net-sim", {
         var el = this.el;
 
         // `event` updated. Remove the previous event listener if it exists.
-        if (oldData.event && data.event !== oldData.event) {
-            console.log("evenet removed");
-            el.removeEventListener(oldData.event, this.eventHandlerFn);
+        if (
+            oldData.event &&
+            oldData.event === SceneEvent.firedTransition &&
+            data.event !== oldData.event
+        ) {
+            el.removeEventListener(oldData.event, this.transitionEventHandler);
+        } else {
+            el.removeEventListener(oldData.event, this.changePlaceHandler);
         }
 
-        if (data.event) {
-            el.addEventListener(data.message, (this.eventHandlerFn));
+        if (data.event === SceneEvent.firedTransition) {
+            // el.addEventListener(data.message, this.transitionEventHandler);
+            resolveSceneEvent(el, data, this.transitionEventHandler);
         } else {
-            console.log(data.message);
+            resolveSceneEvent(el, data, this.changePlaceHandler);
         }
     },
 
     remove: function() {
         // Do something the component or its entity is detached.
+        // var data = this.data;
+        // var el = this.el;
+        // Remove event listener.
+        // if (data.event) {
+        //     el.removeEventListener(data.event, this.transitionEventHandler);
+        // }
     },
 
     // eslint-disable-next-line no-unused-vars
@@ -49,7 +73,7 @@ AFRAME.registerComponent("petri-net-sim", {
     },
 });
 
-function findNextState(data) {
+function findNextPlace(data) {
     console.log("------FindingNextState-----");
     console.log(data);
     var choosedTransition = data.transitions.find(
@@ -63,9 +87,8 @@ function findNextState(data) {
     var nextState = data.places.find((el) => el.id === sourceTargetObj.target);
     console.log(nextState);
     if (data.currentPlace !== nextState.name) {
-        data.currentPlace = nextState.name;
         console.log(data);
-        openNextDoor(data.currentPlace);
+        openNextDoor(nextState.name);
     }
 }
 
@@ -75,38 +98,24 @@ function openNextDoor(nextState) {
     nextDoorEl.setAttribute("light", "type: point; color: green; intensity: 0.1");
 }
 
-function addListener(event, element, data, handler) {
-    switch (event) {
+function resolveSceneEvent(element, data, handler) {
+    switch (data.event) {
         case SceneEvent.enteredPlace:
-            // code block
-            data = "prd1";
+            // data.currentPlace = data.message;
+            element.addEventListener(data.message, handler);
+            console.log(SceneEvent.enteredPlace + " " + data.message);
             break;
         case SceneEvent.leftPlace:
-            // code block
-            data = "prd";
+            // data.currentPlace = data.message;
+            element.addEventListener(data.message, handler);
+            console.log(SceneEvent.leftPlace + " " + data.message);
             break;
         case SceneEvent.firedTransition:
             element.addEventListener(data.message, handler);
+            console.log(SceneEvent.firedTransition + " " + data.message);
             break;
         default:
-            console.log("...");
-    }
-}
-
-function removeListener(event, element, handler) {
-    switch (event) {
-        case SceneEvent.enteredPlace:
-            // code block
-            console.log("??");
-            break;
-        case SceneEvent.leftPlace:
-            // code block
-            console.log("??");
-            break;
-        case SceneEvent.firedTransition:
-            element.removeEventListener(event, handler);
-            break;
-        default:
-            console.log("Non specified listener");
+            console.log(SceneEvent.petriNetLoaded);
+            data.currentPlace = "Roaming";
     }
 }

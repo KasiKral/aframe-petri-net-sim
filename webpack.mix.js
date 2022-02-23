@@ -15,6 +15,7 @@ mix.js(
         "src/js/components/clickHandler.component.js",
         "src/js/components/collisionDetector.component.js",
         "src/js/modules/petriNetLoader.mjs",
+        "src/js/modules/petriNetSimController.mjs",
         "src/js/models/sceneEvent.enum.js",
     ],
     "dist/js/bundle.js"
