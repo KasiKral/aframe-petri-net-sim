@@ -16,7 +16,8 @@ AFRAME.registerComponent("petri-net-sim", {
         petriNetLoader.loadXMLDoc(data);
 
         this.eventHandlerFn = function() {
-            findNextState(data);
+            console.log(data);
+            // findNextState(data);
         };
     },
 
@@ -31,8 +32,8 @@ AFRAME.registerComponent("petri-net-sim", {
             el.removeEventListener(oldData.event, this.eventHandlerFn);
         }
 
-        if (data.event && data.event === SceneEvent.firedTransition) {
-            el.addEventListener(data.message, this.eventHandlerFn);
+        if (data.event) {
+            el.addEventListener(data.message, (this.eventHandlerFn));
         } else {
             console.log(data.message);
         }
