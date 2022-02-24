@@ -10,13 +10,26 @@ export class petriNetController {
         return this.firedTransitionName;
     }
 
-    updateMarking(places, arc) {
-        const index = places.findIndex((place) => place.id === arc.target);
-        places[index].marking += arc.markingWeight;
+    updateMarking(places, arcs) {
+        arcs.forEach((arc) => {
+            const indexTarget = places.findIndex((place) => place.id === arc.target);
+            const indexSorce = places.findIndex((place) => place.id === arc.source);
+            // console.log(indexTarget);
+            // console.log(indexSorce);
+            if (indexTarget >= 0) {
+                places[indexTarget].marking += arc.markingWeight;
+            }
+            if (indexSorce >= 0) {
+                places[indexSorce].marking -= arc.markingWeight;
+            }
+        });
     }
 
     findAllConnectedArcs(transition, arcs) {
-        const allArcs = arcs.filter((arc) => arc.source === transition.id);
+        const allArcs = arcs.filter(
+            (arc) => arc.source === transition.id || arc.target === transition.id
+        );
+        console.log(allArcs);
         return allArcs;
     }
 
@@ -26,8 +39,7 @@ export class petriNetController {
         // console.log(place);
         // console.log(transition);
         var allArcs = this.findAllConnectedArcs(transition, arcs);
-        var arc = allArcs[0];
-        this.updateMarking(places, arc);
+        this.updateMarking(places, allArcs);
     }
 
     isPlaceActive(places) {
