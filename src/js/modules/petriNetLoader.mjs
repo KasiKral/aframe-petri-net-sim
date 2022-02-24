@@ -15,7 +15,7 @@ export function loadXMLDoc(data) {
                 data.places.push({
                     id: element["@attributes"].id,
                     name: element["pnml:name"]["pnml:text"]["#text"],
-                    initialMarking: parseInt(
+                    marking: parseInt(
                         element["pnml:initialMarking"]["pnml:text"]["#text"]
                     ),
                 });

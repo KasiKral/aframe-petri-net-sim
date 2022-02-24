@@ -21,9 +21,9 @@ AFRAME.registerComponent("petri-net-sim", {
                 data.currentPlace,
                 data.message
             );
-            console.log(netController._activePlace);
-            console.log(netController._firedTransition);
-            findNextPlace(data);
+            if (netController.isPlaceActive(data.places)) {
+                netController.fireTransition(data.places, data.transitions, data.arcs);
+            }
             console.log(data);
         };
 
@@ -59,12 +59,6 @@ AFRAME.registerComponent("petri-net-sim", {
 
     remove: function() {
         // Do something the component or its entity is detached.
-        // var data = this.data;
-        // var el = this.el;
-        // Remove event listener.
-        // if (data.event) {
-        //     el.removeEventListener(data.event, this.transitionEventHandler);
-        // }
     },
 
     // eslint-disable-next-line no-unused-vars
@@ -73,30 +67,11 @@ AFRAME.registerComponent("petri-net-sim", {
     },
 });
 
-function findNextPlace(data) {
-    console.log("------FindingNextState-----");
-    console.log(data);
-    var choosedTransition = data.transitions.find(
-        (el) => el.name === data.message
-    );
-    console.log(choosedTransition);
-    var sourceTargetObj = data.arcs.find(
-        (el) => el.source === choosedTransition.id
-    );
-    console.log(sourceTargetObj);
-    var nextState = data.places.find((el) => el.id === sourceTargetObj.target);
-    console.log(nextState);
-    if (data.currentPlace !== nextState.name) {
-        console.log(data);
-        openNextDoor(nextState.name);
-    }
-}
-
-function openNextDoor(nextState) {
-    var nextDoorEl = document.getElementById(nextState);
-    nextDoorEl.setAttribute("material", "color: green; shader: flat");
-    nextDoorEl.setAttribute("light", "type: point; color: green; intensity: 0.1");
-}
+// function openNextDoor(nextState) {
+//     var nextDoorEl = document.getElementById(nextState);
+//     nextDoorEl.setAttribute("material", "color: green; shader: flat");
+//     nextDoorEl.setAttribute("light", "type: point; color: green; intensity: 0.1");
+// }
 
 function resolveSceneEvent(element, data, handler) {
     switch (data.event) {
