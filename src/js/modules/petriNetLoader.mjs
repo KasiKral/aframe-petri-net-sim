@@ -1,5 +1,10 @@
-export function loadXMLDoc(data) {
+/**
+ * @param url - A DOMString representing the URL to send the request to.
+ * @returns Object representing petri net.
+ */
+export function loadXMLDoc(url) {
     var xmlhttp = new XMLHttpRequest();
+    var data = { places: [], arcs: [], transitions: [] };
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var parser = new DOMParser();
@@ -8,9 +13,6 @@ export function loadXMLDoc(data) {
             var places = obj["pnml:place"];
             var transitions = obj["pnml:transition"];
             var arcs = obj["pnml:arc"];
-            // console.log(places);
-            // console.log(transitions);
-            // console.log(arcs);
             places.forEach((element) => {
                 data.places.push({
                     id: element["@attributes"].id,
@@ -38,12 +40,16 @@ export function loadXMLDoc(data) {
             });
         }
     };
-    xmlhttp.open("GET", "./petriNetFile/050222_cpn.pnml", true);
+    xmlhttp.open("GET", url, true);
     xmlhttp.send();
-    console.log(data);
+    return data;
 }
 
-// Changes XML to JSON
+/**
+ * @param xml - xml document to be parsed. It inherits from the generic
+ *  Document and does not add any specific methods or properties to it.
+ * @returns - Return parsed xml document to object.
+ */
 function xmlToJson(xml) {
     // Create the return object
     var obj = {};

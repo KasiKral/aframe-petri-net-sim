@@ -1,31 +1,26 @@
-import * as petriNetLoader from "../modules/petriNetLoader.mjs";
-import { petriNetController } from "../modules/petriNetSimController.mjs";
 import { SceneEvent } from "../models/sceneEvent.enum";
+import * as petriNetLoader from "../modules/petriNetLoader.mjs";
+import { PetriNet } from "../modules/petriNetSimController.mjs";
 
 AFRAME.registerComponent("petri-net-sim", {
     schema: {
         currentPlace: { type: "string", default: "Roaming" },
-        places: { type: "array", default: [] },
-        transitions: { type: "array", default: [] },
-        arcs: { type: "array", default: [] },
         event: { type: "string", default: "Scene Loaded" },
         message: { type: "string", default: SceneEvent.petriNetLoaded },
     },
     // Do something when component first attached.
     init: function() {
         var data = this.data;
-        petriNetLoader.loadXMLDoc(data);
+        var loadedNet = petriNetLoader.loadXMLDoc("petriNetFile/050222_cpn.pnml");
+        this.petriNet = new PetriNet(loadedNet);
+        console.log(this.petriNet);
 
-        this.transitionEventHandler = function() {
-            var netController = new petriNetController(
-                data.currentPlace,
-                data.message
-            );
-            if (netController.isPlaceActive(data.places)) {
-                netController.fireTransition(data.places, data.transitions, data.arcs);
-            }
-            console.log(data);
-        };
+        // this.transitionEventHandler = function() {
+        //     if (netController.isPlaceActive(data.places)) {
+        //         netController.fireTransition(data.places, data.transitions, data.arcs);
+        //     }
+        //     console.log(data);
+        // };
 
         this.changePlaceHandler = function() {
             data.currentPlace = data.message;
@@ -37,7 +32,7 @@ AFRAME.registerComponent("petri-net-sim", {
         // Do something when component's data is updated.
         var data = this.data;
         var el = this.el;
-
+        console.log(this.petriNet);
         // `event` updated. Remove the previous event listener if it exists.
         if (
             oldData.event &&
