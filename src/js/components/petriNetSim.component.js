@@ -1,6 +1,6 @@
 import { SceneEvent } from "../models/sceneEvent.enum";
 import * as petriNetLoader from "../modules/petriNetLoader.mjs";
-import { PetriNet } from "../modules/petriNetSimController.mjs";
+import PetriNet from "../modules/petriNet.mjs";
 
 AFRAME.registerComponent("petri-net-sim", {
     schema: {
@@ -12,15 +12,16 @@ AFRAME.registerComponent("petri-net-sim", {
     init: function() {
         var data = this.data;
         var loadedNet = petriNetLoader.loadXMLDoc("petriNetFile/050222_cpn.pnml");
-        this.petriNet = new PetriNet(loadedNet);
-        console.log(this.petriNet);
-
-        // this.transitionEventHandler = function() {
-        //     if (netController.isPlaceActive(data.places)) {
-        //         netController.fireTransition(data.places, data.transitions, data.arcs);
-        //     }
-        //     console.log(data);
-        // };
+        var net = this.petriNet = new PetriNet(loadedNet);
+        console.log(net);
+        this.transitionEventHandler = function() {
+            net.fire(data.message);
+            console.log(net);
+            // if (netController.isPlaceActive(data.places)) {
+            //     netController.fireTransition(data.places, data.transitions, data.arcs);
+            // }
+            // console.log(data);
+        };
 
         this.changePlaceHandler = function() {
             data.currentPlace = data.message;
@@ -44,7 +45,6 @@ AFRAME.registerComponent("petri-net-sim", {
         }
 
         if (data.event === SceneEvent.firedTransition) {
-            // el.addEventListener(data.message, this.transitionEventHandler);
             resolveSceneEvent(el, data, this.transitionEventHandler);
         } else {
             resolveSceneEvent(el, data, this.changePlaceHandler);
