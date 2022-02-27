@@ -1,6 +1,6 @@
 /**
- * @param url - A DOMString representing the URL to send the request to.
- * @returns Object representing petri net.
+ * @param {string} url - A DOMString representing the URL to send the request to.
+ * @returns Returns Object representing petri net.
  */
 export function loadXMLDoc(url) {
     var xmlhttp = new XMLHttpRequest();
@@ -46,7 +46,7 @@ export function loadXMLDoc(url) {
 }
 
 /**
- * @param xml - xml document to be parsed. It inherits from the generic
+ * @param {Document} xml - xml document to be parsed. It inherits from the generic
  *  Document and does not add any specific methods or properties to it.
  * @returns - Return parsed xml document to object.
  */

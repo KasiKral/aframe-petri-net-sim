@@ -12,18 +12,15 @@ AFRAME.registerComponent("petri-net-sim", {
     init: function() {
         var data = this.data;
         var loadedNet = petriNetLoader.loadXMLDoc("petriNetFile/050222_cpn.pnml");
-        var net = this.petriNet = new PetriNet(loadedNet);
+        var net = (this.petriNet = new PetriNet(loadedNet));
         console.log(net);
+
         this.transitionEventHandler = function() {
             net.fire(data.message);
             console.log(net);
-            // if (netController.isPlaceActive(data.places)) {
-            //     netController.fireTransition(data.places, data.transitions, data.arcs);
-            // }
-            // console.log(data);
         };
 
-        this.changePlaceHandler = function() {
+        this.changePlaceEventHandler = function() {
             data.currentPlace = data.message;
             console.log(data);
         };
@@ -41,13 +38,13 @@ AFRAME.registerComponent("petri-net-sim", {
         ) {
             el.removeEventListener(oldData.event, this.transitionEventHandler);
         } else {
-            el.removeEventListener(oldData.event, this.changePlaceHandler);
+            el.removeEventListener(oldData.event, this.changePlaceEventHandler);
         }
 
         if (data.event === SceneEvent.firedTransition) {
             resolveSceneEvent(el, data, this.transitionEventHandler);
         } else {
-            resolveSceneEvent(el, data, this.changePlaceHandler);
+            resolveSceneEvent(el, data, this.changePlaceEventHandler);
         }
     },
 
@@ -60,12 +57,6 @@ AFRAME.registerComponent("petri-net-sim", {
         // Do something on every scene tick or frame.
     },
 });
-
-// function openNextDoor(nextState) {
-//     var nextDoorEl = document.getElementById(nextState);
-//     nextDoorEl.setAttribute("material", "color: green; shader: flat");
-//     nextDoorEl.setAttribute("light", "type: point; color: green; intensity: 0.1");
-// }
 
 function resolveSceneEvent(element, data, handler) {
     switch (data.event) {
@@ -88,3 +79,5 @@ function resolveSceneEvent(element, data, handler) {
             data.currentPlace = "Roaming";
     }
 }
+
+function isPlaceActive(placeName) {}
