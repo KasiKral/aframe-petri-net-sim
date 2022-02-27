@@ -20,3 +20,11 @@ mix.js(
     ],
     "dist/js/bundle.js"
 );
+
+mix.browserSync({
+    injectChanges: false,
+    proxy: 'http://localhost:8080',
+    files: [
+        'dist/**/*'
+    ],
+});

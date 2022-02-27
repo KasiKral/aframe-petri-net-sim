@@ -32,7 +32,6 @@ AFRAME.registerComponent("petri-net-sim", {
         // Do something when component's data is updated.
         var data = this.data;
         var el = this.el;
-        console.log(this.petriNet);
         // `event` updated. Remove the previous event listener if it exists.
         if (
             oldData.event &&

@@ -38,6 +38,28 @@ $ npm install
 
 ### Serving the app
 
+To build project a run server run:
+
 ```sh
 $ npm start
 ```
+With help of [LarvelMix](https://laravel-mix.com/docs/6.0/installation) app gonna bundle the application to the dist folder and then start up the development server.
+
+### Serving the app for development
+
+To build project a run dev server with [BrowserSync](https://browsersync.io/docs/options/) functionality run:
+
+```sh
+$ npm run dev
+```
+This will leverage webpack's ability to watch your filesystem for changes. This command runs 2 scripts in 2 separate Commandline windows sequentially.
+
+```sh
+$ node server.js
+```
+Next command starts up the development server.
+
+```sh
+$ npx mix
+```
+npx mix watch command will watch your filesystem for changes. Now, each time you update a file, Mix will automatically recompile the file and rebuild your bundle.

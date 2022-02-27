@@ -5,6 +5,7 @@
     "main": "server.js",
     "scripts": {
         "start": "npm run development && node server.js",
+        "dev": "start node server.js && start npm run watch",
         "test": "echo \"Error: no test specified\" && exit 1",
         "development": "mix",
         "watch": "mix watch",
@@ -26,6 +27,8 @@
         "express": "^4.17.1"
     },
     "devDependencies": {
+        "browser-sync": "^2.27.7",
+        "browser-sync-webpack-plugin": "^2.3.0",
         "eslint": "^8.7.0",
         "eslint-config-prettier": "^8.3.0",
         "laravel-mix": "^6.0.41",
