@@ -14,7 +14,7 @@ export default class PetriNet {
     }
 
     /**
-     * @returns {Object} Gets netData object.
+     * @returns {netData} Gets netData object.
      */
     get getNetData() {
         return this.netData;
@@ -26,11 +26,11 @@ export default class PetriNet {
      */
     fire(transitionName) {
         if (this.isEnabled(transitionName)) {
-            console.log("enabled");
+            console.log("Transition Enabled");
             const connectedArcs = this.findAllConnectedArcs(transitionName);
             this.updateMarking(connectedArcs);
         } else {
-            console.log("not enabled");
+            console.log("Transition Not Enabled");
         }
     }
 
@@ -47,22 +47,20 @@ export default class PetriNet {
     }
 
     /**
-     *
      * @param {string} placeName - Name of place.
      * @returns {number} Returns marking of place.
      */
     getMarking(placeName) {
         var place = this.findPlace(placeName);
-        if (place.marking != null) {
-            return place.marking;
+        if (!place.marking) {
+            return 0;
         }
-        return 0;
+        return place.marking;
     }
 
     /**
-     *
+     * Checks whether place has marking bigger or equal to 1.
      * @param {string} placeName - Name of place.
-     * @returns {boolean} Checks whether place has marking bigger or equal to 1.
      */
     isMarked(placeName) {
         if (this.getMarking(placeName) >= 1) {
@@ -72,7 +70,7 @@ export default class PetriNet {
     }
 
     /**
-     *
+     * Updates petriNet object to next marking.
      * @param {{id:string, markingWeight: number, source: string, target: string}[]} connectedArcs - Array of arcs whitch are inputs or outpust to selected transition.
      */
     updateMarking(connectedArcs) {
@@ -95,7 +93,6 @@ export default class PetriNet {
     }
 
     /**
-     *
      * @param {string} placeName - Name of place whitch gonna be found.
      * @returns {{id: string, name: string, marking: number}} Returns object whitch represent place.
      */
@@ -106,7 +103,6 @@ export default class PetriNet {
     }
 
     /**
-     *
      * @param {string} transitionName - Name of transition whitch gonna be found.
      * @returns {{id: string, name: string}} Returns object whitch represent transition.
      */
@@ -119,20 +115,19 @@ export default class PetriNet {
     }
 
     /**
-     *
      * @param {string} transitionName - Name of transition.
      * @returns {{id: string, name: string, marking: number}[]} Returns array of places whitch provide input to transition.
      */
     findAllInputPlaces(transitionName) {
         var transition = this.findTransition(transitionName);
-        var arcs = this.getNetData.arcs;
+        const arcs = this.getNetData.arcs;
         // find all arcs whitch aim to selected transition
         const inputArcs = arcs.filter((arc) => arc.target === transition.id);
         var inputPlaces = [];
         inputArcs.forEach((arc) => {
-            var places = this.getNetData.places;
+            const places = this.getNetData.places;
             // find all places whitch are inputs to selected transition
-            const place = places.find((place) => place.id === arc.source);
+            var place = places.find((place) => place.id === arc.source);
             inputPlaces.push(place);
         });
 
@@ -140,13 +135,12 @@ export default class PetriNet {
     }
 
     /**
-     *
      * @param {string} transitionName - Name of transition.
      * @returns {{id: string, name: string, marking: number}[]} Returns array of arcs whitch are connected to seleted transition.
      */
     findAllConnectedArcs(transitionName) {
         var transition = this.findTransition(transitionName);
-        var arcs = this.getNetData.arcs;
+        const arcs = this.getNetData.arcs;
         const allArcs = arcs.filter(
             (arc) => arc.source === transition.id || arc.target === transition.id
         );
@@ -173,5 +167,20 @@ export default class PetriNet {
      */
     createOutputTokens(placeIndex, markingWeight) {
         this.getNetData.places[placeIndex].marking += markingWeight;
+    }
+
+    /**
+     * Checks whether place inputs specified transition.
+     * @param {string} placeName - Name of place.
+     * @param {string} transitionName - Name of transition.
+     */
+    isInputPlace(placeName, transitionName) {
+        var inputPlaces = this.findAllInputPlaces(transitionName);
+        const place = inputPlaces.find((place) => place.name === placeName);
+
+        if (!place) {
+            return false;
+        }
+        return true;
     }
 }

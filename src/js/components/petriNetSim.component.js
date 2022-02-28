@@ -4,7 +4,7 @@ import PetriNet from "../modules/petriNet.mjs";
 
 AFRAME.registerComponent("petri-net-sim", {
     schema: {
-        currentPlace: { type: "string", default: "Roaming" },
+        activePlace: { type: "string", default: "Roaming" },
         event: { type: "string", default: "Scene Loaded" },
         message: { type: "string", default: SceneEvent.petriNetLoaded },
     },
@@ -16,12 +16,17 @@ AFRAME.registerComponent("petri-net-sim", {
         console.log(net);
 
         this.transitionEventHandler = function() {
-            net.fire(data.message);
+            if (net.isInputPlace(data.activePlace, data.message)) {
+                console.log("Place Activated");
+                net.fire(data.message);
+            } else {
+                console.log("Place Not Activated");
+            }
             console.log(net);
         };
 
         this.changePlaceEventHandler = function() {
-            data.currentPlace = data.message;
+            data.activePlace = data.message;
             console.log(data);
         };
     },
@@ -61,12 +66,10 @@ AFRAME.registerComponent("petri-net-sim", {
 function resolveSceneEvent(element, data, handler) {
     switch (data.event) {
         case SceneEvent.enteredPlace:
-            // data.currentPlace = data.message;
             element.addEventListener(data.message, handler);
             console.log(SceneEvent.enteredPlace + " " + data.message);
             break;
         case SceneEvent.leftPlace:
-            // data.currentPlace = data.message;
             element.addEventListener(data.message, handler);
             console.log(SceneEvent.leftPlace + " " + data.message);
             break;
@@ -79,5 +82,3 @@ function resolveSceneEvent(element, data, handler) {
             data.currentPlace = "Roaming";
     }
 }
-
-function isPlaceActive(placeName) {}
