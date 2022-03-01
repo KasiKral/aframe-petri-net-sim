@@ -1,13 +1,14 @@
 /**
+ * @typedef {import('./petriNetLoader.mjs').PetriNet} PNet
+ */
+
+/**
  * @class The Petri net.
  */
 export default class PetriNet {
     /**
      * Constructs instance of PetriNet
-     * @param {Object} netData - Object whitch represent petri net.
-     * @param {{id: string, name: string, marking: number}[]} netData.places
-     * @param {{id: string, name: string}[]} netData.transitions
-     * @param {{id: string, markingWeight: number, source: string, target: string}[]} netData.arcs
+     * @param {PNet} netData - Object whitch represent petri net.
      */
     constructor(netData) {
         this.netData = netData;
