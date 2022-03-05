@@ -48,24 +48,24 @@ function generateMap() {
             0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0,
             1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0,
             0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
-            0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 4, 4, 0, 1, 1, 1, 1,
-            0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
-            0, 0, 0, 0, 4, 0, 0, 0, 4, 4, 4, 1, 0, 8, 0, 1, 0, 0, 0, 0, 0, 0, 0, 4, 0,
-            0, 0, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 1,
+            0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1,
+            0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 8, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
             1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,
         ],
         height: 19,
         width: 19,
     };
     const WALL_SIZE = 3;
-    const WALL_HEIGHT = 12;
+    const WALL_HEIGHT = 6;
     const el = document.querySelector("#walls");
     let playerPos;
 
     for (var x = 0; x < map.height; x++) {
         for (var y = 0; y < map.width; y++) {
             const i = y * map.width + x;
-            const position = `${(x - map.width / 2) * WALL_SIZE} 1.5 ${
+            const position = `${(x - map.width / 2) * WALL_SIZE} 0 ${
         (y - map.height / 2) * WALL_SIZE
       }`;
 
@@ -102,7 +102,7 @@ function generateMap() {
                     wall.setAttribute("color", "#fff");
                     wall.setAttribute(
                         "material",
-                        "src: #wall-brick; repeat: 2 2; side: double"
+                        "src: #wall-brick; repeat: 2 2; side: double;"
                     );
                     wall.setAttribute("static-body", "");
                 } else {
@@ -110,7 +110,7 @@ function generateMap() {
                     wall.setAttribute("color", "#fff");
                     wall.setAttribute(
                         "material",
-                        "src: #wall; repeat: 4 4; side: double"
+                        "src: #wall; repeat: 4 4; side: double; bledning: multiply; color: #FFF"
                     );
                     wall.setAttribute("static-body", "");
                 }
