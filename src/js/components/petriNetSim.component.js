@@ -47,9 +47,9 @@ AFRAME.registerComponent("petri-net-sim", {
         }
 
         if (data.event === SceneEvent.firedTransition) {
-            resolveSceneEvent(el, data, this.transitionEventHandler);
+            this.resolveSceneEvent(el, data, this.transitionEventHandler);
         } else {
-            resolveSceneEvent(el, data, this.changePlaceEventHandler);
+            this.resolveSceneEvent(el, data, this.changePlaceEventHandler);
         }
     },
 
@@ -61,24 +61,24 @@ AFRAME.registerComponent("petri-net-sim", {
     tick: function(time, timeDelta) {
         // Do something on every scene tick or frame.
     },
-});
 
-function resolveSceneEvent(element, data, handler) {
-    switch (data.event) {
-        case SceneEvent.enteredPlace:
-            element.addEventListener(data.message, handler);
-            console.log(SceneEvent.enteredPlace + " " + data.message);
-            break;
-        case SceneEvent.leftPlace:
-            element.addEventListener(data.message, handler);
-            console.log(SceneEvent.leftPlace + " " + data.message);
-            break;
-        case SceneEvent.firedTransition:
-            element.addEventListener(data.message, handler);
-            console.log(SceneEvent.firedTransition + " " + data.message);
-            break;
-        default:
-            console.log(SceneEvent.petriNetLoaded);
-            data.currentPlace = "Roaming";
-    }
-}
+    resolveSceneEvent: function(element, data, handler) {
+        switch (data.event) {
+            case SceneEvent.enteredPlace:
+                element.addEventListener(data.message, handler);
+                console.log(SceneEvent.enteredPlace + " " + data.message);
+                break;
+            case SceneEvent.leftPlace:
+                element.addEventListener(data.message, handler);
+                console.log(SceneEvent.leftPlace + " " + data.message);
+                break;
+            case SceneEvent.firedTransition:
+                element.addEventListener(data.message, handler);
+                console.log(SceneEvent.firedTransition + " " + data.message);
+                break;
+            default:
+                console.log(SceneEvent.petriNetLoaded);
+                data.currentPlace = "Roaming";
+        }
+    },
+});
