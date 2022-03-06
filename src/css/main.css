@@ -17,8 +17,8 @@ html {
 }
 
 .splash__card {
-    width: 40%;
-    height: 88vh;
+    width: 30%;
+    height: auto;
     background-color: #f1f1f1;
     border-radius: 4px;
 }
