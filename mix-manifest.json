@@ -2,6 +2,7 @@
     "/dist/js/bundle.js": "/dist/js/bundle.js",
     "/dist/css/main.css": "/dist/css/main.css",
     "/dist/petriNetFile/050222_cpn.pnml": "/dist/petriNetFile/050222_cpn.pnml",
-    "/dist/js/splash.js": "/dist/js/splash.js",
-    "/dist/index.html": "/dist/index.html"
+    "/dist/views/index.html": "/dist/views/index.html",
+    "/dist/views/scene.html": "/dist/views/scene.html",
+    "/dist/js/splash.js": "/dist/js/splash.js"
 }
