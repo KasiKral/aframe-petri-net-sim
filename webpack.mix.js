@@ -5,8 +5,8 @@ mix.disableNotifications();
 mix.copyDirectory("src/css/", "dist/css");
 mix.copyDirectory("src/img/", "dist/img");
 mix.copyDirectory("src/petriNetFile/", "dist/petriNetFile");
+mix.copyDirectory("src/views/", "dist/views");
 mix.copy("src/js/splash.js", "dist/js");
-mix.copy("src/index.html", "dist/");
 
 mix.js(
     [
@@ -23,8 +23,6 @@ mix.js(
 
 mix.browserSync({
     injectChanges: false,
-    proxy: 'http://localhost:8080',
-    files: [
-        'dist/**/*'
-    ],
+    proxy: "http://localhost:8080",
+    files: ["dist/**/*"],
 });

@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600&display=swap" rel="stylesheet">
     <title>VR for educational purposes</title>
     <meta name="description" content="Now in 3D!">
 
@@ -16,11 +19,8 @@
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js" crossorigin="anonymous">
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600&display=swap" rel="stylesheet">
     <!--MY SCRIPTS------------------------------------------------------------------------------------------------------>
-    <script src="./js/bundle.js"></script>
+    <script src="../js/bundle.js"></script>
 
 </head>
 
@@ -32,7 +32,7 @@
         <!-- Splash Screen -->
         <div class="splash">
             <div class="splash__card">
-                <img class="splash__img" src="img/splash/VRstock-img.jpg" alt="VR stock img" />
+                <img class="splash__img" src="../img/splash/VRstock-img.jpg" alt="VR stock img" />
                 <h1>Education experience in VR</h1>
                 <p>You can move around with WASD keys (desktop). Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa nihil dolore similique quis qui ad blanditiis ex eum! Enim maiores ipsam fugiat officiis earum distinctio natus reprehenderit aliquam
                     est iusto!</p>
@@ -43,11 +43,11 @@
         <!-- Load Assets -->
         <a-assets>
             <!-- global -->
-            <img id="floor" src="img/map/floor.jpg" alt="floor" crossorigin="anonymous">
-            <img id="wall" src="img/map/wall-concrete.jpg" alt="wall" crossorigin="anonymous">
-            <img id="wall-secret" src="img/map/wall-concrete-secret.jpg" alt="wall-secret" crossorigin="anonymous">
-            <img id="wall-brick" src="img/map/brick.jpg" alt="wall-brick" crossorigin="anonymous">
-            <img id="skybox" src="img/sky/skybox.jpg" alt="skybox" crossorigin="anonymous" />
+            <img id="floor" src="../img/map/floor.jpg" alt="floor" crossorigin="anonymous">
+            <img id="wall" src="../img/map/wall-concrete.jpg" alt="wall" crossorigin="anonymous">
+            <img id="wall-secret" src="../img/map/wall-concrete-secret.jpg" alt="wall-secret" crossorigin="anonymous">
+            <img id="wall-brick" src="../img/map/brick.jpg" alt="wall-brick" crossorigin="anonymous">
+            <img id="skybox" src="../img/sky/skybox.jpg" alt="skybox" crossorigin="anonymous" />
         </a-assets>
 
 
@@ -107,6 +107,6 @@
     </a-scene>
 
 </body>
-<script src=" ./js/splash.js "></script>
+<script src="../js/splash.js"></script>
 
 </html>
