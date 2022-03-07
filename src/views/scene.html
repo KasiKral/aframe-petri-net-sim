@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600&display=swap" rel="stylesheet">
@@ -22,6 +22,7 @@
     <!--MY SCRIPTS------------------------------------------------------------------------------------------------------>
     <script src="../js/bundle.js"></script>
 
+
 </head>
 
 <body>
@@ -30,13 +31,31 @@
     <a-scene shadow="type: pcfsoft" petri-net-sim>
 
         <!-- Splash Screen -->
-        <div class="splash">
+        <!-- <div class="splash">
             <div class="splash__card">
                 <img class="splash__img" src="../img/splash/VRstock-img.jpg" alt="VR stock img" />
                 <h1>Education experience in VR</h1>
                 <p>You can move around with WASD keys (desktop). Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa nihil dolore similique quis qui ad blanditiis ex eum! Enim maiores ipsam fugiat officiis earum distinctio natus reprehenderit aliquam
                     est iusto!</p>
                 <button class="splash__button">Okey!</button>
+            </div>
+        </div> -->
+
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -105,8 +124,7 @@
         </a-entity>
 
     </a-scene>
-
+    <script type="module" src="../js/splash.js"></script>
 </body>
-<script src="../js/splash.js"></script>
 
 </html>

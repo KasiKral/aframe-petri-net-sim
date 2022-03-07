@@ -1,0 +1,20 @@
+@import "~bootstrap/scss/bootstrap";
+html {
+    scroll-padding-top: 3.5rem;
+}
+
+
+/* Header padding accounts for the height of the navbar */
+
+header {
+    padding-top: 6rem + 3.5rem;
+    padding-bottom: 6rem;
+}
+
+
+/* Section padding */
+
+section {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+}
