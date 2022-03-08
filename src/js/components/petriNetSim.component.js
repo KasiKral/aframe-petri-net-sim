@@ -11,7 +11,9 @@ AFRAME.registerComponent("petri-net-sim", {
     // Do something when component first attached.
     init: function() {
         var data = this.data;
-        var loadedNet = petriNetLoader.loadXMLDoc("petriNetFile/050222_cpn.pnml");
+        var loadedNet = petriNetLoader.loadXMLDoc(
+            "assets/petriNetFile/050222_cpn.pnml"
+        );
         var net = (this.petriNet = new PetriNet(loadedNet));
         console.log(net);
 

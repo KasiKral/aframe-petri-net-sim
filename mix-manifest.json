@@ -1,8 +1,7 @@
 {
     "/dist/js/bundle.js": "/dist/js/bundle.js",
-    "/dist/js/splash.js": "/dist/js/splash.js",
+    "/dist/index.js": "/dist/index.js",
     "/dist/css/styles.css": "/dist/css/styles.css",
-    "/dist/petriNetFile/050222_cpn.pnml": "/dist/petriNetFile/050222_cpn.pnml",
     "/dist/views/index.html": "/dist/views/index.html",
     "/dist/views/scene.html": "/dist/views/scene.html"
 }

@@ -2,8 +2,7 @@ let mix = require("laravel-mix");
 
 mix.disableNotifications();
 
-mix.copyDirectory("src/img/", "dist/img");
-mix.copyDirectory("src/petriNetFile/", "dist/petriNetFile");
+mix.copyDirectory("src/assets/", "dist/assets");
 mix.copyDirectory("src/views/", "dist/views");
 
 mix
@@ -16,12 +15,13 @@ mix
             "src/js/modules/petriNetLoader.mjs",
             "src/js/modules/petriNet.mjs",
             "src/js/models/sceneEvent.enum.js",
+            "src/js/splash.js",
         ],
         "dist/js/bundle.js"
     )
     .sass("src/css/styles.scss", "dist/css");
 
-mix.js("src/js/splash.js", "dist/js/splash.js");
+mix.js("src/index.js", "dist/index.js");
 
 mix.browserSync({
     injectChanges: false,

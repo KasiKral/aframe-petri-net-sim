@@ -1,5 +1,7 @@
-import * as bootstrap from "bootstrap";
+import bootstrap from "../index";
 
-var myModalEl = document.querySelector("#myModal");
-var modal = bootstrap.Modal.getOrCreateInstance(myModalEl);
-modal.toggle();
+document.addEventListener("DOMContentLoaded", function() {
+    var myModalEl = document.querySelector("#myModal");
+    var modal = bootstrap.Modal.getOrCreateInstance(myModalEl);
+    modal.toggle();
+});
