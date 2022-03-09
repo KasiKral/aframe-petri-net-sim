@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="../css/styles.css">
-    <title>VR for educational purposes</title>
+    <title>Zážitok vo virtuálnej realite</title>
     <meta name="description" content="Now in 3D!">
 
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js" crossorigin="anonymous"></script>
@@ -29,17 +29,56 @@
 
         <!-- Splash Screen -->
         <div id="myModal" class="modal fade">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header pb-0 border-0">
+                        <h4 class="modal-title" id="staticBackdropLabel">Hrateľnosť</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <img class="d-block w-100 rounded mb-3" src="../assets/splash/VRstock-img.jpg" alt="VR">
-                        <h5 class="mb-2">Education experience in VR</h5>
-
-                        <p>You can move around with WASD keys (desktop). Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa nihil dolore similique quis qui ad blanditiis ex eum! Enim maiores ipsam fugiat officiis earum distinctio natus reprehenderit
-                            aliquam est iusto!</p>
+                        <h5><small class="mb-2 text-muted">Stolný počítač a myš</small></h5>
+                        <div class="d-flex bd-highlight">
+                            <div class="p-2 w-100 bd-highlight">
+                                <button class="btn btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                        height="16" fill="currentColor" class="bi bi-mouse2-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M7.5.026C4.958.286 3 2.515 3 5.188V5.5h4.5V.026zm1 0V5.5H13v-.312C13 2.515 11.042.286 8.5.026zM13 6.5H3v4.313C3 13.658 5.22 16 8 16s5-2.342 5-5.188V6.5z" />
+                                    </svg></button>
+                            </div>
+                            <div class="p-2 flex-shrink-1 bd-highlight">
+                                <h5>KAMERA</h5>
+                            </div>
+                        </div>
+                        <div class="d-flex bd-highlight">
+                            <div class="p-2 w-100 bd-highlight">
+                                <button class="btn btn-secondary"><svg width="16" height="16" viewBox="0 0 16 16"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M8.5 5.49988V0.0258789C11.042 0.285879 13 2.51488 13 5.18788V5.49988H8.5ZM3 6.49988H13V10.8119C13 13.6579 10.78 15.9999 8 15.9999C5.22 15.9999 3 13.6579 3 10.8129V6.49988Z"
+                                            fill="white" />
+                                        <path
+                                            d="M7.5 0.0258789C4.958 0.285879 3 2.51488 3 5.18788V5.49988H7.5V0.0258789Z"
+                                            fill="black" />
+                                    </svg></button>
+                            </div>
+                            <div class="p-2 flex-shrink-1 bd-highlight">
+                                <h5>INTERAKCIA</h5>
+                            </div>
+                        </div>
+                        <div class="d-flex bd-highlight">
+                            <div class="p-2 w-100 bd-highlight">
+                                <button class="btn btn-secondary">W</button>
+                                <button class="btn btn-secondary">A</button>
+                                <button class="btn btn-secondary">S</button>
+                                <button class="btn btn-secondary">D</button>
+                            </div>
+                            <div class="p-2 flex-shrink-1 bd-highlight">
+                                <h5>POHYB</h5>
+                            </div>
+                        </div>
+                        <hr>
+                        <h5><small class="mb-2 text-muted">VR náhlavná súprava</small></h5>
+                        <p>Pripravuje sa...</p>
                         <div class="d-grid gap-2">
                             <button type="button" class="btn btn-primary ps-2" data-bs-dismiss="modal">Okey</button>
                         </div>
