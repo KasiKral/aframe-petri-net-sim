@@ -15,13 +15,6 @@ export default class PetriNet {
     }
 
     /**
-     * @returns {netData} Gets netData object.
-     */
-    get getNetData() {
-        return this.netData;
-    }
-
-    /**
      *  Fires when transition is enabled and updates marking of Petri Net.
      * @param {string} transitionName - Name of transition.
      */
@@ -42,7 +35,9 @@ export default class PetriNet {
     isEnabled(transitionName) {
         const inputPlaces = this.findAllInputPlaces(transitionName);
         // Check whether input place can/can't provide input to transition
-        const enabled = inputPlaces.some((place) => this.isMarked(place.name));
+        const enabled = inputPlaces.some((place) =>
+            this.isMarked(place.name, place.arcWeight)
+        );
 
         return enabled;
     }
@@ -62,9 +57,10 @@ export default class PetriNet {
     /**
      * Checks whether place has marking bigger or equal to 1.
      * @param {string} placeName - Name of place.
+     * @param {number} arcWeight - Weight of arc whitch aims from place -> transition .
      */
-    isMarked(placeName) {
-        if (this.getMarking(placeName) >= 1) {
+    isMarked(placeName, arcWeight) {
+        if (this.getMarking(placeName) >= arcWeight) {
             return true;
         }
         return false;
@@ -77,11 +73,11 @@ export default class PetriNet {
     updateMarking(connectedArcs) {
         connectedArcs.forEach((arc) => {
             // find index of place whitch is output of transition.
-            const indexTarget = this.getNetData.places.findIndex(
+            const indexTarget = this.netData.places.findIndex(
                 (place) => place.id === arc.target
             );
             // find index of place whitch is input of transition.
-            const indexSource = this.getNetData.places.findIndex(
+            const indexSource = this.netData.places.findIndex(
                 (place) => place.id === arc.source
             );
             if (indexTarget >= 0) {
@@ -98,7 +94,7 @@ export default class PetriNet {
      * @returns {{id: string, name: string, marking: number}} Returns object whitch represent place.
      */
     findPlace(placeName) {
-        var places = this.getNetData.places;
+        var places = this.netData.places;
         const place = places.find((place) => place.name === placeName);
         return place;
     }
@@ -108,7 +104,7 @@ export default class PetriNet {
      * @returns {{id: string, name: string}} Returns object whitch represent transition.
      */
     findTransition(transitionName) {
-        var transitions = this.getNetData.transitions;
+        var transitions = this.netData.transitions;
         const transition = transitions.find(
             (transition) => transition.name === transitionName
         );
@@ -117,21 +113,26 @@ export default class PetriNet {
 
     /**
      * @param {string} transitionName - Name of transition.
-     * @returns {{id: string, name: string, marking: number}[]} Returns array of places whitch provide input to transition.
+     * @returns {{id: string, name: string, marking: number, arcWeight: number}[]} Returns array of places whitch provide input to transition.
      */
     findAllInputPlaces(transitionName) {
         var transition = this.findTransition(transitionName);
-        const arcs = this.getNetData.arcs;
+        const arcs = this.netData.arcs;
         // find all arcs whitch aim to selected transition
         const inputArcs = arcs.filter((arc) => arc.target === transition.id);
         var inputPlaces = [];
         inputArcs.forEach((arc) => {
-            const places = this.getNetData.places;
+            const places = this.netData.places;
             // find all places whitch are inputs to selected transition
             var place = places.find((place) => place.id === arc.source);
-            inputPlaces.push(place);
+            inputPlaces.push({
+                id: place.id,
+                name: place.name,
+                marking: place.marking,
+                arcWeight: arc.markingWeight,
+            });
         });
-
+        console.log(inputPlaces);
         return inputPlaces;
     }
 
@@ -141,7 +142,7 @@ export default class PetriNet {
      */
     findAllConnectedArcs(transitionName) {
         var transition = this.findTransition(transitionName);
-        const arcs = this.getNetData.arcs;
+        const arcs = this.netData.arcs;
         const allArcs = arcs.filter(
             (arc) => arc.source === transition.id || arc.target === transition.id
         );
@@ -155,9 +156,9 @@ export default class PetriNet {
      * @param {number} markingWeight - Number of token whitch are gonna be consumed.
      */
     consumeInputTokens(placeIndex, markingWeight) {
-        this.getNetData.places[placeIndex].marking = Math.max(
+        this.netData.places[placeIndex].marking = Math.max(
             0,
-            this.getNetData.places[placeIndex].marking - markingWeight
+            this.netData.places[placeIndex].marking - markingWeight
         );
     }
 
@@ -167,7 +168,7 @@ export default class PetriNet {
      * @param {number} markingWeight - Number of token whitch are gonna be created.
      */
     createOutputTokens(placeIndex, markingWeight) {
-        this.getNetData.places[placeIndex].marking += markingWeight;
+        this.netData.places[placeIndex].marking += markingWeight;
     }
 
     /**

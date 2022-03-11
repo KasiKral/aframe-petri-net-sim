@@ -62,7 +62,7 @@ export function loadXMLDoc(url) {
 }
 
 /**
- * @param {Document} xml - xml document to be parsed. It inherits from the generic
+ * @param {XMLDocument} xml - xml document to be parsed. It inherits from the generic
  *  Document and does not add any specific methods or properties to it.
  * @returns - Return parsed xml document to object.
  */
