@@ -132,7 +132,6 @@ export default class PetriNet {
                 arcWeight: arc.markingWeight,
             });
         });
-        console.log(inputPlaces);
         return inputPlaces;
     }
 

@@ -1,6 +1,6 @@
 import { SceneEvent } from "../models/sceneEvent.enum";
 
-AFRAME.registerComponent("collision-detector", {
+AFRAME.registerComponent("place-collision-detector", {
     schema: {
         name: { type: "string" },
         element: { type: "string" },
@@ -44,5 +44,31 @@ AFRAME.registerComponent("collision-detector", {
     // eslint-disable-next-line no-unused-vars
     tick: function(time, timeDelta) {
         // Do something on every scene tick or frame.
+    },
+
+    emitLeaveEvent: function(collided, data, scene, el, e) {
+        if (collided === 1 && e.detail.els[0].id === data.element) {
+            el.setAttribute("material", "color: green");
+            scene.setAttribute("petri-net-sim", {
+                event: SceneEvent.leftPlace,
+                message: "Roaming",
+            });
+            scene.emit(data.name);
+        } else {
+            el.setAttribute("material", "color: red");
+        }
+    },
+
+    emitEnterEvent: function(collided, data, scene, el, e) {
+        if (collided === 1 && e.detail.els[0].id === data.element) {
+            el.setAttribute("material", "color: green");
+            scene.setAttribute("petri-net-sim", {
+                event: SceneEvent.enteredPlace,
+                message: data.name,
+            });
+            scene.emit(data.name);
+        } else {
+            el.setAttribute("material", "color: red");
+        }
     },
 });

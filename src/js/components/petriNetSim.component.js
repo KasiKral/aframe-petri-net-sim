@@ -80,7 +80,7 @@ AFRAME.registerComponent("petri-net-sim", {
                 break;
             default:
                 console.log(SceneEvent.petriNetLoaded);
-                data.currentPlace = "Roaming";
+                data.activePlace = "Roaming";
         }
     },
 });
