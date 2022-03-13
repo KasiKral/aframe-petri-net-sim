@@ -11,7 +11,7 @@ mix
             "src/js/components/petriNetSim.component.js",
             "src/js/components/map.component.js",
             "src/js/components/clickHandler.component.js",
-            "src/js/components/collisionDetector.component.js",
+            "src/js/components/placeCollisionDetector.component.js",
             "src/js/modules/petriNetLoader.mjs",
             "src/js/modules/petriNet.mjs",
             "src/js/models/sceneEvent.enum.js",
