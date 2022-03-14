@@ -14,6 +14,7 @@ AFRAME.registerComponent("place-collision-detector", {
 
         // listen for collisions
         el.addEventListener("collisions", (e) => {
+            console.log(e.detail.els);
             var collided = e.detail.els.length;
             if (collided === 1 && e.detail.els[0].id === "player") {
                 el.setAttribute("material", "color: green");
