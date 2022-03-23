@@ -2,12 +2,12 @@
 <html lang="sk">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="stylesheet" href="../css/styles.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" href="../css/styles.css" />
     <title>Zážitok vo virtuálnej realite</title>
-    <meta name="description" content="Now in 3D!">
+    <meta name="description" content="Now in 3D!" />
 
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js" crossorigin="anonymous"></script>
 
@@ -18,177 +18,103 @@
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js" crossorigin="anonymous">
     </script>
-    <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js">
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js" crossorigin="anonymous">
     </script>
     <!--MY SCRIPTS------------------------------------------------------------------------------------------------------>
     <script src="../js/bundle.js"></script>
-
-
 </head>
 
 <body>
     <!-- To add fog to map  -->
     <!-- fog="type: linear; color: #000; far: 16; near: 7" -->
-    <a-scene physics stats shadow="type: pcfsoft" petri-net-sim gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/v1/decoders/;">
-
-        <!-- Splash Screen -->
-        <div id="myModal" class="modal fade">
-            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header pb-0 border-0">
-                        <h4 class="modal-title" id="staticBackdropLabel">Hrateľnosť</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h5><small class="mb-2 text-muted">Stolný počítač a myš</small></h5>
-                        <div class="d-flex bd-highlight">
-                            <div class="p-2 w-100 bd-highlight">
-                                <button class="btn btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                        height="16" fill="currentColor" class="bi bi-mouse2-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M7.5.026C4.958.286 3 2.515 3 5.188V5.5h4.5V.026zm1 0V5.5H13v-.312C13 2.515 11.042.286 8.5.026zM13 6.5H3v4.313C3 13.658 5.22 16 8 16s5-2.342 5-5.188V6.5z" />
-                                    </svg></button>
-                            </div>
-                            <div class="p-2 flex-shrink-1 bd-highlight text-start">
-                                <h5>KAMERA</h5>
-                            </div>
-                        </div>
-                        <div class="d-flex bd-highlight">
-                            <div class="p-2 w-100 bd-highlight">
-                                <button class="btn btn-secondary"><svg width="16" height="16" viewBox="0 0 16 16"
-                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M8.5 5.49988V0.0258789C11.042 0.285879 13 2.51488 13 5.18788V5.49988H8.5ZM3 6.49988H13V10.8119C13 13.6579 10.78 15.9999 8 15.9999C5.22 15.9999 3 13.6579 3 10.8129V6.49988Z"
-                                            fill="white" />
-                                        <path
-                                            d="M7.5 0.0258789C4.958 0.285879 3 2.51488 3 5.18788V5.49988H7.5V0.0258789Z"
-                                            fill="black" />
-                                    </svg></button>
-                            </div>
-                            <div class="p-2 flex-shrink-1 bd-highlight">
-                                <h5>INTERAKCIA</h5>
-                            </div>
-                        </div>
-                        <div class="d-flex bd-highlight">
-                            <div class="p-2 w-100 bd-highlight">
-                                <button class="btn btn-secondary"><svg width="16" height="16" viewBox="0 0 16 16"
-                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M8.5 5.49988V0.0258789C11.042 0.285879 13 2.51488 13 5.18788V5.49988H8.5ZM3 6.49988H13V10.8119C13 13.6579 10.78 15.9999 8 15.9999C5.22 15.9999 3 13.6579 3 10.8129V6.49988Z"
-                                            fill="white" />
-                                        <path
-                                            d="M7.5 0.0258789C4.958 0.285879 3 2.51488 3 5.18788V5.49988H7.5V0.0258789Z"
-                                            fill="black" />
-                                    </svg></button> + PODRŽAŤ
-                            </div>
-                            <div class="p-2 flex-shrink-1 bd-highlight">
-                                <h5>UCHOPENIE</h5>
-                            </div>
-                        </div>
-                        <div class="d-flex bd-highlight">
-                            <div class="p-2 w-100 bd-highlight">
-                                <button class="btn btn-secondary">W</button>
-                                <button class="btn btn-secondary">A</button>
-                                <button class="btn btn-secondary">S</button>
-                                <button class="btn btn-secondary">D</button>
-                            </div>
-                            <div class="p-2 flex-shrink-1 bd-highlight">
-                                <h5>POHYB</h5>
-                            </div>
-                        </div>
-                        <hr>
-                        <h5><small class="mb-2 text-muted">VR náhlavná súprava</small></h5>
-                        <p>Pripravuje sa...</p>
-                        <div class="d-grid gap-2">
-                            <button type="button" class="btn btn-primary ps-2" data-bs-dismiss="modal">Okey</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <a-scene renderer="colorManagement: true" light="defaultLightsEnabled: false" stats shadow="type: pcfsoft" petri-net-sim gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/v1/decoders/;">
+        <!-- <a-entity environment="preset: egypt;"></a-entity> -->
 
         <!-- Load Assets -->
         <a-assets>
             <!-- global -->
-            <img id="floor" src="../assets/map/floor.jpg" alt="floor" crossorigin="anonymous">
-            <img id="wall" src="../assets/map/wall-concrete.jpg" alt="wall" crossorigin="anonymous">
-            <img id="wall-secret" src="../assets/map/wall-concrete-secret.jpg" alt="wall-secret" crossorigin="anonymous">
-            <img id="wall-brick" src="../assets/map/brick.jpg" alt="wall-brick" crossorigin="anonymous">
-            <img id="skybox" src="../assets/sky/skybox.jpg" alt="skybox" crossorigin="anonymous" />
-            <a-asset-item id="easel" src="../assets/3dModels/easel_compressed_resized.glb"></a-asset-item>
+            <a-asset-item id="museum" src="../assets/3DModels/museum_final.glb"></a-asset-item>
+            <a-asset-item id="navmesh" src="../assets/3DModels/navMesh.glb"></a-asset-item>
+            <a-asset-item id="coin" src="../assets/3DModels/coin.glb"></a-asset-item>
+            <a-asset-item id="svMartin" src="../assets/3DModels/svMartin.glb"></a-asset-item>
+            <a-asset-item id="blava" src="../assets/3DModels/blava.glb"></a-asset-item>
+            <a-asset-item id="crown" src="../assets/3DModels/crown.glb"></a-asset-item>
+            <a-asset-item id="apple_coat" src="../assets/3DModels/apple_coat.glb"></a-asset-item>
+            <a-asset-item id="sword" src="../assets/3DModels/sword.glb"></a-asset-item>
+            <a-asset-item id="mace" src="../assets/3DModels/mace.glb"></a-asset-item>
+            <a-asset-item id="book" src="../assets/3DModels/book.glb"></a-asset-item>
+            <img id="erb" src="../assets/images/Middle_Coat_of_Arms_of_Maria_Theresa,_Holy_Roman_Empress.svg.png">
+            <img id="maria" src="../assets/images/Kaiserin_Maria_Theresia_(HRR)-min.jpg">
+            <img id="jozef" src="../assets/images/Joseph_Hickel_-_Emperor_Joseph_II,_pair-min.png">
+            <img id="frantisek" src="../assets/images/Meytens,_studio_or_circle_of_-_Francis_I,_Holy_Roman_Emperor-min.png">
+            <img id="karol" src="../assets/images/Portrait_of_Emperor_Charles_VI_in_armour,_decorated_with_the_Order_of_the_Golden_Fleece-min.jpg">
             <a-mixin id="cube" geometry="primitive: box; width: 0.33; height: 0.33; depth: 0.33" hoverable grabbable draggable droppable event-set__hoveron="_event: hover-start; material.opacity: 0.7; transparent: true" event-set__hoveroff="_event: hover-end; material.opacity: 1; transparent: false"
-                body="shape: none" shape="shape: box; halfExtents: 0.165 0.165 0.165" shadow></a-mixin>
+                shape="shape: box; halfExtents: 0.165 0.165 0.165"></a-mixin>
         </a-assets>
 
-
         <!-- Ground -->
-        <a-grid static-body id="ground" load-map material="src: #floor; repeat: 15 15" position="0 0 -0.5" rotation="-90 0 0" shadow="cast: false; receive: true"></a-grid>
-
+        <a-entity environment="preset: yavapai; skyType: atmosphere; playArea: 1.2; lightPosition: -0.24 1 -1">
+        </a-entity>
 
         <!-- AVATAR BODY ------------->
-        <a-entity id="rig" positon="0 0 8">
-            <a-entity id="player" geometry="primitive: cylinder; radius: 0.5" material="color: green; wireframe: true" position="0 0 8" movement-controls kinematic-body>
-                <a-entity id="playerhead" body="type: static; shape: sphere; sphereRadius: 0.001" camera position="0 1.6 0" rotation="0 0 0" look-controls="pointerLockEnabled:true" super-hands="colliderEvent: raycaster-intersection;
+        <a-entity id="player" geometry="primitive: cylinder; radius: 0.3" material="color: green; wireframe: true" position="8.275 1.2 2.93" movement-controls="constrainToNavMesh: true" static-body>
+            <a-entity id="playerhead" body="type: static; shape: sphere; sphereRadius: 0.001" camera position="0 1.75 0" look-controls="pointerLockEnabled:true" super-hands="colliderEvent: raycaster-intersection;
                              colliderEventProperty: els;
                              colliderEndEvent:raycaster-intersection-cleared;
                              colliderEndEventProperty: clearedEls;">
-                    <!-- 3D CURSOR IMPLEMENTATION ------------------------------------------->
-                    <a-entity class="rayhead" cursor="rayOrigin: mouse;" raycaster="objects: .clickable; showLine: true; far: 500" line="color: white; opacity: 1" position="0 0 0" visible="false"></a-entity>
-                    <a-entity cursor="fuse: true; fuseTimeout: 0" geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.009" material="color: #d1d1d1; shader: flat" position="0 0 -1"></a-entity>
-                </a-entity>
+                <!-- 3D CURSOR IMPLEMENTATION ------------------------------------------->
+                <!-- <a-entity class="rayhead" cursor="rayOrigin: mouse;" raycaster="objects: .clickable; showLine: true; near: 1; far: 3">
+                </a-entity> -->
+                <a-entity cursor="fuse: true; fuseTimeout: 0" geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.009" material="color: green; shader: flat" position="0 0 -1"></a-entity>
             </a-entity>
         </a-entity>
 
+        <!-- Map and models -->
+        <a-entity gltf-model="#museum" position="0 1 16"></a-entity>
+        <a-entity gltf-model="#navmesh" position="0 1 16" visible="false" nav-mesh></a-entity>
+        <a-entity gltf-model="#coin" position="0 1 16"></a-entity>
+        <a-entity gltf-model="#svMartin" position="0 1 16"></a-entity>
+        <a-entity gltf-model="#blava" position="0 1 16"></a-entity>
+        <a-entity gltf-model="#crown" position="22.582 2.456 12.098" mixin="cube"></a-entity>
+        <a-entity gltf-model="#apple_coat" position="25.467 2.456 12.031" mixin="cube"></a-entity>
+        <a-entity gltf-model="#sword" position="25.426 3.408 8.866" mixin="cube"></a-entity>
+        <a-entity gltf-model="#mace" position="19.505 3.773 11.937" mixin="cube"></a-entity>
+        <a-entity gltf-model="#book" position="-8.768 2.640 -2.599" rotation="0 180 60"></a-entity>
+        <a-entity gltf-model="#book" position="-8.768 2.640 -5.780" rotation="0 180 60"></a-entity>
+        <a-entity gltf-model="#book" position="-2.904 2.640 -2.599" rotation="0 0 60"></a-entity>
+        <a-entity gltf-model="#book" position="-2.904 2.640 -5.780" rotation="0 0 60"></a-entity>
 
-        <!-- Walls (generated by map.js) -->
-        <a-entity id="walls" shadow="recive: true" position="0 3 0">
-        </a-entity>
 
-
-        <!-- Exampe Room 1 (Immediate left) -->
-        <!-- Lights LEFT 1 -->
-        <a-sphere id="st1_m1" clickhandler="name: st1_m1" color="red" radius=".2" position="-10 2 7.5"></a-sphere>
+        <!-- Exposition Room 1 -->
+        <a-plane src="#maria" scale="2 2.42 2" height="auto" width="auto" rotation="0 -90 0" position="-2.17742 3.354 11.266"></a-plane>
+        <a-plane src="#karol" scale="2 2.42 2" height="auto" width="auto" rotation="0 -90 0" position="-2.17742 3.354 8.379"></a-plane>
+        <a-plane src="#jozef" scale="2 2.42 2" height="auto" width="auto" rotation="0 90 0" position="-9.518 3.354 11.266"></a-plane>
+        <a-plane src="#frantisek" scale="2 2.42 2" height="auto" width="auto" rotation="0 90 0" position="-9.518 3.354 8.379"></a-plane>
+        <!-- <a-sphere id="st1_m1" clickhandler="name: st1_m1" color="red" radius=".2" position="-10 2 7.5"></a-sphere>
         <a-sphere id="st1_m2" clickhandler="name: st1_m2" color="green" radius=".2" position="-10 2 8.5"></a-sphere>
         <a-sphere id="st1_m3" clickhandler="name: st1_m3" color="yellow" radius=".2" position="-10 2 6.5"></a-sphere>
         <a-box id="placeST1" class="place" physics-collider place-collision-detector="name: ST1; element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="-10.45785 0.5 7.58878" material="color: red; wireframe: true">
-        </a-box>
-        <a-entity gltf-model="#easel" scale="1.2 1.2 1.2" position="-8.56163 1 10.89693" shadow="" rotation="0 180 0">
-        </a-entity>
-        <a-entity gltf-model="#easel" scale="1.2 1.2 1.2" position="-12.50183 1 10.97479" shadow="" rotation="0 180 0">
-        </a-entity>
-        <a-entity gltf-model="#easel" scale="1.2 1.2 1.2" position="-13.993 1 7.64339" shadow="" rotation="0 90 0">
-        </a-entity>
-        <a-entity gltf-model="#easel" scale="1.2 1.2 1.2" position="-12.44104 1 4" shadow=""></a-entity>
-        <a-entity gltf-model="#easel" scale="1.2 1.2 1.2" position="-8.53643 1 4" shadow=""></a-entity>
-        <!-- Exampe Room 2 (Immediate right) -->
-        <a-sphere id="ST3_ano" class="interactable" clickhandler="name: ST3_ano" color="green" radius=".2" position="7.35862 2 8.5">
+        </a-box> -->
+        <!-- Exposition Room 2 -->
+        <!-- <a-sphere id="ST3_ano" class="interactable" clickhandler="name: ST3_ano" color="green" radius=".2" position="7.35862 2 8.5">
         </a-sphere>
         <a-sphere id="ST3_nie" clickhandler="name: ST3_nie" color="red" radius=".2" position="7.35565 2 7.5"></a-sphere>
         <a-box id="placeST3" class="place" physics-collider place-collision-detector="name: ST3; element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="7.5 0.5 7.58878" material="color: red; wireframe: true">
-        </a-box>
-        <!-- Exampe Room 3 (Second right) -->
-        <a-box id="placeST2" class="place" physics-collider place-collision-detector="name: ST2; element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="7.5 0.5 -4.53167" material="color: red; wireframe: true">
+        </a-box> -->
+        <!-- Exposition Room 3 -->
+        <!-- <a-box id="placeST2" class="place" physics-collider place-collision-detector="name: ST2; element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="7.5 0.5 -4.53167" material="color: red; wireframe: true">
         </a-box>
         <a-entity id="klenot1" class="cube interactable" mixin="cube" position="7.5 1 -4.53167" material="color: red">
-        </a-entity>
-        <!-- Exampe Room 4 (BIG room) -->
-        <a-box id="placeST4" class="place" physics-collider place-collision-detector="name: ST4; element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="-1.43907 0.5 -22.57711" material="color: red; wireframe: true">
-        </a-box>
+        </a-entity> -->
+        <!-- Exposition Room 4 -->
+        <a-plane src="#erb" scale="2 2.42 2" height="auto" width="auto" rotation="0 180 0" position="8.248 3.374 -2.099"></a-plane>
+        <!-- <a-box id="placeST4" class="place" physics-collider place-collision-detector="name: ST4; element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="-1.43907 0.5 -22.57711" material="color: red; wireframe: true">
+        </a-box> -->
 
-        <!-- Sky -->
-        <a-sky src="#skybox" rotation="0 90 0"></a-sky>
 
-        <!--LIGHTS implementation
-        -------------------------------------------------------------------------------------------->
-        <a-entity light="color: #fff; intensity: 0.34; type: ambient;" visible="true">
-        </a-entity>
-        <a-entity light=" type: directional; color: #FFF; intensity: 1.2; castShadow: true; shadowCameraFar: 500; shadowCameraVisible: false; shadowBias: -0.003; shadowMapHeight:2048; shadowMapWidth:2048; shadowCameraLeft: -50; shadowCameraRight: 50;
-            shadowCameraBottom: -50; shadowCameraTop: 50; " position=" 3 21 -3 " target=" #directionaltarget ">
-            <a-entity id=" directionaltarget " position=" 0 0 0 "></a-entity>
-        </a-entity>
-
+        <!-- LIGHTS implementation -->
+        <!-- <a-entity light="type: point" position="22.451 2.6 8.05"></a-entity> -->
     </a-scene>
-    <script src="../index.js"></script>
 </body>
 
 </html>
