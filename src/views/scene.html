@@ -48,8 +48,10 @@
             <img id="jozef" src="../assets/images/Joseph_Hickel_-_Emperor_Joseph_II,_pair-min.png">
             <img id="frantisek" src="../assets/images/Meytens,_studio_or_circle_of_-_Francis_I,_Holy_Roman_Emperor-min.png">
             <img id="karol" src="../assets/images/Portrait_of_Emperor_Charles_VI_in_armour,_decorated_with_the_Order_of_the_Golden_Fleece-min.jpg">
+            <img id="controls" src="../assets/images/Keyboard_controls.png">
             <a-mixin id="cube" geometry="primitive: box; width: 0.33; height: 0.33; depth: 0.33" hoverable grabbable draggable droppable event-set__hoveron="_event: hover-start; material.opacity: 0.7; transparent: true" event-set__hoveroff="_event: hover-end; material.opacity: 1; transparent: false"
                 shape="shape: box; halfExtents: 0.165 0.165 0.165"></a-mixin>
+            <a-mixin id="fontSpec" font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false"></a-mixin>
         </a-assets>
 
         <!-- Ground -->
@@ -85,6 +87,22 @@
         <a-entity gltf-model="#book" position="-2.904 2.640 -5.780" rotation="0 0 60"></a-entity>
 
 
+        <!-- Middle Space -->
+        <a-entity id="WelcomMsg" position="6.536 4.5 -1.841">
+            <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Zážitok vo virtuálnej realite" text="width: 3; wrapCount: 20" position="0 0.7 0" color="#333333">
+            </a-text>
+            <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Vitajte v novom, veľmi vzrušujúcom spôsobe vzdelávania študentov a prezentácii historických udalostí pomocou technológií XR. V tomto zážitku sa venujeme vyzobrazeniu historických udalostí na tému Osvietenských reforiem habsburskej monarchie."
+                text="width: 3; wrapCount: 50" position="" color="#4F4F4F">
+            </a-text>
+            <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Táto scéna pozostáva z 3 vzájomne prepojených miestností, ktoré obsahujú 16 zaujímavých expozícií, v ktorých musíte splniť nejaké úlohy. Prajeme vám veľa šťastia pri ich úspešnom dokončení, neváhajte a preskúmajte tento zažitok."
+                text="width: 3; wrapCount: 50" position="0 -0.75 0" color="#4F4F4F">
+            </a-text>
+            <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Táto scéna pozostáva z 3 vzájomne prepojených miestností, ktoré obsahujú 16 zaujímavých expozícií, v ktorých musíte splniť nejaké úlohy. Prajeme vám veľa šťastia pri ich úspešnom dokončení, neváhajte a preskúmajte tento zažitok."
+                text="width: 3; value: Vypracoval - Adam Kašela; wrapCount: 50" position="0 -1.24907 0" color="#4F4F4F" align="right" anchor="left">
+            </a-text>
+            <a-plane src="#controls" scale="3 1.5 0.00001" height="auto" width="auto" rotation="" position="1.76035 -2.26774 0.00962" material="transparent: true">
+            </a-plane>
+        </a-entity>
         <!-- Exposition Room 1 -->
         <a-plane src="#maria" scale="2 2.42 2" height="auto" width="auto" rotation="0 -90 0" position="-2.17742 3.354 11.266"></a-plane>
         <a-plane src="#karol" scale="2 2.42 2" height="auto" width="auto" rotation="0 -90 0" position="-2.17742 3.354 8.379"></a-plane>
