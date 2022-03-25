@@ -18,8 +18,7 @@
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js" crossorigin="anonymous">
     </script>
-    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js" crossorigin="anonymous">
-    </script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js" crossorigin="anonymous"></script>
     <!--MY SCRIPTS------------------------------------------------------------------------------------------------------>
     <script src="../js/bundle.js"></script>
 </head>
@@ -31,7 +30,7 @@
         <!-- <a-entity environment="preset: egypt;"></a-entity> -->
 
         <!-- Load Assets -->
-        <a-assets>
+        <a-assets timeout="10000">
             <!-- global -->
             <a-asset-item id="museum" src="../assets/3DModels/museum_final.glb"></a-asset-item>
             <a-asset-item id="navmesh" src="../assets/3DModels/navMesh.glb"></a-asset-item>
@@ -49,6 +48,8 @@
             <img id="frantisek" src="../assets/images/Meytens,_studio_or_circle_of_-_Francis_I,_Holy_Roman_Emperor-min.png">
             <img id="karol" src="../assets/images/Portrait_of_Emperor_Charles_VI_in_armour,_decorated_with_the_Order_of_the_Golden_Fleece-min.jpg">
             <img id="controls" src="../assets/images/Keyboard_controls.png">
+            <img id="infoPanel" src="../assets/images/Panel.png">
+            <img id="infoIcon" src="../assets/images/info-circle.png">
             <a-mixin id="cube" geometry="primitive: box; width: 0.33; height: 0.33; depth: 0.33" hoverable grabbable draggable droppable event-set__hoveron="_event: hover-start; material.opacity: 0.7; transparent: true" event-set__hoveroff="_event: hover-end; material.opacity: 1; transparent: false"
                 shape="shape: box; halfExtents: 0.165 0.165 0.165"></a-mixin>
             <a-mixin id="fontSpec" font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false"></a-mixin>
@@ -74,17 +75,105 @@
         <!-- Map and models -->
         <a-entity gltf-model="#museum" position="0 1 16"></a-entity>
         <a-entity gltf-model="#navmesh" position="0 1 16" visible="false" nav-mesh></a-entity>
-        <a-entity gltf-model="#coin" position="0 1 16"></a-entity>
-        <a-entity gltf-model="#svMartin" position="0 1 16"></a-entity>
-        <a-entity gltf-model="#blava" position="0 1 16"></a-entity>
+        <a-entity gltf-model="#coin" position="0 1 16">
+            <a-entity class="infoPanels" position="7.401 1.246 -4.877" rotation="0 0 0">
+                <a-circle toggle-info material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.23942" rotation="0 -90 0">
+                    <a-plane src="#infoPanel" visible="false" material="transparent: true; opacity: 0.95; shader: flat" height="auto" width="auto" scale="1.5 2 1" position="-0.02688 1.216 0" geometry="height: NaN; width: NaN">
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Toliar Márie Terézie" text="width: 0.8; wrapCount: 20; alphaTest: 3" position="-0.411 0.4 0" color="#F2F2F2">
+                        </a-text>
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                            text="width: 0.8; wrapCount: 33; alphaTest: 3" position="-0.411 0.1 0" color="#F2F2F2">
+                        </a-text>
+                    </a-plane>
+                </a-circle>
+            </a-entity>
+        </a-entity>
+        <a-entity gltf-model="#svMartin" position="0 1 16">
+            <a-entity class="infoPanels" position="24.555 1.246 -12.605" rotation="0 0 0">
+                <a-circle toggle-info material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.23942" rotation="0 -90 0">
+                    <a-plane src="#infoPanel" visible="false" material="transparent: true; opacity: 0.95; shader: flat" height="auto" width="auto" scale="1.5 2 1" position="-0.02688 1.216 0" geometry="height: NaN; width: NaN">
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Katedrála svätého Martina" text="width: 0.8; wrapCount: 20; alphaTest: 3" position="-0.411 0.4 0" color="#F2F2F2">
+                        </a-text>
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                            text="width: 0.8; wrapCount: 33; alphaTest: 3" position="-0.411 0.1 0" color="#F2F2F2">
+                        </a-text>
+                    </a-plane>
+                </a-circle>
+            </a-entity>
+        </a-entity>
+        <a-entity gltf-model="#blava" position="0 1 16">
+            <a-entity class="infoPanels" position="6.71663 1.30132 -20.8599" rotation="0 90 0">
+                <a-circle toggle-info material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.23942" rotation="0 -90 0">
+                    <a-plane src="#infoPanel" visible="false" material="transparent: true; opacity: 0.95; shader: flat" height="auto" width="auto" scale="1.5 2 1" position="-0.02688 1.216 0" geometry="height: NaN; width: NaN">
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Bratislavský hrad" text="width: 0.8; wrapCount: 20; alphaTest: 3" position="-0.411 0.4 0" color="#F2F2F2">
+                        </a-text>
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                            text="width: 0.8; wrapCount: 33; alphaTest: 3" position="-0.411 0.1 0" color="#F2F2F2">
+                        </a-text>
+                    </a-plane>
+                </a-circle>
+            </a-entity>
+        </a-entity>
         <a-entity gltf-model="#crown" position="22.582 2.456 12.098" mixin="cube"></a-entity>
         <a-entity gltf-model="#apple_coat" position="25.467 2.456 12.031" mixin="cube"></a-entity>
         <a-entity gltf-model="#sword" position="25.426 3.408 8.866" mixin="cube"></a-entity>
         <a-entity gltf-model="#mace" position="19.505 3.773 11.937" mixin="cube"></a-entity>
-        <a-entity gltf-model="#book" position="-8.768 2.640 -2.599" rotation="0 180 60"></a-entity>
-        <a-entity gltf-model="#book" position="-8.768 2.640 -5.780" rotation="0 180 60"></a-entity>
-        <a-entity gltf-model="#book" position="-2.904 2.640 -2.599" rotation="0 0 60"></a-entity>
-        <a-entity gltf-model="#book" position="-2.904 2.640 -5.780" rotation="0 0 60"></a-entity>
+        <a-entity gltf-model="#book" position="-8.768 2.640 -2.599" rotation="0 180 60">
+            <a-entity class="infoPanels" position="-0.633 0.230 0.422" rotation="0 0 -60">
+                <a-circle material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.60927" rotation="0 -90 0" geometry=""></a-circle>
+                <a-circle toggle-info material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.21117" rotation="0 -90 0" geometry="">
+                    <a-plane src="#infoPanel" visible="false" material="transparent: true; opacity: 0.95; shader: flat" height="auto" width="auto" scale="1.5 2 1" position="-0.19709 1.216 0" geometry="height: NaN; width: NaN">
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Reforma 1" text="width: 0.8; wrapCount: 20; alphaTest: 3" position="-0.411 0.4 0" color="#F2F2F2">
+                        </a-text>
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                            text="width: 0.8; wrapCount: 33; alphaTest: 3" position="-0.411 0.1 0" color="#F2F2F2">
+                        </a-text>
+                    </a-plane>
+                </a-circle>
+            </a-entity>
+        </a-entity>
+        <a-entity gltf-model="#book" position="-8.768 2.640 -5.780" rotation="0 180 60">
+            <a-entity class="infoPanels" position="-0.633 0.230 0.422" rotation="0 0 -60">
+                <a-circle material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.60927" rotation="0 -90 0" geometry=""></a-circle>
+                <a-circle toggle-info material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.21117" rotation="0 -90 0" geometry="">
+                    <a-plane src="#infoPanel" visible="false" material="transparent: true; opacity: 0.95; shader: flat" height="auto" width="auto" scale="1.5 2 1" position="-0.19709 1.216 0" geometry="height: NaN; width: NaN">
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Reforma 2" text="width: 0.8; wrapCount: 20; alphaTest: 3" position="-0.411 0.4 0" color="#F2F2F2">
+                        </a-text>
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                            text="width: 0.8; wrapCount: 33; alphaTest: 3" position="-0.411 0.1 0" color="#F2F2F2">
+                        </a-text>
+                    </a-plane>
+                </a-circle>
+            </a-entity>
+        </a-entity>
+        <a-entity gltf-model="#book" position="-2.904 2.640 -2.599" rotation="0 0 60">
+            <a-entity class="infoPanels" position="-0.633 0.230 0.422" rotation="0 0 -60">
+                <a-circle material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.60927" rotation="0 -90 0" geometry=""></a-circle>
+                <a-circle toggle-info material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.21117" rotation="0 -90 0" geometry="">
+                    <a-plane src="#infoPanel" visible="false" material="transparent: true; opacity: 0.95; shader: flat" height="auto" width="auto" scale="1.5 2 1" position="-0.19709 1.216 0" geometry="height: NaN; width: NaN">
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Reforma 3" text="width: 0.8; wrapCount: 20; alphaTest: 3" position="-0.411 0.4 0" color="#F2F2F2">
+                        </a-text>
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                            text="width: 0.8; wrapCount: 33; alphaTest: 3" position="-0.411 0.1 0" color="#F2F2F2">
+                        </a-text>
+                    </a-plane>
+                </a-circle>
+            </a-entity>
+        </a-entity>
+        <a-entity gltf-model="#book" position="-2.904 2.640 -5.780" rotation="0 0 60">
+            <a-entity class="infoPanels" position="-0.633 0.230 0.422" rotation="0 0 -60">
+                <a-circle material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.60927" rotation="0 -90 0" geometry=""></a-circle>
+                <a-circle toggle-info material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.21117" rotation="0 -90 0" geometry="">
+                    <a-plane src="#infoPanel" visible="false" material="transparent: true; opacity: 0.95; shader: flat" height="auto" width="auto" scale="1.5 2 1" position="-0.19709 1.216 0" geometry="height: NaN; width: NaN">
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Reforma 4" text="width: 0.8; wrapCount: 20; alphaTest: 3" position="-0.411 0.4 0" color="#F2F2F2">
+                        </a-text>
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                            text="width: 0.8; wrapCount: 33; alphaTest: 3" position="-0.411 0.1 0" color="#F2F2F2">
+                        </a-text>
+                    </a-plane>
+                </a-circle>
+            </a-entity>
+        </a-entity>
 
 
         <!-- Middle Space -->
@@ -98,16 +187,69 @@
                 text="width: 3; wrapCount: 50" position="0 -0.75 0" color="#4F4F4F">
             </a-text>
             <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Táto scéna pozostáva z 3 vzájomne prepojených miestností, ktoré obsahujú 16 zaujímavých expozícií, v ktorých musíte splniť nejaké úlohy. Prajeme vám veľa šťastia pri ich úspešnom dokončení, neváhajte a preskúmajte tento zažitok."
-                text="width: 3; value: Vypracoval - Adam Kašela; wrapCount: 50" position="0 -1.24907 0" color="#4F4F4F" align="right" anchor="left">
+                text="width: 3; value: - Adam Kašela; wrapCount: 50" position="0 -1.24907 0" color="#4F4F4F" align="right" anchor="left">
             </a-text>
-            <a-plane src="#controls" scale="3 1.5 0.00001" height="auto" width="auto" rotation="" position="1.76035 -2.26774 0.00962" material="transparent: true">
+            <a-plane src="#controls" scale="3 1.5 0" height="auto" width="auto" position="1.76035 -2.26774 0.00962" material="transparent: true; shader: flat">
             </a-plane>
         </a-entity>
         <!-- Exposition Room 1 -->
-        <a-plane src="#maria" scale="2 2.42 2" height="auto" width="auto" rotation="0 -90 0" position="-2.17742 3.354 11.266"></a-plane>
-        <a-plane src="#karol" scale="2 2.42 2" height="auto" width="auto" rotation="0 -90 0" position="-2.17742 3.354 8.379"></a-plane>
-        <a-plane src="#jozef" scale="2 2.42 2" height="auto" width="auto" rotation="0 90 0" position="-9.518 3.354 11.266"></a-plane>
-        <a-plane src="#frantisek" scale="2 2.42 2" height="auto" width="auto" rotation="0 90 0" position="-9.518 3.354 8.379"></a-plane>
+        <a-plane src="#maria" scale="2 2.42 2" height="auto" width="auto" rotation="0 -90 0" position="-2.177 3.354 11.266">
+            <a-entity class="infoPanels" position="0.227 -0.562 0.115" scale="1 0.420 0.510" rotation="0 90 0">
+                <a-circle material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.60927" rotation="0 -90 0"></a-circle>
+                <a-circle toggle-info material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.21117" rotation="0 -90 0">
+                    <a-plane src="#infoPanel" visible="false" material="transparent: true; opacity: 0.95; shader: flat" height="auto" width="auto" scale="1.5 2 1" position="-0.19709 1.216 0" geometry="height: NaN; width: NaN">
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Mária Terézia" text="width: 0.8; wrapCount: 20; alphaTest: 3" position="-0.411 0.417 0" color="#F2F2F2">
+                        </a-text>
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                            text="width: 0.8; wrapCount: 33; alphaTest: 3" position="-0.411 0.1 0" color="#F2F2F2">
+                        </a-text>
+                    </a-plane>
+                </a-circle>
+            </a-entity>
+        </a-plane>
+        <a-plane src="#karol" scale="2 2.42 2" height="auto" width="auto" rotation="0 -90 0" position="-2.177 3.354 8.379">
+            <a-entity class="infoPanels" position="0.227 -0.562 0.115" scale="1 0.420 0.510" rotation="0 90 0">
+                <a-circle material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.60927" rotation="0 -90 0"></a-circle>
+                <a-circle toggle-info material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.21117" rotation="0 -90 0">
+                    <a-plane src="#infoPanel" visible="false" material="transparent: true; opacity: 0.95; shader: flat" height="auto" width="auto" scale="1.5 2 1" position="-0.19709 1.216 0">
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Karol VI. Habsburský" text="width: 0.8; wrapCount: 20; alphaTest: 3" position="-0.411 0.417 0" color="#F2F2F2">
+                        </a-text>
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                            text="width: 0.8; value: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.; wrapCount: 33; alphaTest: 3"
+                            position="-0.411 0.1 0" color="#F2F2F2">
+                        </a-text>
+                    </a-plane>
+                </a-circle>
+            </a-entity>
+        </a-plane>
+        <a-plane src="#jozef" scale="2 2.42 2" height="auto" width="auto" rotation="0 90 0" position="-9.518 3.354 11.266">
+            <a-entity class="infoPanels" position="0.227 -0.562 0.115" scale="1 0.420 0.510" rotation="0 90 0">
+                <a-circle material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.60927" rotation="0 -90 0"></a-circle>
+                <a-circle toggle-info material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.21117" rotation="0 -90 0">
+                    <a-plane src="#infoPanel" visible="false" material="transparent: true; opacity: 0.95; shader: flat" height="auto" width="auto" scale="1.5 2 1" position="-0.19709 1.216 0" geometry="height: NaN; width: NaN">
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Jozef II. Habsburský" text="width: 0.8; wrapCount: 20; alphaTest: 3" position="-0.411 0.417 0" color="#F2F2F2">
+                        </a-text>
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                            text="width: 0.8; wrapCount: 33; alphaTest: 3" position="-0.411 0.1 0" color="#F2F2F2">
+                        </a-text>
+                    </a-plane>
+                </a-circle>
+            </a-entity>
+        </a-plane>
+        <a-plane src="#frantisek" scale="2 2.42 2" height="auto" width="auto" rotation="0 90 0" position="-9.518 3.354 8.379">
+            <a-entity class="infoPanels" position="0.227 -0.562 0.115" scale="1 0.420 0.510" rotation="0 90 0">
+                <a-circle material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.60927" rotation="0 -90 0"></a-circle>
+                <a-circle toggle-info material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.21117" rotation="0 -90 0">
+                    <a-plane src="#infoPanel" visible="false" material="transparent: true; opacity: 0.95; shader: flat" height="auto" width="auto" scale="1.5 2 1" position="-0.19709 1.216 0" geometry="height: NaN; width: NaN">
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="František I. Štefan Lotrinský" text="width: 0.8; wrapCount: 20; alphaTest: 3" position="-0.411 0.4 0" color="#F2F2F2">
+                        </a-text>
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                            text="width: 0.8; wrapCount: 33; alphaTest: 3" position="-0.411 0.1 0" color="#F2F2F2">
+                        </a-text>
+                    </a-plane>
+                </a-circle>
+            </a-entity>
+        </a-plane>
         <!-- <a-sphere id="st1_m1" clickhandler="name: st1_m1" color="red" radius=".2" position="-10 2 7.5"></a-sphere>
         <a-sphere id="st1_m2" clickhandler="name: st1_m2" color="green" radius=".2" position="-10 2 8.5"></a-sphere>
         <a-sphere id="st1_m3" clickhandler="name: st1_m3" color="yellow" radius=".2" position="-10 2 6.5"></a-sphere>
@@ -125,7 +267,20 @@
         <a-entity id="klenot1" class="cube interactable" mixin="cube" position="7.5 1 -4.53167" material="color: red">
         </a-entity> -->
         <!-- Exposition Room 4 -->
-        <a-plane src="#erb" scale="2 2.42 2" height="auto" width="auto" rotation="0 180 0" position="8.248 3.374 -2.099"></a-plane>
+        <a-plane src="#erb" scale="2 2.42 2" height="auto" width="auto" rotation="0 180 0" position="8.248 3.374 -2.099">
+            <a-entity class="infoPanels" scale="1 0.420 0.510" position="0.153 -0.6 0.115" rotation="0 90 0">
+                <a-circle toggle-info material="src: #infoIcon; side: double; shader: flat" radius="0.15" position="0 0 -0.23942" rotation="0 -90 0">
+                    <a-plane src="#infoPanel" visible="false" material="transparent: true; opacity: 0.95; shader: flat" height="auto" width="auto" scale="1.5 2 1" position="-0.02688 1.216 0" geometry="height: NaN; width: NaN">
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Erb Márie Terézie" text="width: 0.8; wrapCount: 20; alphaTest: 3" position="-0.411 0.4 0" color="#F2F2F2">
+                        </a-text>
+                        <a-text font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json" negate="false" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                            text="width: 0.8; wrapCount: 33; alphaTest: 3" position="-0.411 0.1 0" color="#F2F2F2">
+                        </a-text>
+                    </a-plane>
+                </a-circle>
+            </a-entity>
+            </a-entity>
+        </a-plane>
         <!-- <a-box id="placeST4" class="place" physics-collider place-collision-detector="name: ST4; element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="-1.43907 0.5 -22.57711" material="color: red; wireframe: true">
         </a-box> -->
 
