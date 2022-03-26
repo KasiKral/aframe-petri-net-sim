@@ -99,7 +99,7 @@
         <img id="infoPanel" src="../assets/images/Panel.png" />
         <img id="infoIcon" src="../assets/images/info-circle.png" />
         <a-mixin
-          id="cube"
+          id="canGrab"
           geometry="primitive: box; width: 0.33; height: 0.33; depth: 0.33"
           hoverable
           grabbable
@@ -276,19 +276,19 @@
       <a-entity
         gltf-model="#crown"
         position="22.582 2.456 12.098"
-        mixin="cube"></a-entity>
+        mixin="canGrab"></a-entity>
       <a-entity
         gltf-model="#apple_coat"
         position="25.467 2.456 12.031"
-        mixin="cube"></a-entity>
+        mixin="canGrab"></a-entity>
       <a-entity
         gltf-model="#sword"
         position="25.426 3.408 8.866"
-        mixin="cube"></a-entity>
+        mixin="canGrab"></a-entity>
       <a-entity
         gltf-model="#mace"
         position="19.505 3.773 11.937"
-        mixin="cube"></a-entity>
+        mixin="canGrab"></a-entity>
       <a-entity
         gltf-model="#book"
         position="-8.768 2.640 -2.599"
@@ -757,7 +757,7 @@
       <!-- Exposition Room 3 -->
       <!-- <a-box id="placeST2" class="place" physics-collider place-collision-detector="name: ST2; element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="7.5 0.5 -4.53167" material="color: red; wireframe: true">
         </a-box>
-        <a-entity id="klenot1" class="cube interactable" mixin="cube" position="7.5 1 -4.53167" material="color: red">
+        <a-entity id="klenot1" class="cube" interactable" mixin="canGrab" position="7.5 1 -4.53167" material="color: red">
         </a-entity> -->
       <!-- Exposition Room 4 -->
       <a-plane
