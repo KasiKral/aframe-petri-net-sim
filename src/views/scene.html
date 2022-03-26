@@ -68,6 +68,7 @@
         <a-asset-item
           id="crown"
           src="../assets/3DModels/crown.glb"></a-asset-item>
+        <a-asset-item id="cup" src="../assets/3DModels/cup.glb"></a-asset-item>
         <a-asset-item
           id="apple_coat"
           src="../assets/3DModels/apple_coat.glb"></a-asset-item>
@@ -171,8 +172,7 @@
               height="auto"
               width="auto"
               scale="1.5 2 1"
-              position="-0.02688 1.216 0"
-              geometry="height: NaN; width: NaN">
+              position="-0.02688 1.216 0">
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
@@ -184,9 +184,9 @@
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
-                value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                value="Mária Terézia nechala počas svojej vlády vyraziť skoro 300 typov medených, strieborných  mincí. Jednou z najslávnejších mincí uvedenej panovníčky sú toliare nazývané levantské. Razili  sa v oblasti Predného Rakúska. Norma na ich razbu stanovovala nasledujúce parametre: veľkosť 40-41 mm, hmotnosť 28,06 g, obsahovali až 83,3 percent čistého striebra. Tieto mince boli v dobe svojej razby jednými z najreprezentatívnejších platidiel cisárovnej Márie Terézie."
                 text="width: 0.8; wrapCount: 33; alphaTest: 3"
-                position="-0.411 0.1 0"
+                position="-0.411 0 0"
                 color="#F2F2F2">
               </a-text>
             </a-plane>
@@ -211,8 +211,7 @@
               height="auto"
               width="auto"
               scale="1.5 2 1"
-              position="-0.02688 1.216 0"
-              geometry="height: NaN; width: NaN">
+              position="-0.02688 1.216 0">
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
@@ -224,9 +223,9 @@
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
-                value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                value="V dnešnej Katedrále sv. Martina korunovali ako prvého panovníka v roku 1563 Ferdinandovho syna Maximiliána. V rokoch 1563 až 1830 sa tu konalo 19 korunovácii. Z nich najznámejšia je korunovácia Márie Terézie. Práve za jej panovania bola na vežu kostola umiestnená kópia uhorskej koruny ako pamiatka na túto slávnostnú udalosť."
                 text="width: 0.8; wrapCount: 33; alphaTest: 3"
-                position="-0.411 0.1 0"
+                position="-0.411 0 0"
                 color="#F2F2F2">
               </a-text>
             </a-plane>
@@ -251,8 +250,7 @@
               height="auto"
               width="auto"
               scale="1.5 2 1"
-              position="-0.02688 1.216 0"
-              geometry="height: NaN; width: NaN">
+              position="-0.02688 1.216 0">
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
@@ -264,9 +262,9 @@
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
-                value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                value="Jadro hradu tvorí palác lichobežníkového tvaru, ktorý dal postaviť cisár Žigmund Luxemburský ako svoju rezidenciu a zároveň pevnosť proti husitom. Dnešnú podobu so štyrmi nárožnými vežičkami získal hrad v 17. storočí. V najväčšej z nich Korunnej veži sa uschovávali korunovačné klenoty. Najreprezentatívnejší charakter získal hrad počas panovania Márie Terézie, ktorá k hradnému palácu pristavala nové hospodárske budovy a založila záhrady."
                 text="width: 0.8; wrapCount: 33; alphaTest: 3"
-                position="-0.411 0.1 0"
+                position="-0.411 0 0"
                 color="#F2F2F2">
               </a-text>
             </a-plane>
@@ -276,6 +274,10 @@
       <a-entity
         gltf-model="#crown"
         position="22.582 2.456 12.098"
+        mixin="canGrab"></a-entity>
+      <a-entity
+        gltf-model="#cup"
+        position="19.548 2.631 8.807"
         mixin="canGrab"></a-entity>
       <a-entity
         gltf-model="#apple_coat"
@@ -317,12 +319,11 @@
               height="auto"
               width="auto"
               scale="1.5 2 1"
-              position="-0.19709 1.216 0"
-              geometry="height: NaN; width: NaN">
+              position="-0.19709 1.216 0">
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
-                value="Reforma 1"
+                value="Zdravotná komisia"
                 text="width: 0.8; wrapCount: 20; alphaTest: 3"
                 position="-0.411 0.4 0"
                 color="#F2F2F2">
@@ -330,7 +331,7 @@
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
-                value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                value="Zriadenie komisií, ktoré mali chrániť obyvateľstvo pred nákazlivými chorobami a tiež mali vykonávať osvetu u prostého obyvateľstva. Kontrolovali zdravotnícke zariadenia, bojovali proti šíreniu moru a iných nákazlivých chorôb a radili obyvateľstvu stavať murované domy, nie drevené. Komisie nariaďovali aj očkovanie proti chorobám."
                 text="width: 0.8; wrapCount: 33; alphaTest: 3"
                 position="-0.411 0.1 0"
                 color="#F2F2F2">
@@ -367,12 +368,11 @@
               height="auto"
               width="auto"
               scale="1.5 2 1"
-              position="-0.19709 1.216 0"
-              geometry="height: NaN; width: NaN">
+              position="-0.19709 1.216 0">
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
-                value="Reforma 2"
+                value="Tereziánsky urbár"
                 text="width: 0.8; wrapCount: 20; alphaTest: 3"
                 position="-0.411 0.4 0"
                 color="#F2F2F2">
@@ -380,9 +380,9 @@
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
-                value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                value="Tereziánsky urbár určoval veľkosť poddanskej závislosti, na základe ktorej ustanovil povinnosti poddaných voči zemepánovi. Tak sa zo súkromno-právneho vzťahu medzi zemepánom a poddaným stal verejnoprávny vzťah, čím sa zlepšilo sociálne postavenie poddaných. Urbáre boli písané v jazyku ľudu, teda v slovenských oblastiach po slovensky. Urbárska regulácia upravovala poddanské pomery až do roku 1848, keď bolo poddanstvo zrušené."
                 text="width: 0.8; wrapCount: 33; alphaTest: 3"
-                position="-0.411 0.1 0"
+                position="-0.411 0 0"
                 color="#F2F2F2">
               </a-text>
             </a-plane>
@@ -417,12 +417,11 @@
               height="auto"
               width="auto"
               scale="1.5 2 1"
-              position="-0.19709 1.216 0"
-              geometry="height: NaN; width: NaN">
+              position="-0.19709 1.216 0">
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
-                value="Reforma 3"
+                value="Všeobecný školský poriadok"
                 text="width: 0.8; wrapCount: 20; alphaTest: 3"
                 position="-0.411 0.4 0"
                 color="#F2F2F2">
@@ -430,9 +429,9 @@
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
-                value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                value="Podľa neho malo nárok na vzdelanie každé dieťa na území habsburskej monarchie, bez ohľadu na pôvod, miesto bydliska alebo pohlavie. V každej dedine sa mala založiť škola, v ktorej sa deti mali učiť tzv. trivium, teda čítať, písať a počítať, čím sa položili základy všeobecnej gramotnosti.  Všeobecný školský poriadok rozdelil školy na štyri základné typy  Ľudové školy (triviálne, hlavné a normálne),  Latinské gramatické školy, Gymnáziá a Univerzity a lýceá."
                 text="width: 0.8; wrapCount: 33; alphaTest: 3"
-                position="-0.411 0.1 0"
+                position="-0.411 -0.05 0"
                 color="#F2F2F2">
               </a-text>
             </a-plane>
@@ -467,12 +466,11 @@
               height="auto"
               width="auto"
               scale="1.5 2 1"
-              position="-0.19709 1.216 0"
-              geometry="height: NaN; width: NaN">
+              position="-0.19709 1.216 0">
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
-                value="Reforma 4"
+                value="Patent o zrušení nevoľníctva"
                 text="width: 0.8; wrapCount: 20; alphaTest: 3"
                 position="-0.411 0.4 0"
                 color="#F2F2F2">
@@ -480,7 +478,7 @@
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
-                value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                value="Patent o zrušení nevoľníctva umožnil poddaným, aby sa slobodne sťahovali, sobášili, dávali deti na remeslo a štúdium. Predtým potrebovali súhlas zemepána. Vydanie patentu urýchlilo sťahovanie voľnej pracovnej sily do miest a priemyselných stredísk."
                 text="width: 0.8; wrapCount: 33; alphaTest: 3"
                 position="-0.411 0.1 0"
                 color="#F2F2F2">
@@ -566,8 +564,7 @@
               height="auto"
               width="auto"
               scale="1.5 2 1"
-              position="-0.19709 1.216 0"
-              geometry="height: NaN; width: NaN">
+              position="-0.19709 1.216 0">
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
@@ -579,9 +576,9 @@
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
-                value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                value="Mária Terézia (1717-1780), najstaršia dcéra nemeckého cisára Karola VI., posledného mužského potomka Habsburgovcov, nastúpila na trón na základe tzv. pragmatické sankcie. Aj keď nebola vychovávaná ako budúca vládkyňa, dokázala sa tejto úlohy naplno zhostiť. Vyhýbala sa konfliktom a svoje panovnícke rozhodnutia konzultovala s okruhom spolupracovníkov. Jej manželstvo napriek tomu, že bolo politicky dohodnutým sobášom bolo veľmi šťastné. Okrem vladárskych povinností si Mária Terézia príkladne plnila aj materské povinnosti. Mala 16 deti."
                 text="width: 0.8; wrapCount: 33; alphaTest: 3"
-                position="-0.411 0.1 0"
+                position="-0.411 -0.05 0"
                 color="#F2F2F2">
               </a-text>
             </a-plane>
@@ -630,9 +627,9 @@
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
-                value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-                text="width: 0.8; value: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.; wrapCount: 33; alphaTest: 3"
-                position="-0.411 0.1 0"
+                value="Karol VI. Habsburský (1685 - 1740) bol rakúsky arcivojvoda, rímskonemecký cisár, španielsky, uhorský a český kráľ z rodu Habsburgovcov, mladší syn cisára Leopolda I. a jeho tretej manželky Eleonóry Magdalény Falcko-neuburskej. Po svojom nástupe na cisársky trón a uzavretím Satmárskeho mieru zriadil schválením uhorského snemu stálu armádu, čo mu umožnilo zlikvidovať posledné zvyšky osmanského panstva v Uhorsku. Po definitívnom vytlačení Turkov z Uhorska nastúpil kurz hospodárskej a politickej konsolidácie monarchie."
+                text="width: 0.8; wrapCount: 33; alphaTest: 3"
+                position="-0.411 -0.05 0"
                 color="#F2F2F2">
               </a-text>
             </a-plane>
@@ -669,8 +666,7 @@
               height="auto"
               width="auto"
               scale="1.5 2 1"
-              position="-0.19709 1.216 0"
-              geometry="height: NaN; width: NaN">
+              position="-0.19709 1.216 0">
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
@@ -682,9 +678,9 @@
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
-                value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                value="Jozef II. bol pripravovaný na to, že sa raz stane panovníkom. Ako šesťročný vedel písať a čítať vo viacerých jazykoch. Dostal dôkladné vzdelanie, jeho učiteľmi boli významní osvietenci. Nedal sa korunovať za uhorského a českého kráľa, preto ho šľachta posmešne nazývala „klobúkový kráľ”. Ešte v roku 1765 však bol korunovaný za nemeckého cisára. Už ako spoluvládca Mánie Terézie kritizoval pomalé a nedôsledné zavádzanie reforiem."
                 text="width: 0.8; wrapCount: 33; alphaTest: 3"
-                position="-0.411 0.1 0"
+                position="-0.411 0 0"
                 color="#F2F2F2">
               </a-text>
             </a-plane>
@@ -721,8 +717,7 @@
               height="auto"
               width="auto"
               scale="1.5 2 1"
-              position="-0.19709 1.216 0"
-              geometry="height: NaN; width: NaN">
+              position="-0.19709 1.216 0">
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
@@ -734,9 +729,9 @@
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
-                value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                value="František Štefan I. Lotrinský (1708 - 1765) bol lotrinský vojvoda, toskánsky veľkovojvoda a cisár svätej ríše Rímskej. Svoje nie veľmi úspešné pôsobenie ako cisár si plne vynahradil v podnikateľskej oblasti, v ktorej prejavil mimoriadne nadanie. Základom jeho majetku sa stalo ohromné dedičstvo, ktoré mu poslúžilo na rozvoj podnikania. Okrem manufaktúr založil niekoľko bánk, stal sa hlavným dodávateľom pre habsburskú armádu, počas sedemročnej vojny dokonca zásoboval i armádu pruského kráľa Fridricha II."
                 text="width: 0.8; wrapCount: 33; alphaTest: 3"
-                position="-0.411 0.1 0"
+                position="-0.411 -0.05 0"
                 color="#F2F2F2">
               </a-text>
             </a-plane>
@@ -785,8 +780,7 @@
               height="auto"
               width="auto"
               scale="1.5 2 1"
-              position="-0.02688 1.216 0"
-              geometry="height: NaN; width: NaN">
+              position="-0.02688 1.216 0">
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
@@ -798,7 +792,7 @@
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
-                value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                value="cisárovná Svätej rímskej ríše nemeckého národa (zdieľané), Kráľovná Uhorska, Česka, Chorvátska a Slavónska, Arcivojvodkyňa Rakúska, Vojvodkyňa Parmy a Piacenzy, Veľkovojvodkyňa Toskánska."
                 text="width: 0.8; wrapCount: 33; alphaTest: 3"
                 position="-0.411 0.1 0"
                 color="#F2F2F2">
@@ -809,9 +803,6 @@
       </a-plane>
       <!-- <a-box id="placeST4" class="place" physics-collider place-collision-detector="name: ST4; element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="-1.43907 0.5 -22.57711" material="color: red; wireframe: true">
         </a-box> -->
-
-      <!-- LIGHTS implementation -->
-      <!-- <a-entity light="type: point" position="22.451 2.6 8.05"></a-entity> -->
     </a-scene>
   </body>
 </html>
