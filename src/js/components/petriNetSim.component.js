@@ -12,22 +12,29 @@ AFRAME.registerComponent('petri-net-sim', {
   init: function () {
     var data = this.data;
     var loadedNet = petriNetLoader.loadXMLDoc(
-      'assets/petriNetFile/050222_cpn.pnml'
+      'assets/petriNetFile/220307_korunKlenoty2.pnml'
     );
     var net = (this.petriNet = new PetriNet(loadedNet));
     console.log(net);
 
     this.transitionEventHandler = function () {
-      if (net.isInputPlace(data.activePlace, data.message)) {
-        console.log('Place Activated');
-        net.fire(data.message);
-      } else {
-        console.log('Place Not Activated');
-      }
+      // if (net.isInputPlace(data.activePlace, data.message)) {
+      // console.log('Place Activated');
+      net.fire(data.message);
+      // } else {
+      // console.log('Place Not Activated');
+      // }
       console.log(net);
     };
 
     this.changePlaceEventHandler = function () {
+      var taskPanel = document.querySelector(`#task${data.message}`);
+      var prevPanel = document.querySelector(`#task${data.activePlace}`);
+      if (taskPanel) {
+        taskPanel.setAttribute('visible', !taskPanel.getAttribute('visible'));
+      } else if (prevPanel) {
+        prevPanel.setAttribute('visible', !prevPanel.getAttribute('visible'));
+      }
       data.activePlace = data.message;
       console.log(data);
     };

@@ -44,7 +44,8 @@
       stats
       shadow="type: pcfsoft"
       petri-net-sim
-      gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/v1/decoders/;">
+      gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/v1/decoders/;"
+      physics="gravity: 0">
       <!-- <a-entity environment="preset: egypt;"></a-entity> -->
 
       <!-- Load Assets -->
@@ -101,12 +102,12 @@
         <img id="infoIcon" src="../assets/images/info-circle.png" />
         <a-mixin
           id="canGrab"
-          geometry="primitive: box; width: 0.33; height: 0.33; depth: 0.33"
           hoverable
           grabbable
           draggable
           droppable
-          shape="shape: box; halfExtents: 0.165 0.165 0.165"></a-mixin>
+          dynamic-body
+          sleepy></a-mixin>
       </a-assets>
 
       <!-- Environment -->
@@ -119,7 +120,7 @@
         id="player"
         geometry="primitive: cylinder; radius: 0.3"
         material="color: green; wireframe: true"
-        position="8.275 1.2 2.93"
+        position="8.275 1 2.93"
         movement-controls="constrainToNavMesh: true"
         static-body>
         <a-entity
@@ -143,7 +144,7 @@
         </a-entity>
       </a-entity>
 
-      <!-- Map and models ---------------------------------------------------------------------->
+      <!-- Map and navigationMesh ---------------------------------------------------------------------->
       <a-entity gltf-model="#museum" position="0 1 16"></a-entity>
       <a-entity
         gltf-model="#navmesh"
@@ -324,15 +325,26 @@
         </a-entity>
       </a-entity>
       <!-- Exposition Room 1 ------------------------------------------------------------------------------->
+      <a-box
+        id="placeST1"
+        class="place"
+        physics-collider
+        collision-detector="target: player; collisionEvent: ST1; clearedCollisionEvent: Roaming"
+        static-body
+        scale="7.920 0.2 7"
+        position="-5.889 1.167 10.203"
+        material="color: red; wireframe: true">
+      </a-box>
       <a-plane
-        id="task1"
+        id="taskST1"
         src="#infoPanel"
         material="transparent: true; shader: flat"
         height="auto"
         width="auto"
         scale="1.2 1 1"
         position="-5.7592 2.3 13.02616"
-        rotation="-8.68 180 0">
+        rotation="-8.68 180 0"
+        visible="false">
         <a-text
           font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
           negate="false"
@@ -367,7 +379,8 @@
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
-            rotation="0 -90 0"></a-circle>
+            rotation="0 -90 0"
+            clickhandler="name: p1_m1"></a-circle>
           <a-circle
             toggle-info
             material="src: #infoIcon; side: double; shader: flat"
@@ -560,10 +573,21 @@
       </a-plane>
 
       <!-- Exposition Room 2 ------------------------------------------------------------------------------->
+      <a-box
+        id="placeST2"
+        class="place"
+        physics-collider
+        collision-detector="target: player; collisionEvent: ST2; clearedCollisionEvent: Roaming"
+        static-body
+        scale="7.92 0.2 7"
+        position="-5.889 1.167 -3.74901"
+        material="color: red; wireframe: true">
+      </a-box>
       <a-plane
-        id="task2"
+        id="taskST2"
         src="#infoPanel"
         material="transparent: true; shader: flat"
+        visible="false"
         height="auto"
         width="auto"
         scale="1.2 1 1"
@@ -788,10 +812,63 @@
       </a-entity>
 
       <!-- Exposition Room 3 ------------------------------------------------------------------------------->
+      <a-entity id="collisionWalls" visible="false">
+        <a-plane
+          scale="7.92 20.24 20.36"
+          position="22.543 1.378 3.0333"
+          rotation="-90 0 0"
+          static-body></a-plane>
+        <a-plane
+          scale="7.92 20.24 20.36"
+          position="22.543 5.98686 3.0333"
+          rotation="90 0 0"
+          static-body></a-plane>
+        <a-plane
+          scale="7.92 5.52 20.36"
+          position="22.543 4.077 -7.10858"
+          static-body></a-plane>
+        <a-plane
+          scale="7.92 5.52 20.36"
+          position="22.543 4.077 13.37271"
+          static-body
+          rotation="180 0 0"></a-plane>
+        <a-plane
+          scale="20.35 4.509 0.00001"
+          position="18.868 3.67585 3.1656"
+          rotation="0 90 0"
+          static-body></a-plane>
+        <a-plane
+          scale="20.35 4.509 0.00001"
+          position="26.17209 3.67585 3.1656"
+          rotation="180 90 0"
+          static-body></a-plane>
+      </a-entity>
+      <a-box
+        id="pedestal"
+        class="place"
+        physics-collider
+        collision-filter="collisionForces: false"
+        collision-detector="target: RoyalJewelry; collisionEvent: add; clearedCollisionEvent: remove; placeColliderType: false"
+        static-body
+        scale="3.350 1 0.85"
+        position="22.51704 2.79991 -5.18307"
+        material="color: red; wireframe: true">
+      </a-box>
+      <a-box
+        id="placeST3"
+        class="place"
+        physics-collider="ignoreSleep: true"
+        collision-detector="target: player; collisionEvent: ST3; clearedCollisionEvent: Roaming"
+        static-body
+        scale="7.920 0.2 20.360"
+        position="22.543 1.167 3.142"
+        material="color: red; wireframe: true">
+      </a-box>
       <a-plane
-        id="task3"
+        id="taskST3"
         src="#infoPanel"
         material="transparent: true; shader: flat"
+        visible="false"
         height="auto"
         width="auto"
         scale="1.2 1 1"
@@ -857,6 +934,7 @@
 
       <a-entity
         gltf-model="#crown"
+        class="RoyalJewelry"
         position="22.582 2.456 12.098"
         mixin="canGrab"></a-entity>
       <a-text
@@ -874,6 +952,7 @@
 
       <a-entity
         gltf-model="#cup"
+        class="RoyalJewelry"
         position="19.548 2.631 8.807"
         mixin="canGrab"></a-entity>
       <a-text
@@ -891,6 +970,7 @@
 
       <a-entity
         gltf-model="#apple_coat"
+        class="RoyalJewelry"
         position="25.467 2.456 12.031"
         mixin="canGrab"></a-entity>
       <a-text
@@ -908,6 +988,7 @@
 
       <a-entity
         gltf-model="#sword"
+        class="RoyalJewelry"
         position="25.426 3.408 8.866"
         mixin="canGrab"></a-entity>
       <a-text
@@ -925,6 +1006,7 @@
 
       <a-entity
         gltf-model="#mace"
+        class="RoyalJewelry"
         position="19.505 3.773 11.937"
         mixin="canGrab"></a-entity>
       <a-text
@@ -939,24 +1021,6 @@
         align="center"
         text="color: #e3e3e3; wrapCount: 8.12"
         scale="0.4 0.2 1"></a-text>
-      <!-- <a-sphere id="st1_m1" clickhandler="name: st1_m1" color="red" radius=".2" position="-10 2 7.5"></a-sphere>
-        <a-sphere id="st1_m2" clickhandler="name: st1_m2" color="green" radius=".2" position="-10 2 8.5"></a-sphere>
-        <a-sphere id="st1_m3" clickhandler="name: st1_m3" color="yellow" radius=".2" position="-10 2 6.5"></a-sphere>
-        <a-box id="placeST1" class="place" physics-collider place-collision-detector="name: ST1; element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="-10.45785 0.5 7.58878" material="color: red; wireframe: true">
-        </a-box> -->
-      <!-- Exposition Room 2 -->
-      <!-- <a-sphere id="ST3_ano" class="interactable" clickhandler="name: ST3_ano" color="green" radius=".2" position="7.35862 2 8.5">
-        </a-sphere>
-        <a-sphere id="ST3_nie" clickhandler="name: ST3_nie" color="red" radius=".2" position="7.35565 2 7.5"></a-sphere>
-        <a-box id="placeST3" class="place" physics-collider place-collision-detector="name: ST3; element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="7.5 0.5 7.58878" material="color: red; wireframe: true">
-        </a-box> -->
-      <!-- Exposition Room 3 -->
-      <!-- <a-box id="placeST2" class="place" physics-collider place-collision-detector="name: ST2; element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="7.5 0.5 -4.53167" material="color: red; wireframe: true">
-        </a-box>
-        <a-entity id="klenot1" class="cube" interactable" mixin="canGrab" position="7.5 1 -4.53167" material="color: red">
-        </a-entity> -->
-      <!-- <a-box id="placeST4" class="place" physics-collider place-collision-detector="name: ST4; element: player" collision-filter="collisionForces: false" static-body scale="8.5 0.5 8.5" position="-1.43907 0.5 -22.57711" material="color: red; wireframe: true">
-        </a-box> -->
     </a-scene>
   </body>
 </html>
