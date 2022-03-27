@@ -18,23 +18,29 @@ AFRAME.registerComponent('collision-detector', {
     el.addEventListener('collisions', (e) => {
       var collided = e.detail.els.length;
       if (collided === 1 && (e.detail.els[0].id || e.detail.els[0].className)) {
+        var collisionMsg = data.placeColliderType
+          ? data.collisionEvent
+          : `${e.detail.els[0].className}add`;
         el.setAttribute('material', 'color: green');
         scene.setAttribute('petri-net-sim', {
           event: data.placeColliderType
             ? SceneEvent.enteredPlace
             : SceneEvent.firedTransition,
-          message: data.collisionEvent
+          message: collisionMsg
         });
-        scene.emit(data.collisionEvent);
+        scene.emit(collisionMsg);
       } else {
         el.setAttribute('material', 'color: red');
+        var clearedCollisionMsg = data.placeColliderType
+          ? data.clearedCollisionEvent
+          : `${e.detail.clearedEls[0].className}remove`;
         scene.setAttribute('petri-net-sim', {
           event: data.placeColliderType
             ? SceneEvent.leftPlace
             : SceneEvent.firedTransition,
-          message: data.clearedCollisionEvent
+          message: clearedCollisionMsg
         });
-        scene.emit(data.clearedCollisionEvent);
+        scene.emit(clearedCollisionMsg);
       }
     });
   },
