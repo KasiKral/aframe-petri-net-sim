@@ -2,7 +2,6 @@ import { SceneEvent } from '../models/sceneEvent.enum';
 
 AFRAME.registerComponent('collision-detector', {
   schema: {
-    target: { type: 'string' },
     collisionEvent: { type: 'string' },
     clearedCollisionEvent: { type: 'string' },
     placeColliderType: { type: 'boolean', default: true }
@@ -20,7 +19,7 @@ AFRAME.registerComponent('collision-detector', {
       if (collided === 1 && (e.detail.els[0].id || e.detail.els[0].className)) {
         var collisionMsg = data.placeColliderType
           ? data.collisionEvent
-          : `${e.detail.els[0].className}add`;
+          : `${e.detail.els[0].className}${data.collisionEvent}`;
         el.setAttribute('material', 'color: green');
         scene.setAttribute('petri-net-sim', {
           event: data.placeColliderType
@@ -33,7 +32,7 @@ AFRAME.registerComponent('collision-detector', {
         el.setAttribute('material', 'color: red');
         var clearedCollisionMsg = data.placeColliderType
           ? data.clearedCollisionEvent
-          : `${e.detail.clearedEls[0].className}remove`;
+          : `${e.detail.clearedEls[0].className}${data.clearedCollisionEvent}`;
         scene.setAttribute('petri-net-sim', {
           event: data.placeColliderType
             ? SceneEvent.leftPlace

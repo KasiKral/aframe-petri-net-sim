@@ -5,6 +5,7 @@ import PetriNet from '../modules/petriNet.mjs';
 AFRAME.registerComponent('petri-net-sim', {
   schema: {
     activePlace: { type: 'string', default: 'Roaming' },
+    finalPlace: { type: 'string' },
     event: { type: 'string', default: 'Scene Loaded' },
     message: { type: 'string', default: SceneEvent.petriNetLoaded }
   },
@@ -12,7 +13,7 @@ AFRAME.registerComponent('petri-net-sim', {
   init: function () {
     var data = this.data;
     var loadedNet = petriNetLoader.loadXMLDoc(
-      'assets/petriNetFile/220307_korunKlenoty2.pnml'
+      'assets/petriNetFile/28032022_net_exhibition.pnml'
     );
     var net = (this.petriNet = new PetriNet(loadedNet));
     console.log(net);

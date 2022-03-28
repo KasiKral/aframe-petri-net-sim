@@ -31,23 +31,19 @@
     <script
       src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"
       crossorigin="anonymous"></script>
-    <!--MY SCRIPTS------------------------------------------------------------------------------------------------------>
+    <!--BUNDLED SCRIPTS------------------------------------------------------------------------------------------------------>
     <script src="../js/bundle.js"></script>
   </head>
 
   <body>
-    <!-- To add fog to map  -->
-    <!-- fog="type: linear; color: #000; far: 16; near: 7" -->
     <a-scene
       renderer="colorManagement: true"
       light="defaultLightsEnabled: false"
       stats
       shadow="type: pcfsoft"
-      petri-net-sim
+      petri-net-sim="finalPlace: final"
       gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/v1/decoders/;"
       physics="gravity: 0">
-      <!-- <a-entity environment="preset: egypt;"></a-entity> -->
-
       <!-- Load Assets -->
       <a-assets timeout="10000">
         <!-- global -->
@@ -100,6 +96,8 @@
         <img id="controls" src="../assets/images/Keyboard_controls.png" />
         <img id="infoPanel" src="../assets/images/Panel.png" />
         <img id="infoIcon" src="../assets/images/info-circle.png" />
+        <img id="unselected" src="../assets/images/slash-circle-fill-red.png" />
+        <img id="selected" src="../assets/images/check-circle-fill-green.png" />
         <a-mixin
           id="canGrab"
           hoverable
@@ -119,7 +117,7 @@
       <a-entity
         id="player"
         geometry="primitive: cylinder; radius: 0.3"
-        material="color: green; wireframe: true"
+        material="color: green; wireframe: true; visible: false"
         position="8.275 1 2.93"
         movement-controls="constrainToNavMesh: true"
         static-body>
@@ -133,10 +131,8 @@
                              colliderEventProperty: els;
                              colliderEndEvent:raycaster-intersection-cleared;
                              colliderEndEventProperty: clearedEls;">
-          <!-- 3D CURSOR IMPLEMENTATION ------------------------------------------->
-          <!-- <a-entity class="rayhead" cursor="rayOrigin: mouse;" raycaster="objects: .clickable; showLine: true; near: 1; far: 3">
-                </a-entity> -->
           <a-entity
+            raycaster="objects: .interactible, .P3C, .P3I;"
             cursor="fuse: true; fuseTimeout: 0"
             geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.009"
             material="color: green; shader: flat"
@@ -211,6 +207,7 @@
           position="0.153 -0.6 0.115"
           rotation="0 90 0">
           <a-circle
+            class="interactible"
             toggle-info
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
@@ -251,6 +248,7 @@
           position="7.401 1.246 -4.877"
           rotation="0 0 0">
           <a-circle
+            class="interactible"
             toggle-info
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
@@ -291,6 +289,7 @@
           position="6.71663 1.30132 -20.8599"
           rotation="0 90 0">
           <a-circle
+            class="interactible"
             toggle-info
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
@@ -326,22 +325,22 @@
       </a-entity>
       <!-- Exposition Room 1 ------------------------------------------------------------------------------->
       <a-box
-        id="placeST1"
-        class="place"
+        id="place1"
         physics-collider
-        collision-detector="target: player; collisionEvent: ST1; clearedCollisionEvent: Roaming"
+        collision-detector="collisionEvent: P1; clearedCollisionEvent: Roaming"
         static-body
         scale="7.920 0.2 7"
         position="-5.889 1.167 10.203"
         material="color: red; wireframe: true">
       </a-box>
+
       <a-plane
-        id="taskST1"
+        id="taskP1"
         src="#infoPanel"
         material="transparent: true; shader: flat"
         height="auto"
         width="auto"
-        scale="1.2 1 1"
+        scale="1.2 1.170 1"
         position="-5.7592 2.3 13.02616"
         rotation="-8.68 180 0"
         visible="false">
@@ -358,9 +357,19 @@
           negate="false"
           value="Rok 1740 na trón habsburgskej monarchie nastupil/a?"
           text="width: 0.8; wrapCount: 20; alphaTest: 3"
-          position="-0.411 -0.05 0"
+          position="-0.411 0.02749 0.01946"
           color="#F2F2F2">
         </a-text>
+        <a-text
+          class="interactible"
+          position="0 -0.29141 0.01752"
+          font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
+          negate="false"
+          geometry="primitive: plane; height: 0.78; width: 2.020"
+          material="color: #36c991; flatShading: true; height: 254.55; width: 492.44"
+          align="center"
+          text="width: 1.84; value: Potvrdiť Odpoveď; color: #e3e3e3; wrapCount: 15.94"
+          scale="0.44 0.25 1"></a-text>
       </a-plane>
 
       <a-plane
@@ -376,12 +385,14 @@
           scale="1 0.420 0.510"
           rotation="0 90 0">
           <a-circle
-            material="src: #infoIcon; side: double; shader: flat"
+            class="interactible"
+            material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"
             clickhandler="name: p1_m1"></a-circle>
           <a-circle
+            class="interactible"
             toggle-info
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
@@ -429,11 +440,13 @@
           scale="1 0.420 0.510"
           rotation="0 90 0">
           <a-circle
-            material="src: #infoIcon; side: double; shader: flat"
+            class="interactible"
+            material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"></a-circle>
           <a-circle
+            class="interactible"
             toggle-info
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
@@ -481,11 +494,13 @@
           scale="1 0.420 0.510"
           rotation="0 90 0">
           <a-circle
-            material="src: #infoIcon; side: double; shader: flat"
+            class="interactible"
+            material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"></a-circle>
           <a-circle
+            class="interactible"
             toggle-info
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
@@ -533,11 +548,13 @@
           scale="1 0.420 0.510"
           rotation="0 90 0">
           <a-circle
-            material="src: #infoIcon; side: double; shader: flat"
+            class="interactible"
+            material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"></a-circle>
           <a-circle
+            class="interactible"
             toggle-info
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
@@ -574,23 +591,23 @@
 
       <!-- Exposition Room 2 ------------------------------------------------------------------------------->
       <a-box
-        id="placeST2"
-        class="place"
+        id="place2"
         physics-collider
-        collision-detector="target: player; collisionEvent: ST2; clearedCollisionEvent: Roaming"
+        collision-detector="collisionEvent: P2; clearedCollisionEvent: Roaming"
         static-body
         scale="7.92 0.2 7"
         position="-5.889 1.167 -3.74901"
         material="color: red; wireframe: true">
       </a-box>
+
       <a-plane
-        id="taskST2"
+        id="taskP2"
         src="#infoPanel"
         material="transparent: true; shader: flat"
         visible="false"
         height="auto"
         width="auto"
-        scale="1.2 1 1"
+        scale="1.2 1.170 1"
         position="-5.7592 2.3 -6.5"
         rotation="-8.68 0 0">
         <a-text
@@ -606,9 +623,19 @@
           negate="false"
           value="Označte expozície s reformamy, ktoré zaviedla Mária Terézia"
           text="width: 0.8; wrapCount: 20; alphaTest: 3"
-          position="-0.411 -0.05 0"
+          position="-0.411 0.01 0.00816"
           color="#F2F2F2">
         </a-text>
+        <a-text
+          class="interactible"
+          position="0 -0.30236 0.00878"
+          font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
+          negate="false"
+          geometry="primitive: plane; height: 0.78; width: 2.020"
+          material="color: #36c991; flatShading: true; height: 254.55; width: 492.44"
+          align="center"
+          text="width: 1.84; value: Potvrdiť Odpoveď; color: #e3e3e3; wrapCount: 15.94"
+          scale="0.45 0.25 1"></a-text>
       </a-plane>
 
       <a-entity
@@ -620,12 +647,14 @@
           position="-0.633 0.230 0.422"
           rotation="0 0 -60">
           <a-circle
-            material="src: #infoIcon; side: double; shader: flat"
+            class="interactible"
+            material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"
             geometry=""></a-circle>
           <a-circle
+            class="interactible"
             toggle-info
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
@@ -670,12 +699,14 @@
           position="-0.633 0.230 0.422"
           rotation="0 0 -60">
           <a-circle
-            material="src: #infoIcon; side: double; shader: flat"
+            class="interactible"
+            material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"
             geometry=""></a-circle>
           <a-circle
+            class="interactible"
             toggle-info
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
@@ -720,12 +751,13 @@
           position="-0.633 0.230 0.422"
           rotation="0 0 -60">
           <a-circle
-            material="src: #infoIcon; side: double; shader: flat"
+            class="interactible"
+            material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
-            rotation="0 -90 0"
-            geometry=""></a-circle>
+            rotation="0 -90 0"></a-circle>
           <a-circle
+            class="interactible"
             toggle-info
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
@@ -770,12 +802,14 @@
           position="-0.633 0.230 0.422"
           rotation="0 0 -60">
           <a-circle
-            material="src: #infoIcon; side: double; shader: flat"
+            class="interactible"
+            material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"
             geometry=""></a-circle>
           <a-circle
+            class="interactible"
             toggle-info
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
@@ -815,7 +849,7 @@
       <a-entity id="collisionWalls" visible="false">
         <a-plane
           scale="7.92 20.24 20.36"
-          position="22.543 1.378 3.0333"
+          position="22.543 2.263 3.0333"
           rotation="-90 0 0"
           static-body></a-plane>
         <a-plane
@@ -843,43 +877,44 @@
           rotation="180 90 0"
           static-body></a-plane>
       </a-entity>
+
       <a-box
         id="pedestal"
-        class="place"
         physics-collider
         collision-filter="collisionForces: false"
-        collision-detector="target: RoyalJewelry; collisionEvent: add; clearedCollisionEvent: remove; placeColliderType: false"
+        collision-detector="collisionEvent: place; clearedCollisionEvent: displace; placeColliderType: false"
         static-body
         scale="3.350 1 0.85"
-        position="22.51704 2.79991 -5.18307"
+        position="22.51704 2.933 -5.18307"
         material="color: red; wireframe: true">
       </a-box>
+
       <a-box
-        id="placeST3"
-        class="place"
+        id="place3"
         physics-collider="ignoreSleep: true"
-        collision-detector="target: player; collisionEvent: ST3; clearedCollisionEvent: Roaming"
+        collision-detector="collisionEvent: P3; clearedCollisionEvent: Roaming"
         static-body
         scale="7.920 0.2 20.360"
         position="22.543 1.167 3.142"
         material="color: red; wireframe: true">
       </a-box>
+
       <a-plane
-        id="taskST3"
+        id="taskP3"
         src="#infoPanel"
         material="transparent: true; shader: flat"
         visible="false"
         height="auto"
         width="auto"
-        scale="1.2 1 1"
-        position="19.584 2.3 -4.565"
+        scale="1.2 1.170 1"
+        position="19.584 2.35122 -4.565"
         rotation="-8.68 0 0">
         <a-text
           font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
           negate="false"
           value="Úloha"
           text="width: 1.2; wrapCount: 20; alphaTest: 3"
-          position="-0.411 0.3 0"
+          position="-0.411 0.34394 0.00671"
           color="#F2F2F2">
         </a-text>
         <a-text
@@ -887,9 +922,19 @@
           negate="false"
           value="Nájdite Uhorské korunovačné insígnie v miestnosti a preneste ich na prázdny podstavec napravo."
           text="width: 0.8; wrapCount: 20; alphaTest: 3"
-          position="-0.411 -0.05 0"
+          position="-0.411 0.02874 0.01202"
           color="#F2F2F2">
         </a-text>
+        <a-text
+          class="interactible"
+          position="0 -0.33365 0.004"
+          font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
+          negate="false"
+          geometry="primitive: plane; height: 0.78; width: 2.020"
+          material="color: #36c991; flatShading: true; height: 254.55; width: 492.44"
+          align="center"
+          text="width: 1.84; value: Potvrdiť Odpoveď; color: #e3e3e3; wrapCount: 15.94"
+          scale="0.44 0.25 1"></a-text>
       </a-plane>
 
       <a-entity gltf-model="#svMartin" position="0 1 16">
@@ -898,6 +943,7 @@
           position="24.555 1.246 -12.605"
           rotation="0 0 0">
           <a-circle
+            class="interactible"
             toggle-info
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
@@ -934,7 +980,7 @@
 
       <a-entity
         gltf-model="#crown"
-        class="P2S"
+        class="P3C"
         position="22.582 2.456 12.098"
         mixin="canGrab"></a-entity>
       <a-text
@@ -952,7 +998,7 @@
 
       <a-entity
         gltf-model="#cup"
-        class="P2N"
+        class="P3I"
         position="19.548 2.631 8.807"
         mixin="canGrab"></a-entity>
       <a-text
@@ -970,7 +1016,7 @@
 
       <a-entity
         gltf-model="#apple_coat"
-        class="P2S"
+        class="P3C"
         position="25.467 2.456 12.031"
         mixin="canGrab"></a-entity>
       <a-text
@@ -988,7 +1034,7 @@
 
       <a-entity
         gltf-model="#sword"
-        class="P2S"
+        class="P3C"
         position="25.426 3.408 8.866"
         mixin="canGrab"></a-entity>
       <a-text
@@ -1006,7 +1052,7 @@
 
       <a-entity
         gltf-model="#mace"
-        class="P2S"
+        class="P3C"
         position="19.505 3.773 11.937"
         mixin="canGrab"></a-entity>
       <a-text
