@@ -35,7 +35,7 @@ export default class PetriNet {
   isEnabled(transitionName) {
     const inputPlaces = this.findAllInputPlaces(transitionName);
     // Check whether input place can/can't provide input to transition
-    const enabled = inputPlaces.some((place) =>
+    const enabled = inputPlaces.every((place) =>
       this.isMarked(place.name, place.arcWeight)
     );
 
