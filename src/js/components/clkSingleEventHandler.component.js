@@ -1,6 +1,6 @@
 import { SceneEvent } from '../models/sceneEvent.enum';
 
-AFRAME.registerComponent('clickhandler', {
+AFRAME.registerComponent('clk-single-event-handler', {
   schema: {
     name: { type: 'string', default: '' }
   },
@@ -9,7 +9,7 @@ AFRAME.registerComponent('clickhandler', {
   init: function () {
     var data = this.data;
     var el = this.el;
-    var scene = document.querySelector('a-scene');
+    var scene = this.el.sceneEl;
     el.addEventListener('click', function () {
       scene.setAttribute('petri-net-sim', {
         event: SceneEvent.firedTransition,
