@@ -4,10 +4,11 @@ import PetriNet from '../modules/petriNet.mjs';
 
 AFRAME.registerComponent('petri-net-sim', {
   schema: {
+    event: { type: 'string', default: 'Scene Loaded' },
+    message: { type: 'string', default: SceneEvent.petriNetLoaded },
     activePlace: { type: 'string', default: 'Roaming' },
     finalPlace: { type: 'string' },
-    event: { type: 'string', default: 'Scene Loaded' },
-    message: { type: 'string', default: SceneEvent.petriNetLoaded }
+    taskCount: { type: 'number', default: 1 }
   },
   // Do something when component first attached.
   init: function () {

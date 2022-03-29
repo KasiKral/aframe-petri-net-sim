@@ -39,9 +39,8 @@
     <a-scene
       renderer="colorManagement: true"
       light="defaultLightsEnabled: false"
-      stats
       shadow="type: pcfsoft"
-      petri-net-sim="finalPlace: final"
+      petri-net-sim="finalPlace: final; taskCount: 3"
       gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/v1/decoders/;"
       physics="gravity: 0">
       <!-- Load Assets -->
@@ -110,7 +109,7 @@
 
       <!-- Environment -->
       <a-entity
-        environment="preset: yavapai; skyType: atmosphere; playArea: 1.2; lightPosition: -0.24 1 -1">
+        environment="preset: yavapai; skyType: atmosphere; playArea: 1.2; lightPosition: -0.24 30 -1">
       </a-entity>
 
       <!-- AVATAR BODY ------------->
@@ -331,7 +330,8 @@
         static-body
         scale="7.920 0.2 7"
         position="-5.889 1.167 10.203"
-        material="color: red; wireframe: true">
+        material="color: red; wireframe: true"
+        visible="false">
       </a-box>
 
       <a-plane
@@ -362,6 +362,7 @@
         </a-text>
         <a-text
           class="interactible"
+          clk-single-event-handler="name: P1confirm"
           position="0 -0.29141 0.01752"
           font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
           negate="false"
@@ -386,11 +387,11 @@
           rotation="0 90 0">
           <a-circle
             class="interactible"
+            clk-multi-event-handler="name: P1C; firstToggleEvent: select; secondToggleEvent: unselect"
             material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
-            rotation="0 -90 0"
-            clickhandler="name: p1_m1"></a-circle>
+            rotation="0 -90 0"></a-circle>
           <a-circle
             class="interactible"
             toggle-info
@@ -441,6 +442,7 @@
           rotation="0 90 0">
           <a-circle
             class="interactible"
+            clk-multi-event-handler="name: P1I; firstToggleEvent: select; secondToggleEvent: unselect"
             material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
@@ -495,6 +497,7 @@
           rotation="0 90 0">
           <a-circle
             class="interactible"
+            clk-multi-event-handler="name: P1I; firstToggleEvent: select; secondToggleEvent: unselect"
             material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
@@ -549,6 +552,7 @@
           rotation="0 90 0">
           <a-circle
             class="interactible"
+            clk-multi-event-handler="name: P1I; firstToggleEvent: select; secondToggleEvent: unselect"
             material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
@@ -597,7 +601,8 @@
         static-body
         scale="7.92 0.2 7"
         position="-5.889 1.167 -3.74901"
-        material="color: red; wireframe: true">
+        material="color: red; wireframe: true"
+        visible="false">
       </a-box>
 
       <a-plane
@@ -628,6 +633,7 @@
         </a-text>
         <a-text
           class="interactible"
+          clk-single-event-handler="name: P2confirm"
           position="0 -0.30236 0.00878"
           font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
           negate="false"
@@ -648,6 +654,7 @@
           rotation="0 0 -60">
           <a-circle
             class="interactible"
+            clk-multi-event-handler="name: P2C; firstToggleEvent: select; secondToggleEvent: unselect"
             material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
@@ -700,6 +707,7 @@
           rotation="0 0 -60">
           <a-circle
             class="interactible"
+            clk-multi-event-handler="name: P2C; firstToggleEvent: select; secondToggleEvent: unselect"
             material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
@@ -752,6 +760,7 @@
           rotation="0 0 -60">
           <a-circle
             class="interactible"
+            clk-multi-event-handler="name: P2C; firstToggleEvent: select; secondToggleEvent: unselect"
             material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
@@ -803,6 +812,7 @@
           rotation="0 0 -60">
           <a-circle
             class="interactible"
+            clk-multi-event-handler="name: P2I; firstToggleEvent: select; secondToggleEvent: unselect"
             material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
@@ -886,7 +896,8 @@
         static-body
         scale="3.350 1 0.85"
         position="22.51704 2.933 -5.18307"
-        material="color: red; wireframe: true">
+        material="color: red; wireframe: true"
+        visible="false">
       </a-box>
 
       <a-box
@@ -896,7 +907,8 @@
         static-body
         scale="7.920 0.2 20.360"
         position="22.543 1.167 3.142"
-        material="color: red; wireframe: true">
+        material="color: red; wireframe: true"
+        visible="false">
       </a-box>
 
       <a-plane
@@ -927,6 +939,7 @@
         </a-text>
         <a-text
           class="interactible"
+          clk-single-event-handler="name: P3confirm"
           position="0 -0.33365 0.004"
           font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
           negate="false"
