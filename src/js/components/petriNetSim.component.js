@@ -24,6 +24,7 @@ AFRAME.registerComponent('petri-net-sim', {
         net.fire(data.message);
         console.log('Transition Enabled');
         this.playConfirmationSuccessSound(data.message);
+        this.updateVisualProgress(data.message);
       } else {
         this.playConfirmationUnsuccessSound(data.message);
         console.log('Transition Not Enabled');
@@ -99,6 +100,7 @@ AFRAME.registerComponent('petri-net-sim', {
         data.activePlace = 'Roaming';
     }
   },
+
   playConfirmationSuccessSound: function (elementId) {
     if (elementId.includes('confirm')) {
       var confirmationEntity = document.querySelector(`#${elementId}`);
@@ -110,6 +112,16 @@ AFRAME.registerComponent('petri-net-sim', {
     if (elementId.includes('confirm')) {
       var confirmationEntity = document.querySelector(`#${elementId}`);
       confirmationEntity.emit('unsuccess');
+    }
+  },
+
+  updateVisualProgress: function (elementId) {
+    if (elementId.includes('confirm')) {
+      var progressEntity = document.querySelector(`#${elementId}Progress`);
+      progressEntity.setAttribute(
+        'material',
+        'color: green; side: double; shader: flat'
+      );
     }
   }
 });
