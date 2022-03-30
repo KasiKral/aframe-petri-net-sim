@@ -46,6 +46,11 @@
       <!-- Load Assets -->
       <a-assets timeout="10000">
         <!-- global -->
+        <audio id="success_sound" src="../assets/sounds/success.wav"></audio>
+        <audio
+          id="unsuccess_sound"
+          src="../assets/sounds/unsuccess.wav"></audio>
+        <audio id="tap" src="../assets/sounds/tap.wav"></audio>
         <a-asset-item
           id="museum"
           src="../assets/3DModels/museum_final.glb"></a-asset-item>
@@ -211,7 +216,8 @@
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.23942"
-            rotation="0 -90 0">
+            rotation="0 -90 0"
+            sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
               visible="false"
@@ -252,7 +258,8 @@
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.23942"
-            rotation="0 -90 0">
+            rotation="0 -90 0"
+            sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
               visible="false"
@@ -293,7 +300,8 @@
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.23942"
-            rotation="0 -90 0">
+            rotation="0 -90 0"
+            sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
               visible="false"
@@ -361,7 +369,7 @@
           color="#F2F2F2">
         </a-text>
         <a-text
-          class="interactible"
+          id="P1confirm"
           clk-single-event-handler="name: P1confirm"
           position="0 -0.29141 0.01752"
           font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
@@ -370,7 +378,9 @@
           material="color: #36c991; flatShading: true; height: 254.55; width: 492.44"
           align="center"
           text="width: 1.84; value: Potvrdiť Odpoveď; color: #e3e3e3; wrapCount: 15.94"
-          scale="0.44 0.25 1"></a-text>
+          scale="0.44 0.25 1"
+          sound__success="src: #success_sound; on: success; poolSize: 2"
+          sound__unsuccess="src: #unsuccess_sound; on: unsuccess; poolSize: 2"></a-text>
       </a-plane>
 
       <a-plane
@@ -387,18 +397,20 @@
           rotation="0 90 0">
           <a-circle
             class="interactible"
-            clk-multi-event-handler="name: P1C; firstToggleEvent: select; secondToggleEvent: unselect"
+            clk-multi-event-handler="firstToggleEvent: P1Cselect; secondToggleEvent: P1Cunselect"
             material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
-            rotation="0 -90 0"></a-circle>
+            rotation="0 -90 0"
+            sound="src: #tap; on: click; poolSize: 2"></a-circle>
           <a-circle
             class="interactible"
             toggle-info
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.21117"
-            rotation="0 -90 0">
+            rotation="0 -90 0"
+            sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
               visible="false"
@@ -442,18 +454,20 @@
           rotation="0 90 0">
           <a-circle
             class="interactible"
-            clk-multi-event-handler="name: P1I; firstToggleEvent: select; secondToggleEvent: unselect"
+            clk-multi-event-handler="firstToggleEvent: P1Iselect; secondToggleEvent: P1Iunselect"
             material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
-            rotation="0 -90 0"></a-circle>
+            rotation="0 -90 0"
+            sound="src: #tap; on: click; poolSize: 2"></a-circle>
           <a-circle
             class="interactible"
             toggle-info
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.21117"
-            rotation="0 -90 0">
+            rotation="0 -90 0"
+            sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
               visible="false"
@@ -497,18 +511,20 @@
           rotation="0 90 0">
           <a-circle
             class="interactible"
-            clk-multi-event-handler="name: P1I; firstToggleEvent: select; secondToggleEvent: unselect"
+            clk-multi-event-handler="firstToggleEvent: P1Iselect; secondToggleEvent: P1Iunselect"
             material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
-            rotation="0 -90 0"></a-circle>
+            rotation="0 -90 0"
+            sound="src: #tap; on: click; poolSize: 2"></a-circle>
           <a-circle
             class="interactible"
             toggle-info
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.21117"
-            rotation="0 -90 0">
+            rotation="0 -90 0"
+            sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
               visible="false"
@@ -552,18 +568,20 @@
           rotation="0 90 0">
           <a-circle
             class="interactible"
-            clk-multi-event-handler="name: P1I; firstToggleEvent: select; secondToggleEvent: unselect"
+            clk-multi-event-handler="firstToggleEvent: P1Iselect; secondToggleEvent: P1Iunselect"
             material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
-            rotation="0 -90 0"></a-circle>
+            rotation="0 -90 0"
+            sound="src: #tap; on: click; poolSize: 2"></a-circle>
           <a-circle
             class="interactible"
             toggle-info
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.21117"
-            rotation="0 -90 0">
+            rotation="0 -90 0"
+            sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
               visible="false"
@@ -632,7 +650,7 @@
           color="#F2F2F2">
         </a-text>
         <a-text
-          class="interactible"
+          id="P2confirm"
           clk-single-event-handler="name: P2confirm"
           position="0 -0.30236 0.00878"
           font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
@@ -641,7 +659,9 @@
           material="color: #36c991; flatShading: true; height: 254.55; width: 492.44"
           align="center"
           text="width: 1.84; value: Potvrdiť Odpoveď; color: #e3e3e3; wrapCount: 15.94"
-          scale="0.45 0.25 1"></a-text>
+          scale="0.45 0.25 1"
+          sound__success="src: #success_sound; on: success; poolSize: 2"
+          sound__unsuccess="src: #unsuccess_sound; on: unsuccess; poolSize: 2"></a-text>
       </a-plane>
 
       <a-entity
@@ -654,12 +674,12 @@
           rotation="0 0 -60">
           <a-circle
             class="interactible"
-            clk-multi-event-handler="name: P2C; firstToggleEvent: select; secondToggleEvent: unselect"
+            clk-multi-event-handler="firstToggleEvent: P2Cselect; secondToggleEvent: P2Cunselect"
             material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"
-            geometry=""></a-circle>
+            sound="src: #tap; on: click; poolSize: 2"></a-circle>
           <a-circle
             class="interactible"
             toggle-info
@@ -667,7 +687,7 @@
             radius="0.15"
             position="0 0 -0.21117"
             rotation="0 -90 0"
-            geometry="">
+            sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
               visible="false"
@@ -707,12 +727,12 @@
           rotation="0 0 -60">
           <a-circle
             class="interactible"
-            clk-multi-event-handler="name: P2C; firstToggleEvent: select; secondToggleEvent: unselect"
+            clk-multi-event-handler="firstToggleEvent: P2Cselect; secondToggleEvent: P2Cunselect"
             material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"
-            geometry=""></a-circle>
+            sound="src: #tap; on: click; poolSize: 2"></a-circle>
           <a-circle
             class="interactible"
             toggle-info
@@ -720,7 +740,7 @@
             radius="0.15"
             position="0 0 -0.21117"
             rotation="0 -90 0"
-            geometry="">
+            sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
               visible="false"
@@ -760,11 +780,12 @@
           rotation="0 0 -60">
           <a-circle
             class="interactible"
-            clk-multi-event-handler="name: P2C; firstToggleEvent: select; secondToggleEvent: unselect"
+            clk-multi-event-handler="firstToggleEvent: P2Cselect; secondToggleEvent: P2Cunselect"
             material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
-            rotation="0 -90 0"></a-circle>
+            rotation="0 -90 0"
+            sound="src: #tap; on: click; poolSize: 2"></a-circle>
           <a-circle
             class="interactible"
             toggle-info
@@ -772,7 +793,7 @@
             radius="0.15"
             position="0 0 -0.21117"
             rotation="0 -90 0"
-            geometry="">
+            sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
               visible="false"
@@ -812,12 +833,12 @@
           rotation="0 0 -60">
           <a-circle
             class="interactible"
-            clk-multi-event-handler="name: P2I; firstToggleEvent: select; secondToggleEvent: unselect"
+            clk-multi-event-handler="firstToggleEvent: P2Iselect; secondToggleEvent: P2Iunselect"
             material="src: #unselected; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"
-            geometry=""></a-circle>
+            sound="src: #tap; on: click; poolSize: 2"></a-circle>
           <a-circle
             class="interactible"
             toggle-info
@@ -825,7 +846,7 @@
             radius="0.15"
             position="0 0 -0.21117"
             rotation="0 -90 0"
-            geometry="">
+            sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
               visible="false"
@@ -897,7 +918,8 @@
         scale="3.350 1 0.85"
         position="22.51704 2.933 -5.18307"
         material="color: red; wireframe: true"
-        visible="false">
+        visible="false"
+        sound="src: #tap; on: collisions; poolSize: 2">
       </a-box>
 
       <a-box
@@ -938,7 +960,7 @@
           color="#F2F2F2">
         </a-text>
         <a-text
-          class="interactible"
+          id="P3confirm"
           clk-single-event-handler="name: P3confirm"
           position="0 -0.33365 0.004"
           font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
@@ -947,7 +969,9 @@
           material="color: #36c991; flatShading: true; height: 254.55; width: 492.44"
           align="center"
           text="width: 1.84; value: Potvrdiť Odpoveď; color: #e3e3e3; wrapCount: 15.94"
-          scale="0.44 0.25 1"></a-text>
+          scale="0.44 0.25 1"
+          sound__success="src: #success_sound; on: success; poolSize: 2"
+          sound__unsuccess="src: #unsuccess_sound; on: unsuccess; poolSize: 2"></a-text>
       </a-plane>
 
       <a-entity gltf-model="#svMartin" position="0 1 16">
@@ -961,7 +985,8 @@
             material="src: #infoIcon; side: double; shader: flat"
             radius="0.15"
             position="0 0 -0.23942"
-            rotation="0 -90 0">
+            rotation="0 -90 0"
+            sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
               visible="false"

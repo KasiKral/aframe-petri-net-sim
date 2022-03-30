@@ -11,7 +11,7 @@ mix
       'src/js/components/petriNetSim.component.js',
       'src/js/components/clkSingleEventHandler.component.js',
       'src/js/components/clkMultiEventHandler.component.js',
-      'src/js/components/collisionDetector.component.js',
+      'src/js/components/collisionDetectorEventHandler.component.js',
       'src/js/components/toggleInfo.component.js',
       'src/js/modules/petriNetLoader.mjs',
       'src/js/modules/petriNet.mjs',

@@ -19,13 +19,8 @@ export default class PetriNet {
    * @param {string} transitionName - Name of transition.
    */
   fire(transitionName) {
-    if (this.isEnabled(transitionName)) {
-      console.log('Transition Enabled');
-      const connectedArcs = this.findAllConnectedArcs(transitionName);
-      this.updateMarking(connectedArcs);
-    } else {
-      console.log('Transition Not Enabled');
-    }
+    const connectedArcs = this.findAllConnectedArcs(transitionName);
+    this.updateMarking(connectedArcs);
   }
 
   /**

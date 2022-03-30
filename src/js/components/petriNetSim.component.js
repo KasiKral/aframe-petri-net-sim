@@ -19,23 +19,30 @@ AFRAME.registerComponent('petri-net-sim', {
     var net = (this.petriNet = new PetriNet(loadedNet));
     console.log(net);
 
-    this.transitionEventHandler = function () {
-      // if (net.isInputPlace(data.activePlace, data.message)) {
-      // console.log('Place Activated');
-      net.fire(data.message);
-      // } else {
-      // console.log('Place Not Activated');
-      // }
+    this.transitionEventHandler = () => {
+      if (net.isEnabled(data.message)) {
+        net.fire(data.message);
+        console.log('Transition Enabled');
+        this.playConfirmationSuccessSound(data.message);
+      } else {
+        this.playConfirmationUnsuccessSound(data.message);
+        console.log('Transition Not Enabled');
+      }
       console.log(net);
     };
 
-    this.changePlaceEventHandler = function () {
+    this.changePlaceEventHandler = () => {
       var taskPanel = document.querySelector(`#task${data.message}`);
-      var prevPanel = document.querySelector(`#task${data.activePlace}`);
+      var prevTaskPanel = document.querySelector(`#task${data.activePlace}`);
       if (taskPanel) {
         taskPanel.setAttribute('visible', !taskPanel.getAttribute('visible'));
-      } else if (prevPanel) {
-        prevPanel.setAttribute('visible', !prevPanel.getAttribute('visible'));
+        taskPanel.children.item(2).classList.toggle('interactible');
+      } else if (prevTaskPanel) {
+        prevTaskPanel.setAttribute(
+          'visible',
+          !prevTaskPanel.getAttribute('visible')
+        );
+        prevTaskPanel.children.item(2).classList.toggle('interactible');
       }
       data.activePlace = data.message;
       console.log(data);
@@ -90,6 +97,19 @@ AFRAME.registerComponent('petri-net-sim', {
       default:
         console.log(SceneEvent.petriNetLoaded);
         data.activePlace = 'Roaming';
+    }
+  },
+  playConfirmationSuccessSound: function (elementId) {
+    if (elementId.includes('confirm')) {
+      var confirmationEntity = document.querySelector(`#${elementId}`);
+      confirmationEntity.emit('success');
+    }
+  },
+
+  playConfirmationUnsuccessSound: function (elementId) {
+    if (elementId.includes('confirm')) {
+      var confirmationEntity = document.querySelector(`#${elementId}`);
+      confirmationEntity.emit('unsuccess');
     }
   }
 });
