@@ -49,14 +49,12 @@
     <!-- Header-->
     <header id="hero">
       <div class="container col-xxl-8 px-4 py-5">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5">
           <div class="col-10 col-sm-8 col-lg-6">
             <img
-              src="../assets/splash/lucrezia-carnelos-IMUwe-p1yqs-unsplash.jpg"
+              src="../assets/images/museum-splash.jpg"
               class="d-block mx-lg-auto img-fluid rounded shadow"
               alt="VR history IMG"
-              width="700"
-              height="500"
               loading="lazy" />
           </div>
           <div class="col-lg-6">
@@ -92,9 +90,118 @@
     <section id="about" class="bg-light">
       <div class="container px-4">
         <div class="row gx-4 justify-content-center">
-          <div class="col-lg-10">
+          <div class="col-lg-9">
             <h2>O projekte</h2>
-            <p class="lead">Tento projekt sa zaobera... bla bla</p>
+            <p class="lead">
+              V tomto virtuálnom zážitku sa venujeme vyzobrazeniu historických
+              udalostí na tému osvietenských reforiem habsburskej monarchie.
+              Táto scéna pozostáva z 3 vzájomne prepojených miestností, ktoré
+              obsahujú 16 zaujímavých expozícií, v ktorých musíte splniť nejaké
+              úlohy. Prajeme vám veľa šťastia pri ich úspešnom dokončení,
+              neváhajte a preskúmajte tento zažitok.
+            </p>
+          </div>
+        </div>
+
+        <div class="row gx-4 py-5 justify-content-center">
+          <div class="col-lg-5">
+            <h3>Čo je mojou úlohou ?</h3>
+            <p class="lead">
+              Do sceny sme rozmiestnili rôzne expozície s informáciami a prdali
+              k nim úlohy. Na obrázku napravo je zobrazený panel s úlohou. Pod
+              obrázkom sú znázornené ikony, ktoré reprezentujú v scéne možné
+              interakcie s expozíciami. Taktiež v scéne boli využité zvukové
+              signály, ktorých význam je vysvetlený nižšie.
+            </p>
+          </div>
+          <div class="col-lg-4">
+            <img
+              class="d-block mx-lg-auto img-fluid rounded shadow bg-transparent"
+              src="../assets/images/infoPanels-example.jpg"
+              alt="map" />
+          </div>
+        </div>
+        <h2 class="pb-2 border-bottom">Ikony interakcie</h2>
+        <div
+          class="row gx-4 py-5 row-cols-1 row-cols-lg-3 justify-content-center">
+          <div class="col d-flex align-items-start">
+            <img
+              class="bi text-muted flex-shrink-0 me-3"
+              src="../assets/images/info-circle.png"
+              width="32rem"
+              height="32rem" />
+            <div>
+              <h4 class="fw-bold mb-0">Informácia</h4>
+              <p>Umožňuje zobrazenie informácií ohľadom danej expozície.</p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <img
+              class="bi text-muted flex-shrink-0 me-3"
+              src="../assets/images/slash-circle-fill-red.png"
+              width="32rem"
+              height="32rem" />
+            <div>
+              <h4 class="fw-bold mb-0">Neoznačená odpoveď</h4>
+              <p>
+                Reprezentuje neoznačenú expozíciu, ktorá sa nezapočítava do
+                finánej odpovede úlohy.
+              </p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <img
+              class="bi text-muted flex-shrink-0 me-3"
+              src="../assets/images/check-circle-fill-green.png"
+              width="32rem"
+              height="32rem" />
+            <div>
+              <h4 class="fw-bold mb-0">Označená odpoveď</h4>
+              <p>
+                Reprezentuje označenú expozíciu, ktorá sa započítava do finánej
+                odpovede úlohy.
+              </p>
+            </div>
+          </div>
+        </div>
+        <h2 class="pb-2 border-bottom">Zvukové interakcie</h2>
+        <div
+          class="row gx-4 py-5 row-cols-md-1 row-cols-lg-3 justify-content-center">
+          <div class="col d-flex align-items-start">
+            <div>
+              <h4 class="fw-bold mb-0">Úspešná odpoveď</h4>
+              <p class="py-2">
+                Zvukový signál, ktorý sa preharaje pri vykonaní potvrdenia na
+                panely úlohy v prípade keď odpoveď je správna.
+              </p>
+              <audio class="p-2" controls>
+                <source src="../assets/sounds/success.wav" type="audio/wav" />
+              </audio>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <div>
+              <h4 class="fw-bold mb-0">Neuspešná odpoveď</h4>
+              <p class="py-2">
+                Zvukový signál, ktorý sa preharaje pri vykonaní potvrdenia na
+                panely úlohy v prípade keď odpoveď je nesprávna.
+              </p>
+              <audio class="p-2" controls>
+                <source src="../assets/sounds/unsuccess.wav" type="audio/wav" />
+              </audio>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <div>
+              <h4 class="fw-bold mb-0">Bežná akcia</h4>
+              <p class="py-2">
+                Zvuky použité pri bežnej interakcii s expoíciami(napr. kliknutie
+                na ikonu Informácia, ktorá zobrazí informácie o expozícii).
+              </p>
+              <audio class="p-2" controls>
+                <source src="../assets/sounds/tap.wav" type="audio/wav" />
+              </audio>
+            </div>
           </div>
         </div>
       </div>

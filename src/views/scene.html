@@ -98,6 +98,7 @@
           id="karol"
           src="../assets/images/Portrait_of_Emperor_Charles_VI_in_armour,_decorated_with_the_Order_of_the_Golden_Fleece-min.jpg" />
         <img id="controls" src="../assets/images/Keyboard_controls.png" />
+        <img id="museumMap" src="../assets/images/museum-map.png" />
         <img id="infoPanel" src="../assets/images/Panel.png" />
         <img id="infoIcon" src="../assets/images/info-circle.png" />
         <img id="unselected" src="../assets/images/slash-circle-fill-red.png" />
@@ -165,7 +166,7 @@
         <a-text
           font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
           negate="false"
-          value="Vitajte v novom, veľmi vzrušujúcom spôsobe vzdelávania študentov a prezentácii historických udalostí pomocou technológií XR. V tomto zážitku sa venujeme vyzobrazeniu historických udalostí na tému Osvietenských reforiem habsburskej monarchie."
+          value="Vitajte v novom, veľmi vzrušujúcom spôsobe vzdelávania študentov a prezentácii historických udalostí pomocou technológií XR. V tomto zážitku sa venujeme vyzobrazeniu historických udalostí na tému osvietenských reforiem habsburskej monarchie."
           text="width: 3; wrapCount: 50"
           position=""
           color="#4F4F4F">
@@ -199,8 +200,8 @@
       </a-entity>
 
       <a-entity
-        id="GratulationMsg"
-        position="9.914 4.148 7.996"
+        id="gratulationMsg"
+        position="10.236 1.767 7.996"
         rotation="0 180 0"
         visible="false">
         <a-text
@@ -214,27 +215,40 @@
         <a-text
           font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
           negate="false"
-          value="Úspešne ste dokončili všetky úlohy v scéne. Pokial si chcete tento zážitok zopakovať ešte raz, stačí obnovť stránku."
+          value="Úspešne ste dokončili všetky úlohy v scéne. Pokial si chcete tento zážitok zopakovať ešte raz, stačí obnoviť stránku."
           text="width: 3; wrapCount: 50"
           position="0 0.2 0"
           color="#4F4F4F">
         </a-text>
       </a-entity>
+      <a-plane
+        id="map"
+        src="#museumMap"
+        scale="4.79 3.23 0.00001"
+        height="auto"
+        width="auto"
+        position="8.21406 4.35163 7.976"
+        rotation="0 180 0"
+        material="transparent: true; shader: flat">
+      </a-plane>
       <a-circle
         id="P1confirmProgress"
-        position="9.914 3.148 7.879"
+        position="6.90593 3.5 7.956"
         rotation="0 180 0"
-        scale="0.2 0.2 0.2"></a-circle>
+        scale="0.07 0.07 0.07"
+        material="color: red; side: double; shader: flat"></a-circle>
       <a-circle
         id="P2confirmProgress"
-        position="8.914 3.148 7.879"
+        position="6.90593 3.3 7.956"
         rotation="0 180 0"
-        scale="0.2 0.2 0.2"></a-circle>
+        scale="0.07 0.07 0.07"
+        material="color: red; side: double; shader: flat"></a-circle>
       <a-circle
         id="P3confirmProgress"
-        position="7.914 3.148 7.879"
+        position="6.90593 3.1 7.956"
         rotation="0 180 0"
-        scale="0.2 0.2 0.2"></a-circle>
+        scale="0.07 0.07 0.07"
+        material="color: red; side: double; shader: flat"></a-circle>
 
       <a-plane
         src="#erb"

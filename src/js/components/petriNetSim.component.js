@@ -25,6 +25,9 @@ AFRAME.registerComponent('petri-net-sim', {
         console.log('Transition Enabled');
         this.playConfirmationSuccessSound(data.message);
         this.updateVisualProgress(data.message);
+        if (net.getMarking(data.finalPlace) === data.taskCount) {
+          this.showFinalMessage();
+        }
       } else {
         this.playConfirmationUnsuccessSound(data.message);
         console.log('Transition Not Enabled');
@@ -123,5 +126,10 @@ AFRAME.registerComponent('petri-net-sim', {
         'color: green; side: double; shader: flat'
       );
     }
+  },
+
+  showFinalMessage: function () {
+    var finalMsgEntity = document.querySelector('#gratulationMsg');
+    finalMsgEntity.setAttribute('visible', 'true');
   }
 });
