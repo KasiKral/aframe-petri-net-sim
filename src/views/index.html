@@ -124,7 +124,7 @@
         <h2 class="pb-2 border-bottom">Ikony interakcie</h2>
         <div
           class="row gx-4 py-5 row-cols-1 row-cols-lg-3 justify-content-center">
-          <div class="col d-flex align-items-start">
+          <div class="col mb-3 d-flex align-items-start">
             <img
               class="bi text-muted flex-shrink-0 me-3"
               src="../assets/images/info-circle.png"
@@ -135,7 +135,7 @@
               <p>Umožňuje zobrazenie informácií ohľadom danej expozície.</p>
             </div>
           </div>
-          <div class="col d-flex align-items-start">
+          <div class="col mb-3 d-flex align-items-start">
             <img
               class="bi text-muted flex-shrink-0 me-3"
               src="../assets/images/slash-circle-fill-red.png"
@@ -149,7 +149,7 @@
               </p>
             </div>
           </div>
-          <div class="col d-flex align-items-start">
+          <div class="col mb-3 d-flex align-items-start">
             <img
               class="bi text-muted flex-shrink-0 me-3"
               src="../assets/images/check-circle-fill-green.png"
@@ -167,39 +167,48 @@
         <h2 class="pb-2 border-bottom">Zvukové interakcie</h2>
         <div
           class="row gx-4 py-5 row-cols-md-1 row-cols-lg-3 justify-content-center">
-          <div class="col d-flex align-items-start">
+          <div class="col mb-3 d-flex align-items-start">
             <div>
               <h4 class="fw-bold mb-0">Úspešná odpoveď</h4>
               <p class="py-2">
                 Zvukový signál, ktorý sa preharaje pri vykonaní potvrdenia na
                 paneli úlohy v prípade keď odpoveď je správna.
               </p>
-              <audio class="p-2" controls>
+              <audio controls>
                 <source src="../assets/sounds/success.wav" type="audio/wav" />
               </audio>
             </div>
           </div>
-          <div class="col d-flex align-items-start">
+          <div class="col mb-3 d-flex align-items-start">
             <div>
               <h4 class="fw-bold mb-0">Neuspešná odpoveď</h4>
               <p class="py-2">
                 Zvukový signál, ktorý sa preharaje pri vykonaní potvrdenia na
                 paneli úlohy v prípade keď odpoveď je nesprávna.
               </p>
-              <audio class="p-2" controls>
+              <audio controls>
                 <source src="../assets/sounds/unsuccess.wav" type="audio/wav" />
               </audio>
             </div>
           </div>
-          <div class="col d-flex align-items-start">
+          <div class="col mb-3 d-flex align-items-start">
             <div>
               <h4 class="fw-bold mb-0">Bežná akcia</h4>
               <p class="py-2">
                 Zvuky použité pri bežnej interakcii s expoíciami(napr. kliknutie
-                na ikonu Informácia, ktorá zobrazí informácie o expozícii).
+                na ikonu Informácia).
               </p>
-              <audio class="p-2" controls>
+              <audio controls>
                 <source src="../assets/sounds/tap.wav" type="audio/wav" />
+              </audio>
+            </div>
+          </div>
+          <div class="col mb-3 d-flex align-items-start flex-column">
+            <div>
+              <h4 class="fw-bold mb-0">Úspešné vykonanie všetkých úloh</h4>
+              <p class="py-2">Po dokončení všetkých úloh zaznie tento zvuk.</p>
+              <audio controls>
+                <source src="../assets/sounds/win.wav" type="audio/wav" />
               </audio>
             </div>
           </div>

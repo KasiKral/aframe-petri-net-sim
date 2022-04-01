@@ -28,7 +28,10 @@ AFRAME.registerComponent('collision-detector', {
           message: collisionMsg
         });
         scene.emit(collisionMsg);
-      } else {
+      } else if (
+        collided === 0 &&
+        (e.detail.clearedEls[0].id || e.detail.clearedEls[0].className)
+      ) {
         el.setAttribute('material', 'color: red');
         var clearedCollisionMsg = data.placeColliderType
           ? data.clearedCollisionEvent

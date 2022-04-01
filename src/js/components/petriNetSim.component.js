@@ -27,6 +27,7 @@ AFRAME.registerComponent('petri-net-sim', {
         this.updateVisualProgress(data.message);
         if (net.getMarking(data.finalPlace) === data.taskCount) {
           this.showFinalMessage();
+          this.playVictorySound();
         }
       } else {
         this.playConfirmationUnsuccessSound(data.message);
@@ -107,6 +108,8 @@ AFRAME.registerComponent('petri-net-sim', {
   playConfirmationSuccessSound: function (elementId) {
     if (elementId.includes('confirm')) {
       var confirmationEntity = document.querySelector(`#${elementId}`);
+      confirmationEntity.setAttribute('material', 'color: #36c991;');
+      confirmationEntity.setAttribute('text', 'value: Správna odpoveď');
       confirmationEntity.emit('success');
     }
   },
@@ -116,6 +119,13 @@ AFRAME.registerComponent('petri-net-sim', {
       var confirmationEntity = document.querySelector(`#${elementId}`);
       confirmationEntity.emit('unsuccess');
     }
+  },
+
+  playVictorySound: function () {
+    var environmentEntity = document.querySelector('#player');
+    setTimeout(() => {
+      environmentEntity.emit('win');
+    }, 2000);
   },
 
   updateVisualProgress: function (elementId) {

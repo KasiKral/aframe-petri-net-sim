@@ -51,6 +51,7 @@
           id="unsuccess_sound"
           src="../assets/sounds/unsuccess.wav"></audio>
         <audio id="tap" src="../assets/sounds/tap.wav"></audio>
+        <audio id="win" src="../assets/sounds/win.wav"></audio>
         <a-asset-item
           id="museum"
           src="../assets/3dModels/museum_final.glb"></a-asset-item>
@@ -125,7 +126,8 @@
         material="color: green; wireframe: true; visible: false"
         position="8.275 1 2.93"
         movement-controls="constrainToNavMesh: true"
-        static-body>
+        static-body
+        sound="src: #win; on: win; poolSize: 1;">
         <a-entity
           id="playerhead"
           body="type: static; shape: sphere; sphereRadius: 0.001"
@@ -183,8 +185,8 @@
           font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
           negate="false"
           value="Táto scéna pozostáva z 3 vzájomne prepojených miestností, ktoré obsahujú 16 zaujímavých expozícií, v ktorých musíte splniť nejaké úlohy. Prajeme vám veľa šťastia pri ich úspešnom dokončení, neváhajte a preskúmajte tento zažitok."
-          text="width: 3; value: - Adam Kašela; wrapCount: 50"
-          position="0 -1.24907 0"
+          text="width: 3; value: - Adam Kašela, Štefan Korečko; wrapCount: 50"
+          position="0.2 -1.24907 0"
           color="#4F4F4F"
           align="right"
           anchor="left">
@@ -269,6 +271,7 @@
             radius="0.15"
             position="0 0 -0.23942"
             rotation="0 -90 0"
+            animation="property: scale; dur: 300; easing: easeInOutQuad; dir: alternate; loop: false; from: 0 0 0; to: 1 1 1; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
@@ -311,6 +314,7 @@
             radius="0.15"
             position="0 0 -0.23942"
             rotation="0 -90 0"
+            animation="property: scale; dur: 300; easing: easeInOutQuad; dir: alternate; loop: false; from: 0 0 0; to: 1 1 1; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
@@ -353,6 +357,7 @@
             radius="0.15"
             position="0 0 -0.23942"
             rotation="0 -90 0"
+            animation="property: scale; dur: 300; easing: easeInOutQuad; dir: alternate; loop: false; from: 0 0 0; to: 1 1 1; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
@@ -427,10 +432,11 @@
           font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
           negate="false"
           geometry="primitive: plane; height: 0.78; width: 2.020"
-          material="color: #36c991; flatShading: true; height: 254.55; width: 492.44"
+          material="color: #338cd8; flatShading: true; height: 254.55; width: 492.44"
           align="center"
           text="width: 1.84; value: Potvrdiť Odpoveď; color: #e3e3e3; wrapCount: 15.94"
           scale="0.44 0.25 1"
+          animation="property: scale; dur: 400; easing: easeInOutSine; dir: normal; loop: false; from: 0.54 0.35 1.1; to: 0.44 0.25 1; startEvents: click;"
           sound__success="src: #success_sound; on: success; poolSize: 2"
           sound__unsuccess="src: #unsuccess_sound; on: unsuccess; poolSize: 2"></a-text>
       </a-plane>
@@ -454,6 +460,7 @@
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"
+            animation="property: rotation; dur: 200; easing: easeInOutSine; dir: alternate; loop: false; from: 0 90 0; to: 0 -90 0; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2"></a-circle>
           <a-circle
             class="interactible"
@@ -462,6 +469,7 @@
             radius="0.15"
             position="0 0 -0.21117"
             rotation="0 -90 0"
+            animation="property: scale; dur: 300; easing: easeInOutQuad; dir: alternate; loop: false; from: 0 0 0; to: 1 1 1; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
@@ -511,6 +519,7 @@
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"
+            animation="property: rotation; dur: 200; easing: easeInOutSine; dir: alternate; loop: false; from: 0 90 0; to: 0 -90 0; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2"></a-circle>
           <a-circle
             class="interactible"
@@ -519,6 +528,7 @@
             radius="0.15"
             position="0 0 -0.21117"
             rotation="0 -90 0"
+            animation="property: scale; dur: 300; easing: easeInOutQuad; dir: alternate; loop: false; from: 0 0 0; to: 1 1 1; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
@@ -568,6 +578,7 @@
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"
+            animation="property: rotation; dur: 200; easing: easeInOutSine; dir: alternate; loop: false; from: 0 90 0; to: 0 -90 0; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2"></a-circle>
           <a-circle
             class="interactible"
@@ -576,6 +587,7 @@
             radius="0.15"
             position="0 0 -0.21117"
             rotation="0 -90 0"
+            animation="property: scale; dur: 300; easing: easeInOutQuad; dir: alternate; loop: false; from: 0 0 0; to: 1 1 1; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
@@ -596,7 +608,7 @@
               <a-text
                 font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
                 negate="false"
-                value="Jozef II. bol pripravovaný na to, že sa raz stane panovníkom. Ako šesťročný vedel písať a čítať vo viacerých jazykoch. Dostal dôkladné vzdelanie, jeho učiteľmi boli významní osvietenci. Nedal sa korunovať za uhorského a českého kráľa, preto ho šľachta posmešne nazývala „klobúkový kráľ”. Ešte v roku 1765 však bol korunovaný za nemeckého cisára. Už ako spoluvládca Mánie Terézie kritizoval pomalé a nedôsledné zavádzanie reforiem."
+                value="Jozef II. (1741 - 1790) bol pripravovaný na to, že sa raz stane panovníkom. Ako šesťročný vedel písať a čítať vo viacerých jazykoch. Dostal dôkladné vzdelanie, jeho učiteľmi boli významní osvietenci. Nedal sa korunovať za uhorského a českého kráľa, preto ho šľachta posmešne nazývala „klobúkový kráľ”. Ešte v roku 1765 však bol korunovaný za nemeckého cisára. Už ako spoluvládca Mánie Terézie kritizoval pomalé a nedôsledné zavádzanie reforiem."
                 text="width: 0.8; wrapCount: 33; alphaTest: 3"
                 position="-0.411 0 0"
                 color="#F2F2F2">
@@ -625,6 +637,7 @@
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"
+            animation="property: rotation; dur: 200; easing: easeInOutSine; dir: alternate; loop: false; from: 0 90 0; to: 0 -90 0; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2"></a-circle>
           <a-circle
             class="interactible"
@@ -633,6 +646,7 @@
             radius="0.15"
             position="0 0 -0.21117"
             rotation="0 -90 0"
+            animation="property: scale; dur: 300; easing: easeInOutQuad; dir: alternate; loop: false; from: 0 0 0; to: 1 1 1; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
@@ -708,10 +722,11 @@
           font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
           negate="false"
           geometry="primitive: plane; height: 0.78; width: 2.020"
-          material="color: #36c991; flatShading: true; height: 254.55; width: 492.44"
+          material="color: #338cd8; flatShading: true; height: 254.55; width: 492.44"
           align="center"
           text="width: 1.84; value: Potvrdiť Odpoveď; color: #e3e3e3; wrapCount: 15.94"
           scale="0.45 0.25 1"
+          animation="property: scale; dur: 400; easing: easeInOutSine; dir: normal; loop: false; from: 0.54 0.35 1.1; to: 0.44 0.25 1; startEvents: click;"
           sound__success="src: #success_sound; on: success; poolSize: 2"
           sound__unsuccess="src: #unsuccess_sound; on: unsuccess; poolSize: 2"></a-text>
       </a-plane>
@@ -720,6 +735,15 @@
         gltf-model="#book"
         position="-8.768 2.640 -2.599"
         rotation="0 180 60">
+        <a-text
+          font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
+          negate="false"
+          value="ZDRAVOTNÁ REFORMA"
+          text="width: 0.8; wrapCount: 33; alphaTest: 3"
+          position="0.00487 0.11162 -0.21353"
+          color="#c6c480"
+          rotation="-90 0 -90">
+        </a-text>
         <a-entity
           class="infoPanels"
           position="-0.633 0.230 0.422"
@@ -731,6 +755,7 @@
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"
+            animation="property: rotation; dur: 200; easing: easeInOutSine; dir: alternate; loop: false; from: 0 90 0; to: 0 -90 0; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2"></a-circle>
           <a-circle
             class="interactible"
@@ -739,6 +764,7 @@
             radius="0.15"
             position="0 0 -0.21117"
             rotation="0 -90 0"
+            animation="property: scale; dur: 300; easing: easeInOutQuad; dir: alternate; loop: false; from: 0 0 0; to: 1 1 1; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
@@ -773,6 +799,15 @@
         gltf-model="#book"
         position="-8.768 2.640 -5.780"
         rotation="0 180 60">
+        <a-text
+          font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
+          negate="false"
+          value="TEREZIÁNSKY URBÁR"
+          text="width: 0.8; wrapCount: 33; alphaTest: 3"
+          position="0.00487 0.11162 -0.21353"
+          color="#c6c480"
+          rotation="-90 0 -90">
+        </a-text>
         <a-entity
           class="infoPanels"
           position="-0.633 0.230 0.422"
@@ -784,6 +819,7 @@
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"
+            animation="property: rotation; dur: 200; easing: easeInOutSine; dir: alternate; loop: false; from: 0 90 0; to: 0 -90 0; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2"></a-circle>
           <a-circle
             class="interactible"
@@ -792,6 +828,7 @@
             radius="0.15"
             position="0 0 -0.21117"
             rotation="0 -90 0"
+            animation="property: scale; dur: 300; easing: easeInOutQuad; dir: alternate; loop: false; from: 0 0 0; to: 1 1 1; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
@@ -826,6 +863,15 @@
         gltf-model="#book"
         position="-2.904 2.640 -2.599"
         rotation="0 0 60">
+        <a-text
+          font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
+          negate="false"
+          value="VŠEOBECNÝ ŠKOLSKÝ PORIADOK"
+          text="width: 0.7; wrapCount: 27.25; alphaTest: 3"
+          position="0.00487 0.11162 -0.21694"
+          color="#c6c480"
+          rotation="-90 0 -90">
+        </a-text>
         <a-entity
           class="infoPanels"
           position="-0.633 0.230 0.422"
@@ -837,6 +883,7 @@
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"
+            animation="property: rotation; dur: 200; easing: easeInOutSine; dir: alternate; loop: false; from: 0 90 0; to: 0 -90 0; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2"></a-circle>
           <a-circle
             class="interactible"
@@ -845,6 +892,7 @@
             radius="0.15"
             position="0 0 -0.21117"
             rotation="0 -90 0"
+            animation="property: scale; dur: 300; easing: easeInOutQuad; dir: alternate; loop: false; from: 0 0 0; to: 1 1 1; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
@@ -879,6 +927,15 @@
         gltf-model="#book"
         position="-2.904 2.640 -5.780"
         rotation="0 0 60">
+        <a-text
+          font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
+          negate="false"
+          value="PATENT O ZRUŠENÍ NEVOĽNÍCTVA"
+          text="width: 0.7; wrapCount: 27.25; alphaTest: 3"
+          position="0.00487 0.11162 -0.21694"
+          color="#c6c480"
+          rotation="-90 0 -90">
+        </a-text>
         <a-entity
           class="infoPanels"
           position="-0.633 0.230 0.422"
@@ -890,6 +947,7 @@
             radius="0.15"
             position="0 0 -0.60927"
             rotation="0 -90 0"
+            animation="property: rotation; dur: 200; easing: easeInOutSine; dir: alternate; loop: false; from: 0 90 0; to: 0 -90 0; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2"></a-circle>
           <a-circle
             class="interactible"
@@ -898,6 +956,7 @@
             radius="0.15"
             position="0 0 -0.21117"
             rotation="0 -90 0"
+            animation="property: scale; dur: 300; easing: easeInOutQuad; dir: alternate; loop: false; from: 0 0 0; to: 1 1 1; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
@@ -967,11 +1026,11 @@
         collision-filter="collisionForces: false"
         collision-detector="collisionEvent: place; clearedCollisionEvent: displace; placeColliderType: false"
         static-body
-        scale="3.350 1 0.85"
-        position="22.51704 2.933 -5.18307"
-        material="color: red; wireframe: true"
+        scale="3.69 2.8 2.28"
+        position="22.51704 3.933 -5.80505"
+        material="color: green; opacity: 0.2"
         visible="false"
-        sound="src: #tap; on: collisions; poolSize: 2">
+        sound="src: ../assets/sounds/tap.wav; on: collisions; poolSize: 2">
       </a-box>
 
       <a-box
@@ -1018,10 +1077,11 @@
           font="../assets/fonts/WorkSans-VariableFont_wght-msdf.json"
           negate="false"
           geometry="primitive: plane; height: 0.78; width: 2.020"
-          material="color: #36c991; flatShading: true; height: 254.55; width: 492.44"
+          material="color: #338cd8; flatShading: true; height: 254.55; width: 492.44"
           align="center"
           text="width: 1.84; value: Potvrdiť Odpoveď; color: #e3e3e3; wrapCount: 15.94"
           scale="0.44 0.25 1"
+          animation="property: scale; dur: 400; easing: easeInOutSine; dir: normal; loop: false; from: 0.54 0.35 1.1; to: 0.44 0.25 1; startEvents: click;"
           sound__success="src: #success_sound; on: success; poolSize: 2"
           sound__unsuccess="src: #unsuccess_sound; on: unsuccess; poolSize: 2"></a-text>
       </a-plane>
@@ -1038,6 +1098,7 @@
             radius="0.15"
             position="0 0 -0.23942"
             rotation="0 -90 0"
+            animation="property: scale; dur: 300; easing: easeInOutQuad; dir: alternate; loop: false; from: 0 0 0; to: 1 1 1; startEvents: click;"
             sound="src: #tap; on: click; poolSize: 2">
             <a-plane
               src="#infoPanel"
