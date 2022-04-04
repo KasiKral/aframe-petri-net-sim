@@ -14,7 +14,7 @@ AFRAME.registerComponent('petri-net-sim', {
   init: function () {
     var data = this.data;
     var loadedNet = petriNetLoader.loadXMLDoc(
-      'assets/petriNetFile/28032022_net_exhibition.pnml'
+      '../assets/petriNetFile/28032022_net_exhibition.pnml'
     );
     var net = (this.petriNet = new PetriNet(loadedNet));
     console.log(net);
