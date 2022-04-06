@@ -5,9 +5,11 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="Adam Kašela" />
-    <title>Zážitok vo virtuálnej realite</title>
+    <meta
+      name="description"
+      content="Interactive educational experience in virtual reality" />
+    <meta name="author" content="Adam Kašela, Štefan Korečko" />
+    <title>Vzdelávací zážitok vo webovej virtuálnej realite</title>
     <link href="../css/styles.css" rel="stylesheet" />
   </head>
 
@@ -17,7 +19,9 @@
       class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
       id="mainNav">
       <div class="container px-4">
-        <a class="navbar-brand" href="#page-top">VR edukačný zážitok</a>
+        <a class="navbar-brand" href="#page-top"
+          >Vzdelávací zážitok vo webovej virtuálnej realite</a
+        >
         <button
           class="navbar-toggler"
           type="button"
@@ -32,7 +36,7 @@
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="#hero">Domov</a></li>
             <li class="nav-item">
-              <a class="nav-link" href="#about">O projekte</a>
+              <a class="nav-link" href="#about">O scéne</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#services">Zdroje</a>
@@ -59,14 +63,20 @@
           </div>
           <div class="col-lg-6">
             <h1 class="display-5 fw-bold lh-1 mb-3">
-              Zážitok vo virtuálnej realite s cieľom edukovať
+              Webová virtuálna realita pre vzdelávanie
             </h1>
             <p class="lead">
-              Existuje mnoho skúseností, ktoré môže technológia VR ponúknuť
-              používateľom. Ponorenie používateľov do histórie je jedným z
-              najpozoruhodnejších a najvýznamnejších. Vo VR môže človek
-              preskúmať historické prostredie a dozvedieť sa o ňom jedinečným a
-              samozrejme dynamickým spôsobom.
+              Technológie virtuálnej reality (VR) vedia používateľom ponúknuť
+              rôzne zážitky a skúsenosti. Jedným z tých pozoruhodnejších a
+              významnejších je ponorenie do histórie. Vo VR môže človek
+              preskúmať historické prostredie a dozvedieť sa o ňom jedinečným
+              dynamickým spôsobom.
+            </p>
+            <p class="lead">
+              Takýto zážitok sme sa vám pokúsili priniesť aj v našej
+              virtuálno-realitnej scéne. Do nej sa dostanete kliknutím na
+              tlačidlo Vyskúšaj. Ak ste tu však prvý krát, čítajte ďalej, aby
+              ste sa dozvedeli o čom scéna je a čo v nej robiť.
             </p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
               <a
@@ -75,6 +85,15 @@
                 href="/scene"
                 >Vyskúšaj</a
               >
+
+              <!--
+              Pre spustanie bez node.js pouzit namiesto
+              href="/scene"
+              toto:
+              href="./scene.html"
+              target ="_blank"
+              -->
+
               <a
                 type="button"
                 class="btn btn-outline-secondary btn-lg px-4"
@@ -91,37 +110,81 @@
       <div class="container px-4">
         <div class="row gx-4 justify-content-center">
           <div class="col-lg-9">
-            <h2>O projekte</h2>
+            <h2>O scéne</h2>
             <p class="lead">
-              V tomto virtuálnom zážitku sa venujeme vyzobrazeniu historických
-              udalostí na tému osvietenských reforiem habsburskej monarchie.
-              Táto scéna pozostáva z 3 vzájomne prepojených miestností, ktoré
-              obsahujú 16 zaujímavých expozícií, v ktorých musíte splniť nejaké
-              úlohy. Prajeme vám veľa šťastia pri ich úspešnom dokončení,
-              neváhajte a preskúmajte tento zažitok.
+              Naša virtuálna scéna je zameraná na obdobie osvietenských reforiem
+              v Habsburskej monarchii. Scéna má podobu múzejnej expozície a
+              pozostáva z troch vzájomne prepojených miestností. Miestnosti
+              obsahujú 16 zaujímavých exponátov a musíte v nich splniť určité
+              úlohy.
             </p>
           </div>
         </div>
 
         <div class="row gx-4 py-5 justify-content-center">
           <div class="col-lg-5">
-            <h3>Čo je mojou úlohou ?</h3>
+            <h3>Čo mám v scéne robiť?</h3>
             <p class="lead">
-              Do sceny sme rozmiestnili rôzne expozície s informáciami a prdali
-              k nim úlohy. Na obrázku napravo je zobrazený panel s úlohou. Pod
-              obrázkom sú znázornené ikony, ktoré reprezentujú v scéne možné
-              interakcie s expozíciami. Taktiež v scéne boli využité zvukové
-              signály, ktorých význam je vysvetlený nižšie.
+              Do scény sme rozmiestnili exponáty s informáciami a pridali k nim
+              tri úlohy. Kde presne úlohy nájdete, zistíte na orientačnom pláne,
+              ktorý je v strednej časti expozície. Orientačný plán vidieť aj na
+              obrázku napravo (alebo dole). Za každým názvom úlohy v pláne je
+              červený alebo zelený kruh. Červený znamená že ste úlohu ešte
+              nesplnili, zelený že ste ju už splnili.
             </p>
+          </div>
+
+          <div class="col-lg-4">
+            <img
+              class="d-block mx-lg-auto img-fluid rounded shadow bg-transparent"
+              src="../assets/images/orientation-example.jpg"
+              alt="orientation panel" />
+          </div>
+        </div>
+        <div class="row gx-4 py-5 justify-content-center">
+          <div class="col-lg-5">
+            <h3>Kde sa dozviem o úlohe?</h3>
+            <p class="lead">
+              Keď vojdete do časti expozície v ktorej je úloha, objaví sa čierny
+              panel s opisom úlohy (na obrázku napravo alebo dole vidíte panel v
+              ľavej časti). Tu sa dozviete, čo máte v úlohe robiť. Keď úlohu
+              splníte, kliknite na modré tlačidlo <q>Potvrdiť odpoveď</q>. Ak je
+              splnená správne, tlačidlo sa zmení na zelené s nápisom
+              <q>Správna odpoveď</q>. Ak nie, tlačidlo zostane nezmenené a
+              môžete skúsiť splniť úlohu znova. Úlohy sú dvoch typov:
+            </p>
+            <ul class="lead">
+              <li>Prenášanie exponátov</li>
+              <li>Označovanie exponátov</li>
+            </ul>
           </div>
           <div class="col-lg-4">
             <img
               class="d-block mx-lg-auto img-fluid rounded shadow bg-transparent"
-              src="../assets/images/infoPanels-example.jpg"
-              alt="map" />
+              src="../assets/images/infoPanels-exampleBigger.jpg"
+              alt="task info" />
           </div>
         </div>
-        <h2 class="pb-2 border-bottom">Ikony interakcie</h2>
+        <div class="row gx-4 py-5 justify-content-center">
+          <div class="col-lg-9">
+            <h3>Ako označovať a prenášať exponáty?</h3>
+            <p class="lead">
+              O tom vám viac napovie nasledujúce video. Nižšie na tejto stránke
+              nájdete aj popis
+              <a href="#desc_icons">ikon exponátov</a>
+              a
+              <a href="#desc_sounds">použitých zvukov</a>.
+            </p>
+            <video controls class="d-block mx-lg-auto img-fluid">
+              <source
+                src="../assets/videos/objectManipDescription.mp4"
+                type="video/mp4" />
+
+              (Váš prehliadač žiaľ nepodporuje vložené videá.)
+            </video>
+          </div>
+        </div>
+        <h2 class="pb-2 border-bottom" id="desc_icons">Ikony exponátov</h2>
         <div
           class="row gx-4 py-5 row-cols-1 row-cols-lg-3 justify-content-center">
           <div class="col mb-3 d-flex align-items-start">
@@ -132,7 +195,10 @@
               height="32rem" />
             <div>
               <h4 class="fw-bold mb-0">Informácia</h4>
-              <p>Umožňuje zobrazenie informácií ohľadom danej expozície.</p>
+              <p>
+                Po kliknutí na ňu sa zobrazia informácie o exponáte. Túto ikonu
+                majú aj exponáty, ktoré nie sú súčasťou úloh.
+              </p>
             </div>
           </div>
           <div class="col mb-3 d-flex align-items-start">
@@ -142,10 +208,10 @@
               width="32rem"
               height="32rem" />
             <div>
-              <h4 class="fw-bold mb-0">Neoznačená odpoveď</h4>
+              <h4 class="fw-bold mb-0">Neoznačený exponát</h4>
               <p>
-                Reprezentuje neoznačenú expozíciu, ktorá sa nezapočítava do
-                finánej odpovede úlohy.
+                Znanená, že exponát nie je označený ako časť odpovede na
+                príslušnú úlohu. Po kliknutí na ňu sa exponát stane označeným.
               </p>
             </div>
           </div>
@@ -156,15 +222,15 @@
               width="32rem"
               height="32rem" />
             <div>
-              <h4 class="fw-bold mb-0">Označená odpoveď</h4>
+              <h4 class="fw-bold mb-0">Označený exponát</h4>
               <p>
-                Reprezentuje označenú expozíciu, ktorá sa započítava do finánej
-                odpovede úlohy.
+                Znanená, že exponát je označený ako časť odpovede na príslušnú
+                úlohu. Po kliknutí na ňu sa exponát stane neoznačeným.
               </p>
             </div>
           </div>
         </div>
-        <h2 class="pb-2 border-bottom">Zvukové interakcie</h2>
+        <h2 class="pb-2 border-bottom" id="desc_sounds">Použité zvuky</h2>
         <div
           class="row gx-4 py-5 row-cols-md-1 row-cols-lg-3 justify-content-center">
           <div class="col mb-3 d-flex align-items-start">
@@ -181,7 +247,7 @@
           </div>
           <div class="col mb-3 d-flex align-items-start">
             <div>
-              <h4 class="fw-bold mb-0">Neuspešná odpoveď</h4>
+              <h4 class="fw-bold mb-0">Neúspešná odpoveď</h4>
               <p class="py-2">
                 Zvukový signál, ktorý sa preharaje pri vykonaní potvrdenia na
                 paneli úlohy v prípade keď odpoveď je nesprávna.
@@ -223,7 +289,7 @@
             <h2>Zdroje</h2>
             <p class="lead">
               V tejto časti sa zaoberáme vypísaním referencií všetkých použitých
-              zdrojov, ktoré sme v využili v tomto zážitku na dotvorenie
+              zdrojov, ktoré sme využili v tomto zážitku na dotvorenie
               príslušnej scény zameranej na výučbu historických udalostí.
             </p>
           </div>
@@ -422,7 +488,16 @@
     <footer class="py-5 bg-dark">
       <div class="container px-4">
         <p class="m-0 text-center text-white">
-          Copyright &copy; Zážitok vo virtuálnej realite - Adam Kašela 2022
+          Copyright &copy; Zážitok vo virtuálnej realite - Adam Kašela &amp;
+          Štefan Korečko, 2022
+        </p>
+        <p class="m-0 text-center text-white">
+          Tento produkt vznikol s podporou projektu KEGA č. 048TUKE-4/2022:
+          <q>Technológie zdieľanej virtuálnej reality vo vzdelávacom procese</q
+          >.
+        </p>
+        <p class="m-0 text-center text-white">
+          Laboratórium LIRKIS, KPI FEI, Technická univerzita v Košiciach
         </p>
       </div>
     </footer>
