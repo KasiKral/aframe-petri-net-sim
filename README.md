@@ -63,7 +63,7 @@ $ node server.js
 This command starts up the development server.
 
 ```sh
-$ npx mix
+$ npx mix watch
 ```
 
 npx mix watch command will watch your filesystem for changes. Now, each time you update a file, Mix will automatically recompile the file and rebuild your bundle.
