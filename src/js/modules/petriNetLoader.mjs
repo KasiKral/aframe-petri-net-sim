@@ -1,22 +1,6 @@
 /**
- * @typedef {{id: string, name: string, marking: number}} Place
- *
- * @typedef {{id: string, name: string}} Transition
- *
- * @typedef {{id: string, markingWeight: number, source: string, target: string}} Arc
- */
-
-/**
- *
- * @typedef {Object} PetriNet
- * @property {Place[]} places - Array of places in petri net.
- * @property {Transition[]} transitions - Array of transitions in petri net.
- * @property {Arc[]} arcs - Array of arcs in petri net.
- */
-
-/**
  * @param {string} url - A DOMString representing the URL to send the request to.
- * @returns {PetriNet} Returns Object representing petri net.
+ * @returns {import('../models/typedefs').pNet} Returns Object representing petri net.
  */
 export function loadXMLDoc(url) {
   var xmlhttp = new XMLHttpRequest();
