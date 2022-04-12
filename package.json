@@ -30,7 +30,8 @@
   "author": "Adam Kašela",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "parse": "^3.4.1"
   },
   "devDependencies": {
     "bootstrap": "^5.1.3",

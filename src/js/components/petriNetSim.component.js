@@ -1,6 +1,7 @@
 import { SceneEvent } from '../models/sceneEvent.enum';
 import * as petriNetLoader from '../modules/petriNetLoader.mjs';
 import PetriNet from '../modules/petriNet.mjs';
+import * as serverLogger from '../modules/serverLogger.mjs';
 
 AFRAME.registerComponent('petri-net-sim', {
   schema: {
@@ -18,6 +19,7 @@ AFRAME.registerComponent('petri-net-sim', {
     );
     var net = (this.petriNet = new PetriNet(loadedNet));
     console.log(net);
+    serverLogger.createParseSession(1, new Date(), new Date());
 
     this.transitionEventHandler = () => {
       if (net.isEnabled(data.message)) {
@@ -29,9 +31,23 @@ AFRAME.registerComponent('petri-net-sim', {
           this.showFinalMessage();
           this.playVictorySound();
         }
+        serverLogger.createParseFiringAttempt(
+          1,
+          data.message,
+          true,
+          new Date(),
+          1
+        );
       } else {
         this.playConfirmationUnsuccessSound(data.message);
         console.log('Transition Not Enabled');
+        serverLogger.createParseFiringAttempt(
+          1,
+          data.message,
+          false,
+          new Date(),
+          1
+        );
       }
       console.log(net);
     };

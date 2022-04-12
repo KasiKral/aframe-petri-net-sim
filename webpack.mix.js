@@ -13,6 +13,7 @@ mix
       'src/js/components/clkMultiEventHandler.component.js',
       'src/js/components/collisionDetectorEventHandler.component.js',
       'src/js/components/toggleInfo.component.js',
+      'src/js/modules/serverLogger.mjs',
       'src/js/modules/petriNetLoader.mjs',
       'src/js/modules/petriNet.mjs',
       'src/js/models/sceneEvent.enum.js'
